@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dso_draw module &mdash; mpo_api 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="dso_gonogo module" href="dso_gonogo.html" />
+    <link rel="prev" title="dso_dmm module" href="dso_dmm.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            mpo_api
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="dso2kp.html">dso2kp module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_acquire.html">dso_acquire module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_awg.html">dso_awg module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_basic.html">dso_basic module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_channel.html">dso_channel module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_colors.html">dso_colors module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_const.html">dso_const module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_display.html">dso_display module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_dmm.html">dso_dmm module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">dso_draw module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#dso_draw.Draw"><code class="docutils literal notranslate"><span class="pre">Draw</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dso_draw.Draw.ChkCommand"><code class="docutils literal notranslate"><span class="pre">Draw.ChkCommand()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_draw.Draw.clear_win"><code class="docutils literal notranslate"><span class="pre">Draw.clear_win()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_draw.Draw.creat_win"><code class="docutils literal notranslate"><span class="pre">Draw.creat_win()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_draw.Draw.del_allwin"><code class="docutils literal notranslate"><span class="pre">Draw.del_allwin()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_draw.Draw.del_win"><code class="docutils literal notranslate"><span class="pre">Draw.del_win()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_draw.Draw.draw_ellipse"><code class="docutils literal notranslate"><span class="pre">Draw.draw_ellipse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_draw.Draw.draw_fillellipse"><code class="docutils literal notranslate"><span class="pre">Draw.draw_fillellipse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_draw.Draw.draw_fillpoly"><code class="docutils literal notranslate"><span class="pre">Draw.draw_fillpoly()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_draw.Draw.draw_fillrect"><code class="docutils literal notranslate"><span class="pre">Draw.draw_fillrect()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_draw.Draw.draw_line"><code class="docutils literal notranslate"><span class="pre">Draw.draw_line()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_draw.Draw.draw_point"><code class="docutils literal notranslate"><span class="pre">Draw.draw_point()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_draw.Draw.draw_poly"><code class="docutils literal notranslate"><span class="pre">Draw.draw_poly()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_draw.Draw.draw_poptext"><code class="docutils literal notranslate"><span class="pre">Draw.draw_poptext()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_draw.Draw.draw_rect"><code class="docutils literal notranslate"><span class="pre">Draw.draw_rect()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_draw.Draw.draw_text"><code class="docutils literal notranslate"><span class="pre">Draw.draw_text()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_draw.Draw.draw_win"><code class="docutils literal notranslate"><span class="pre">Draw.draw_win()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_draw.Draw.get_winid"><code class="docutils literal notranslate"><span class="pre">Draw.get_winid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_draw.Draw.sel_win"><code class="docutils literal notranslate"><span class="pre">Draw.sel_win()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_draw.Draw.set_bkcolor"><code class="docutils literal notranslate"><span class="pre">Draw.set_bkcolor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_draw.Draw.set_color"><code class="docutils literal notranslate"><span class="pre">Draw.set_color()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dso_gonogo.html">dso_gonogo module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_gui.html">dso_gui module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_hardcopy.html">dso_hardcopy module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_math.html">dso_math module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_meas.html">dso_meas module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_power_supply.html">dso_power_supply module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_ref.html">dso_ref module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_sns.html">dso_sns module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_spectrum.html">dso_spectrum module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_timebase.html">dso_timebase module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_trigger.html">dso_trigger module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="load.html">load module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psw.html">psw module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">mpo_api</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">dso_draw module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/dso_draw.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-dso_draw">
+<span id="dso-draw-module"></span><h1>dso_draw module<a class="headerlink" href="#module-dso_draw" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="dso_draw.Draw">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dso_draw.</span></span><span class="sig-name descname"><span class="pre">Draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_draw.html#Draw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_draw.Draw" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This module can draw or display certain drawing content on your DSO.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_draw.Draw.ChkCommand">
+<span class="sig-name descname"><span class="pre">ChkCommand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmd</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/dso_draw.html#Draw.ChkCommand"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_draw.Draw.ChkCommand" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_draw.Draw.clear_win">
+<span class="sig-name descname"><span class="pre">clear_win</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_draw.html#Draw.clear_win"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_draw.Draw.clear_win" title="Link to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Description</dt><dd><p>Clears the current window.</p>
+</dd>
+<dt>Prototype</dt><dd><p>def clear_win(self);</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_draw.Draw.creat_win">
+<span class="sig-name descname"><span class="pre">creat_win</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/dso_draw.html#Draw.creat_win"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_draw.Draw.creat_win" title="Link to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Description</dt><dd><p>Creates a window as a child window.</p>
+</dd>
+<dt>Prototype</dt><dd><p>def creat_win(self, x_pos:int, y_pos:int, x_size:int, y_size:int) -&gt; int;</p>
+</dd>
+<dt>Return value</dt><dd><p>Handle for the child window.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_draw.Draw.del_allwin">
+<span class="sig-name descname"><span class="pre">del_allwin</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_draw.html#Draw.del_allwin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_draw.Draw.del_allwin" title="Link to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Description</dt><dd><p>Deletes all window.</p>
+</dd>
+<dt>Prototype</dt><dd><p>def del_win(self, wid:int);</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_draw.Draw.del_win">
+<span class="sig-name descname"><span class="pre">del_win</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_draw.html#Draw.del_win"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_draw.Draw.del_win" title="Link to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Description</dt><dd><p>Deletes a specified window.</p>
+</dd>
+<dt>Prototype</dt><dd><p>def del_win(self, wid:int);</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_draw.Draw.draw_ellipse">
+<span class="sig-name descname"><span class="pre">draw_ellipse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ry</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_draw.html#Draw.draw_ellipse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_draw.Draw.draw_ellipse" title="Link to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Description</dt><dd><p>Draws the outline of an ellipse of specified dimensions, at a specified position in the current window.</p>
+</dd>
+<dt>Prototype</dt><dd><p>def draw_ellipse(self, x_pos:int, y_pos:int, <a class="reference external" href="rx:int">rx:int</a>, ry:int);</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_draw.Draw.draw_fillellipse">
+<span class="sig-name descname"><span class="pre">draw_fillellipse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ry</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_draw.html#Draw.draw_fillellipse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_draw.Draw.draw_fillellipse" title="Link to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Description</dt><dd><p>Draws a filled ellipse of specified dimensions at a specified position in the current window.</p>
+</dd>
+<dt>Prototype</dt><dd><p>def draw_fillellipse(self, x_pos:int, y_pos:int, <a class="reference external" href="rx:int">rx:int</a>, ry:int);</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_draw.Draw.draw_fillpoly">
+<span class="sig-name descname"><span class="pre">draw_fillpoly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x0_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y0_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x1_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y1_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x2_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y2_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_draw.html#Draw.draw_fillpoly"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_draw.Draw.draw_fillpoly" title="Link to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Description</dt><dd><p>Draws a filled polygon defined by a list of points in the current window.</p>
+</dd>
+<dt>Prototype</dt><dd><p>def draw_fillpoly(self, x0_pos:int, y0_pos:int, x1_pos:int, y1_pos:int, x2_pos:int, y2_pos:int);</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_draw.Draw.draw_fillrect">
+<span class="sig-name descname"><span class="pre">draw_fillrect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_draw.html#Draw.draw_fillrect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_draw.Draw.draw_fillrect" title="Link to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Description</dt><dd><p>Draws a filled rectangular area at a specified position in the current window.</p>
+</dd>
+<dt>Prototype</dt><dd><p>def draw_fillrect(self, x_pos:int, y_pos:int, x_size:int, y_size:int);</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_draw.Draw.draw_line">
+<span class="sig-name descname"><span class="pre">draw_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x0_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y0_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x1_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y1_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_draw.html#Draw.draw_line"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_draw.Draw.draw_line" title="Link to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Description</dt><dd><p>Draws a line from a specified starting point to a specified endpoint in the current window(absolute coordinates).</p>
+</dd>
+<dt>Prototype</dt><dd><p>def draw_line(self, x0_pos:int, y0_pos:int, x1_pos:int, y1_pos:int);</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_draw.Draw.draw_point">
+<span class="sig-name descname"><span class="pre">draw_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_draw.html#Draw.draw_point"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_draw.Draw.draw_point" title="Link to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Description</dt><dd><p>Draws a point with the current pen size at a specified position in the current window.</p>
+</dd>
+<dt>Prototype</dt><dd><p>def draw_point(self, x_pos:int, y_pos:int);</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_draw.Draw.draw_poly">
+<span class="sig-name descname"><span class="pre">draw_poly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x0_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y0_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x1_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y1_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x2_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y2_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_draw.html#Draw.draw_poly"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_draw.Draw.draw_poly" title="Link to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Description</dt><dd><p>Draws the outline of a polygon defined by a list of points in the current window.</p>
+</dd>
+<dt>Prototype</dt><dd><p>def draw_poly(self, x0_pos:int, y0_pos:int, x1_pos:int, y1_pos:int, x2_pos:int, y2_pos:int);</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_draw.Draw.draw_poptext">
+<span class="sig-name descname"><span class="pre">draw_poptext</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">str</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_draw.html#Draw.draw_poptext"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_draw.Draw.draw_poptext" title="Link to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Description</dt><dd><p>Displays the string passed as a parameter at the specified position in the popup message using the current font.</p>
+</dd>
+<dt>Prototype</dt><dd><p>def draw_text(self, x_pos:int, y_pos:int, str:str);</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_draw.Draw.draw_rect">
+<span class="sig-name descname"><span class="pre">draw_rect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_draw.html#Draw.draw_rect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_draw.Draw.draw_rect" title="Link to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Description</dt><dd><p>Draws a rectangle at a specified position in the current window.</p>
+</dd>
+<dt>Prototype</dt><dd><p>def draw_rect(self, x_pos:int, y_pos:int, x_size:int, y_size:int);</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_draw.Draw.draw_text">
+<span class="sig-name descname"><span class="pre">draw_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">str</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_draw.html#Draw.draw_text"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_draw.Draw.draw_text" title="Link to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Description</dt><dd><p>Displays the string passed as parameter at a specified position in the current window using the current font.</p>
+</dd>
+<dt>Prototype</dt><dd><p>def draw_text(self, x_pos:int, y_pos:int, str:str);</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_draw.Draw.draw_win">
+<span class="sig-name descname"><span class="pre">draw_win</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_draw.html#Draw.draw_win"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_draw.Draw.draw_win" title="Link to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Description</dt><dd><p>Redraw all windows</p>
+</dd>
+<dt>Prototype</dt><dd><p>def draw_win(self);</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_draw.Draw.get_winid">
+<span class="sig-name descname"><span class="pre">get_winid</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/dso_draw.html#Draw.get_winid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_draw.Draw.get_winid" title="Link to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Description</dt><dd><p>Returns the ID of a specified widget window.</p>
+</dd>
+<dt>Prototype</dt><dd><p>def get_winid(self);</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_draw.Draw.sel_win">
+<span class="sig-name descname"><span class="pre">sel_win</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_draw.html#Draw.sel_win"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_draw.Draw.sel_win" title="Link to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Description</dt><dd><p>Sets the active window to be used for drawing operations.</p>
+</dd>
+<dt>Prototype</dt><dd><p>def sel_win(self, wid:int);</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_draw.Draw.set_bkcolor">
+<span class="sig-name descname"><span class="pre">set_bkcolor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rad</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">green</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blue</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_draw.html#Draw.set_bkcolor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_draw.Draw.set_bkcolor" title="Link to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Description</dt><dd><p>Sets the current background color.</p>
+</dd>
+<dt>Prototype</dt><dd><p>def set_bkcolor(self, rad:int, green:int, blue:int);</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_draw.Draw.set_color">
+<span class="sig-name descname"><span class="pre">set_color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rad</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">green</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blue</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_draw.html#Draw.set_color"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_draw.Draw.set_color" title="Link to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Description</dt><dd><p>Sets the current foreground color.</p>
+</dd>
+<dt>Prototype</dt><dd><p>def set_color(self, rad:int, green:int, blue:int);</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="dso_dmm.html" class="btn btn-neutral float-left" title="dso_dmm module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="dso_gonogo.html" class="btn btn-neutral float-right" title="dso_gonogo module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, GW Instek.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

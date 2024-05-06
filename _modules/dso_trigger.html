@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dso_trigger &mdash; mpo_api 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            mpo_api
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dso2kp.html">dso2kp module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_acquire.html">dso_acquire module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_awg.html">dso_awg module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_basic.html">dso_basic module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_channel.html">dso_channel module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_colors.html">dso_colors module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_const.html">dso_const module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_display.html">dso_display module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_dmm.html">dso_dmm module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_draw.html">dso_draw module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_gonogo.html">dso_gonogo module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_gui.html">dso_gui module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_hardcopy.html">dso_hardcopy module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_math.html">dso_math module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_meas.html">dso_meas module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_power_supply.html">dso_power_supply module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_ref.html">dso_ref module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_sns.html">dso_sns module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_spectrum.html">dso_spectrum module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_timebase.html">dso_timebase module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_trigger.html">dso_trigger module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../load.html">load module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../psw.html">psw module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">mpo_api</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Module code</a></li>
+      <li class="breadcrumb-item active">dso_trigger</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for dso_trigger</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Name: dso_trigger.py</span>
+<span class="c1">#</span>
+<span class="c1"># Description: </span>
+<span class="c1">#</span>
+<span class="c1"># Author: GW Instek</span>
+<span class="c1">#</span>
+<span class="c1"># Documentation:</span>
+<span class="c1"># https://github.com/OpenWave-GW/Python_APP</span>
+<span class="c1">#</span>
+<span class="c1"># License: GW Python APP License</span>
+<span class="c1"># Copyright (c) 2023 GOOD WILL INSTRUMENT CO., LTD.</span>
+<span class="c1"># https://github.com/OpenWave-GW/Python_APP/blob/main/LICENSE.txt</span>
+
+<div class="viewcode-block" id="Trigger">
+<a class="viewcode-back" href="../dso_trigger.html#dso_trigger.Trigger">[docs]</a>
+<span class="k">class</span> <span class="nc">Trigger</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;This module can control the Trigger function on your DSO</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span> <span class="o">=</span> <span class="n">parent</span><span class="o">.</span><span class="n">write</span> <span class="c1">#for DSO SCPI</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">query</span> <span class="o">=</span> <span class="n">parent</span><span class="o">.</span><span class="n">query</span> <span class="c1">#for DSO SCPI</span>
+
+<div class="viewcode-block" id="Trigger.freq">
+<a class="viewcode-back" href="../dso_trigger.html#dso_trigger.Trigger.freq">[docs]</a>
+    <span class="k">def</span> <span class="nf">freq</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Current frequency counter.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            float: frequency</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;:TRIGger:FREQuency?&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Trigger.type">
+<a class="viewcode-back" href="../dso_trigger.html#dso_trigger.Trigger.type">[docs]</a>
+    <span class="k">def</span> <span class="nf">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Current trigger type.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: edge, delay, pulse, video, runt, risefall, bus, logic or timeout</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;:TRIG:TYP?</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ret</span></div>
+
+
+<div class="viewcode-block" id="Trigger.set_type">
+<a class="viewcode-back" href="../dso_trigger.html#dso_trigger.Trigger.set_type">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set trigger type.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            type (str): edge, delay, pulse, video, runt, risefall, bus, logic or timeout</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;:TRIG:TYP </span><span class="si">%s</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="nb">type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Trigger.source">
+<a class="viewcode-back" href="../dso_trigger.html#dso_trigger.Trigger.source">[docs]</a>
+    <span class="k">def</span> <span class="nf">source</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Current trigger source.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: trigger source</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;:TRIG:SOUR?</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ret</span></div>
+
+
+<div class="viewcode-block" id="Trigger.set_source">
+<a class="viewcode-back" href="../dso_trigger.html#dso_trigger.Trigger.set_source">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_source</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">src</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set trigger source</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            src (str): CH1|CH2|CH3|CH4|EXT|LINe|D0|D1|D2|D3|D4|D5|D6|D7|D8|D9|D10|D11|D12|D13|D14|D15</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;:TRIG:SOUR </span><span class="si">%s</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">src</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Trigger.mode">
+<a class="viewcode-back" href="../dso_trigger.html#dso_trigger.Trigger.mode">[docs]</a>
+    <span class="k">def</span> <span class="nf">mode</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Current trigger mode.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: AUTo|NORMal</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;:TRIG:MOD?</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ret</span></div>
+
+
+<div class="viewcode-block" id="Trigger.set_mode">
+<a class="viewcode-back" href="../dso_trigger.html#dso_trigger.Trigger.set_mode">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_mode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set trigger mode.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            mode (str): AUTo|NORMal</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;:TRIG:MOD </span><span class="si">%s</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">mode</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Trigger.coupling">
+<a class="viewcode-back" href="../dso_trigger.html#dso_trigger.Trigger.coupling">[docs]</a>
+    <span class="k">def</span> <span class="nf">coupling</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Current trigger coupling</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: DC|AC|HF|LF</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;:TRIG:COUP?</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ret</span></div>
+
+
+<div class="viewcode-block" id="Trigger.set_coupling">
+<a class="viewcode-back" href="../dso_trigger.html#dso_trigger.Trigger.set_coupling">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_coupling</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set trigger coupling.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            mode (str): DC|AC|HF|LF</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;:TRIG:COUP </span><span class="si">%s</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">mode</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Trigger.level">
+<a class="viewcode-back" href="../dso_trigger.html#dso_trigger.Trigger.level">[docs]</a>
+    <span class="k">def</span> <span class="nf">level</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Current trigger level</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            float: trigger level</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;:TRIG:LEV?</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Trigger.set_level">
+<a class="viewcode-back" href="../dso_trigger.html#dso_trigger.Trigger.set_level">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_level</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span><span class="nb">float</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set trigger level</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value (float): trigger level</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;:TRIG:LEV </span><span class="si">%f</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Trigger.external_probe_ratio">
+<a class="viewcode-back" href="../dso_trigger.html#dso_trigger.Trigger.external_probe_ratio">[docs]</a>
+    <span class="k">def</span> <span class="nf">external_probe_ratio</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Current external probe ratio</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            float: external probe ratio</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;:TRIG:EXTER:PROB:RAT?</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Trigger.set_external_probe_ratio">
+<a class="viewcode-back" href="../dso_trigger.html#dso_trigger.Trigger.set_external_probe_ratio">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_external_probe_ratio</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span><span class="nb">float</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set external probe ratio</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value (float): external probe ratio</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;:TRIG:EXTER:PROB:RAT </span><span class="si">%f</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Trigger.is_noise_rejection">
+<a class="viewcode-back" href="../dso_trigger.html#dso_trigger.Trigger.is_noise_rejection">[docs]</a>
+    <span class="k">def</span> <span class="nf">is_noise_rejection</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:TRIGger:NREJ?&#39;</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">if</span><span class="p">(</span><span class="s1">&#39;ON&#39;</span> <span class="ow">in</span> <span class="n">ret</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="Trigger.set_noise_rejection_on">
+<a class="viewcode-back" href="../dso_trigger.html#dso_trigger.Trigger.set_noise_rejection_on">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_noise_rejection_on</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set trigger noise rejection ON.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:TRIGger:NREJ ON&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Trigger.set_noise_rejection_off">
+<a class="viewcode-back" href="../dso_trigger.html#dso_trigger.Trigger.set_noise_rejection_off">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_noise_rejection_off</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set trigger noise rejection OFF.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:TRIGger:NREJ OFF&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Trigger.holdoff">
+<a class="viewcode-back" href="../dso_trigger.html#dso_trigger.Trigger.holdoff">[docs]</a>
+    <span class="k">def</span> <span class="nf">holdoff</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Current holdoff time.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            float: holdoff time</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:TRIGger:HOLDoff?&#39;</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Trigger.set_holdoff">
+<a class="viewcode-back" href="../dso_trigger.html#dso_trigger.Trigger.set_holdoff">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_holdoff</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span><span class="nb">float</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set holdoff time.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value (float): holdoff time</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:TRIGger:HOLDoff </span><span class="si">%f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, GW Instek.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

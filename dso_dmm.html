@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dso_dmm module &mdash; mpo_api 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="dso_draw module" href="dso_draw.html" />
+    <link rel="prev" title="dso_display module" href="dso_display.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            mpo_api
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="dso2kp.html">dso2kp module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_acquire.html">dso_acquire module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_awg.html">dso_awg module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_basic.html">dso_basic module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_channel.html">dso_channel module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_colors.html">dso_colors module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_const.html">dso_const module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_display.html">dso_display module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">dso_dmm module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#dso_dmm.Dmm"><code class="docutils literal notranslate"><span class="pre">Dmm</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dso_dmm.Dmm.get_value"><code class="docutils literal notranslate"><span class="pre">Dmm.get_value()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_dmm.Dmm.is_hold"><code class="docutils literal notranslate"><span class="pre">Dmm.is_hold()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_dmm.Dmm.is_on"><code class="docutils literal notranslate"><span class="pre">Dmm.is_on()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_dmm.Dmm.set_hold_off"><code class="docutils literal notranslate"><span class="pre">Dmm.set_hold_off()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_dmm.Dmm.set_hold_on"><code class="docutils literal notranslate"><span class="pre">Dmm.set_hold_on()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_dmm.Dmm.set_maxmin_off"><code class="docutils literal notranslate"><span class="pre">Dmm.set_maxmin_off()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_dmm.Dmm.set_maxmin_on"><code class="docutils literal notranslate"><span class="pre">Dmm.set_maxmin_on()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_dmm.Dmm.set_mode_ACA"><code class="docutils literal notranslate"><span class="pre">Dmm.set_mode_ACA()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_dmm.Dmm.set_mode_ACV"><code class="docutils literal notranslate"><span class="pre">Dmm.set_mode_ACV()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_dmm.Dmm.set_mode_ACmA"><code class="docutils literal notranslate"><span class="pre">Dmm.set_mode_ACmA()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_dmm.Dmm.set_mode_ACmV"><code class="docutils literal notranslate"><span class="pre">Dmm.set_mode_ACmV()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_dmm.Dmm.set_mode_DCA"><code class="docutils literal notranslate"><span class="pre">Dmm.set_mode_DCA()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_dmm.Dmm.set_mode_DCV"><code class="docutils literal notranslate"><span class="pre">Dmm.set_mode_DCV()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_dmm.Dmm.set_mode_DCmA"><code class="docutils literal notranslate"><span class="pre">Dmm.set_mode_DCmA()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_dmm.Dmm.set_mode_DCmV"><code class="docutils literal notranslate"><span class="pre">Dmm.set_mode_DCmV()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_dmm.Dmm.set_mode_beep"><code class="docutils literal notranslate"><span class="pre">Dmm.set_mode_beep()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_dmm.Dmm.set_mode_diode"><code class="docutils literal notranslate"><span class="pre">Dmm.set_mode_diode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_dmm.Dmm.set_mode_ohm"><code class="docutils literal notranslate"><span class="pre">Dmm.set_mode_ohm()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_dmm.Dmm.set_mode_temperature"><code class="docutils literal notranslate"><span class="pre">Dmm.set_mode_temperature()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_dmm.Dmm.set_off"><code class="docutils literal notranslate"><span class="pre">Dmm.set_off()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_dmm.Dmm.set_on"><code class="docutils literal notranslate"><span class="pre">Dmm.set_on()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dso_draw.html">dso_draw module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_gonogo.html">dso_gonogo module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_gui.html">dso_gui module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_hardcopy.html">dso_hardcopy module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_math.html">dso_math module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_meas.html">dso_meas module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_power_supply.html">dso_power_supply module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_ref.html">dso_ref module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_sns.html">dso_sns module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_spectrum.html">dso_spectrum module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_timebase.html">dso_timebase module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_trigger.html">dso_trigger module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="load.html">load module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psw.html">psw module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">mpo_api</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">dso_dmm module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/dso_dmm.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-dso_dmm">
+<span id="dso-dmm-module"></span><h1>dso_dmm module<a class="headerlink" href="#module-dso_dmm" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="dso_dmm.Dmm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dso_dmm.</span></span><span class="sig-name descname"><span class="pre">Dmm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_dmm.html#Dmm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_dmm.Dmm" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This module can control the DMM function on your DSO</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_dmm.Dmm.get_value">
+<span class="sig-name descname"><span class="pre">get_value</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_dmm.html#Dmm.get_value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_dmm.Dmm.get_value" title="Link to this definition"></a></dt>
+<dd><p>Get the DMM’s measurement result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The measurement value, ‘OL’ or ‘-OL’.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float or str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_dmm.Dmm.is_hold">
+<span class="sig-name descname"><span class="pre">is_hold</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/dso_dmm.html#Dmm.is_hold"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_dmm.Dmm.is_hold" title="Link to this definition"></a></dt>
+<dd><p>Is DMM hold on?</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True or False</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_dmm.Dmm.is_on">
+<span class="sig-name descname"><span class="pre">is_on</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/dso_dmm.html#Dmm.is_on"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_dmm.Dmm.is_on" title="Link to this definition"></a></dt>
+<dd><p>Is DMM’s state on?</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True or False</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_dmm.Dmm.set_hold_off">
+<span class="sig-name descname"><span class="pre">set_hold_off</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_dmm.html#Dmm.set_hold_off"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_dmm.Dmm.set_hold_off" title="Link to this definition"></a></dt>
+<dd><p>Set DMM hold off.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_dmm.Dmm.set_hold_on">
+<span class="sig-name descname"><span class="pre">set_hold_on</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_dmm.html#Dmm.set_hold_on"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_dmm.Dmm.set_hold_on" title="Link to this definition"></a></dt>
+<dd><p>Set DMM hold on.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_dmm.Dmm.set_maxmin_off">
+<span class="sig-name descname"><span class="pre">set_maxmin_off</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_dmm.html#Dmm.set_maxmin_off"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_dmm.Dmm.set_maxmin_off" title="Link to this definition"></a></dt>
+<dd><p>Set max/min function off.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_dmm.Dmm.set_maxmin_on">
+<span class="sig-name descname"><span class="pre">set_maxmin_on</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_dmm.html#Dmm.set_maxmin_on"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_dmm.Dmm.set_maxmin_on" title="Link to this definition"></a></dt>
+<dd><p>Set max/min function on.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_dmm.Dmm.set_mode_ACA">
+<span class="sig-name descname"><span class="pre">set_mode_ACA</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_dmm.html#Dmm.set_mode_ACA"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_dmm.Dmm.set_mode_ACA" title="Link to this definition"></a></dt>
+<dd><p>Set DMM’s mode as ACA</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_dmm.Dmm.set_mode_ACV">
+<span class="sig-name descname"><span class="pre">set_mode_ACV</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_dmm.html#Dmm.set_mode_ACV"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_dmm.Dmm.set_mode_ACV" title="Link to this definition"></a></dt>
+<dd><p>Set DMM’s mode as ACV</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>range</strong> (<em>int</em><em> or </em><em>str</em>) – Set measurement range as 5,50,750 or AUTO</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_dmm.Dmm.set_mode_ACmA">
+<span class="sig-name descname"><span class="pre">set_mode_ACmA</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_dmm.html#Dmm.set_mode_ACmA"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_dmm.Dmm.set_mode_ACmA" title="Link to this definition"></a></dt>
+<dd><p>Set DMM’s mode as ACmA</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>range</strong> (<em>float</em><em> or </em><em>str</em>) – Set measurement range as 0.5,0.05 or AUTO</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_dmm.Dmm.set_mode_ACmV">
+<span class="sig-name descname"><span class="pre">set_mode_ACmV</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_dmm.html#Dmm.set_mode_ACmV"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_dmm.Dmm.set_mode_ACmV" title="Link to this definition"></a></dt>
+<dd><p>Set DMM’s mode as ACmV</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>range</strong> (<em>float</em><em> or </em><em>str</em>) – Set measurement range as 0.5,0.05 or AUTO</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_dmm.Dmm.set_mode_DCA">
+<span class="sig-name descname"><span class="pre">set_mode_DCA</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_dmm.html#Dmm.set_mode_DCA"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_dmm.Dmm.set_mode_DCA" title="Link to this definition"></a></dt>
+<dd><p>Set DMM’s mode as DCA</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_dmm.Dmm.set_mode_DCV">
+<span class="sig-name descname"><span class="pre">set_mode_DCV</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_dmm.html#Dmm.set_mode_DCV"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_dmm.Dmm.set_mode_DCV" title="Link to this definition"></a></dt>
+<dd><p>Set DMM’s mode as DCV</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>range</strong> (<em>int</em><em> or </em><em>str</em>) – Set measurement range as 5,50,500,1000 or AUTO</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_dmm.Dmm.set_mode_DCmA">
+<span class="sig-name descname"><span class="pre">set_mode_DCmA</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_dmm.html#Dmm.set_mode_DCmA"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_dmm.Dmm.set_mode_DCmA" title="Link to this definition"></a></dt>
+<dd><p>Set DMM’s mode as DCmA</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>range</strong> (<em>float</em><em> or </em><em>str</em>) – Set measurement range as 0.5,0.05 or AUTO</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_dmm.Dmm.set_mode_DCmV">
+<span class="sig-name descname"><span class="pre">set_mode_DCmV</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_dmm.html#Dmm.set_mode_DCmV"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_dmm.Dmm.set_mode_DCmV" title="Link to this definition"></a></dt>
+<dd><p>Set DMM’s mode as DCmV</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>range</strong> (<em>float</em><em> or </em><em>str</em>) – Set measurement range as 0.5,0.05 or AUTO</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_dmm.Dmm.set_mode_beep">
+<span class="sig-name descname"><span class="pre">set_mode_beep</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_dmm.html#Dmm.set_mode_beep"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_dmm.Dmm.set_mode_beep" title="Link to this definition"></a></dt>
+<dd><p>Set DMM’s mode as beep</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_dmm.Dmm.set_mode_diode">
+<span class="sig-name descname"><span class="pre">set_mode_diode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_dmm.html#Dmm.set_mode_diode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_dmm.Dmm.set_mode_diode" title="Link to this definition"></a></dt>
+<dd><p>Set DMM’s mode as diode</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_dmm.Dmm.set_mode_ohm">
+<span class="sig-name descname"><span class="pre">set_mode_ohm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_dmm.html#Dmm.set_mode_ohm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_dmm.Dmm.set_mode_ohm" title="Link to this definition"></a></dt>
+<dd><p>Set DMM’s mode as ohm</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>range</strong> (<em>int</em><em> or </em><em>str</em>) – Set measurement range as 50,500,5000,50000,500000,5000000,50000000 or AUTO</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_dmm.Dmm.set_mode_temperature">
+<span class="sig-name descname"><span class="pre">set_mode_temperature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_dmm.html#Dmm.set_mode_temperature"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_dmm.Dmm.set_mode_temperature" title="Link to this definition"></a></dt>
+<dd><p>Set DMM’s mode as temperature</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>type</strong> (<em>str</em>) – TYPEB, TYPEE, TYPEJ, TYPEK, TYPEN, TYPER, TYPES, TYPET</p></li>
+<li><p><strong>units</strong> (<em>str</em>) – The unit of temperature display. C or F.</p></li>
+<li><p><strong>sim</strong> (<em>float</em>) – Set the measurement temperature.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_dmm.Dmm.set_off">
+<span class="sig-name descname"><span class="pre">set_off</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_dmm.html#Dmm.set_off"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_dmm.Dmm.set_off" title="Link to this definition"></a></dt>
+<dd><p>Set DMM OFF</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_dmm.Dmm.set_on">
+<span class="sig-name descname"><span class="pre">set_on</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_dmm.html#Dmm.set_on"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_dmm.Dmm.set_on" title="Link to this definition"></a></dt>
+<dd><p>Set DMM ON</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="dso_display.html" class="btn btn-neutral float-left" title="dso_display module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="dso_draw.html" class="btn btn-neutral float-right" title="dso_draw module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, GW Instek.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

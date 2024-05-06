@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dso2kp module &mdash; mpo_api 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="dso_acquire module" href="dso_acquire.html" />
+    <link rel="prev" title="Welcome to mpo_api’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            mpo_api
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">dso2kp module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#dso2kp.Dso"><code class="docutils literal notranslate"><span class="pre">Dso</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dso2kp.Dso.acquire"><code class="docutils literal notranslate"><span class="pre">Dso.acquire</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso2kp.Dso.awg"><code class="docutils literal notranslate"><span class="pre">Dso.awg</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso2kp.Dso.channel"><code class="docutils literal notranslate"><span class="pre">Dso.channel</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso2kp.Dso.display"><code class="docutils literal notranslate"><span class="pre">Dso.display</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso2kp.Dso.dmm"><code class="docutils literal notranslate"><span class="pre">Dso.dmm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso2kp.Dso.dsodraw"><code class="docutils literal notranslate"><span class="pre">Dso.dsodraw</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso2kp.Dso.gonogo"><code class="docutils literal notranslate"><span class="pre">Dso.gonogo</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso2kp.Dso.hardcopy"><code class="docutils literal notranslate"><span class="pre">Dso.hardcopy</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso2kp.Dso.math"><code class="docutils literal notranslate"><span class="pre">Dso.math</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso2kp.Dso.meas"><code class="docutils literal notranslate"><span class="pre">Dso.meas</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso2kp.Dso.power"><code class="docutils literal notranslate"><span class="pre">Dso.power</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso2kp.Dso.ref"><code class="docutils literal notranslate"><span class="pre">Dso.ref</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso2kp.Dso.sa"><code class="docutils literal notranslate"><span class="pre">Dso.sa</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso2kp.Dso.timebase"><code class="docutils literal notranslate"><span class="pre">Dso.timebase</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso2kp.Dso.trigger"><code class="docutils literal notranslate"><span class="pre">Dso.trigger</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#dso2kp.Screen"><code class="docutils literal notranslate"><span class="pre">Screen</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dso2kp.Theme"><code class="docutils literal notranslate"><span class="pre">Theme</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dso_acquire.html">dso_acquire module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_awg.html">dso_awg module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_basic.html">dso_basic module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_channel.html">dso_channel module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_colors.html">dso_colors module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_const.html">dso_const module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_display.html">dso_display module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_dmm.html">dso_dmm module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_draw.html">dso_draw module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_gonogo.html">dso_gonogo module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_gui.html">dso_gui module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_hardcopy.html">dso_hardcopy module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_math.html">dso_math module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_meas.html">dso_meas module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_power_supply.html">dso_power_supply module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_ref.html">dso_ref module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_sns.html">dso_sns module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_spectrum.html">dso_spectrum module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_timebase.html">dso_timebase module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_trigger.html">dso_trigger module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="load.html">load module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psw.html">psw module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">mpo_api</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">dso2kp module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/dso2kp.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-dso2kp">
+<span id="dso2kp-module"></span><h1>dso2kp module<a class="headerlink" href="#module-dso2kp" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="dso2kp.Dso">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dso2kp.</span></span><span class="sig-name descname"><span class="pre">Dso</span></span><a class="reference internal" href="_modules/dso2kp.html#Dso"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso2kp.Dso" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="dso_basic.html#dso_basic.DsoBasic" title="dso_basic.DsoBasic"><code class="xref py py-class docutils literal notranslate"><span class="pre">DsoBasic</span></code></a></p>
+<p>This module can control MPO2000</p>
+<p>The general control functions can be found in <a class="reference internal" href="dso_basic.html#dso_basic.DsoBasic" title="dso_basic.DsoBasic"><code class="xref py py-class docutils literal notranslate"><span class="pre">DsoBasic</span></code></a></p>
+<p><strong>Extend methods as below:</strong></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dso2kp.Dso.acquire">
+<span class="sig-name descname"><span class="pre">acquire</span></span><a class="headerlink" href="#dso2kp.Dso.acquire" title="Link to this definition"></a></dt>
+<dd><p>Find Acquire control in <a class="reference internal" href="dso_acquire.html#dso_acquire.Acquire" title="dso_acquire.Acquire"><code class="xref py py-class docutils literal notranslate"><span class="pre">Acquire</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dso2kp.Dso.awg">
+<span class="sig-name descname"><span class="pre">awg</span></span><a class="headerlink" href="#dso2kp.Dso.awg" title="Link to this definition"></a></dt>
+<dd><p>The AWG control is in <a class="reference internal" href="dso_awg.html#dso_awg.Awg" title="dso_awg.Awg"><code class="xref py py-class docutils literal notranslate"><span class="pre">Awg</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dso2kp.Dso.channel">
+<span class="sig-name descname"><span class="pre">channel</span></span><a class="headerlink" href="#dso2kp.Dso.channel" title="Link to this definition"></a></dt>
+<dd><p>Find Channel Vertical control in <a class="reference internal" href="dso_channel.html#dso_channel.Channel" title="dso_channel.Channel"><code class="xref py py-class docutils literal notranslate"><span class="pre">Channel</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dso2kp.Dso.display">
+<span class="sig-name descname"><span class="pre">display</span></span><a class="headerlink" href="#dso2kp.Dso.display" title="Link to this definition"></a></dt>
+<dd><p>Find Display control in <a class="reference internal" href="dso_display.html#dso_display.Display" title="dso_display.Display"><code class="xref py py-class docutils literal notranslate"><span class="pre">Display</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dso2kp.Dso.dmm">
+<span class="sig-name descname"><span class="pre">dmm</span></span><a class="headerlink" href="#dso2kp.Dso.dmm" title="Link to this definition"></a></dt>
+<dd><p>Find Dmm control in <a class="reference internal" href="dso_dmm.html#dso_dmm.Dmm" title="dso_dmm.Dmm"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dmm</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dso2kp.Dso.dsodraw">
+<span class="sig-name descname"><span class="pre">dsodraw</span></span><a class="headerlink" href="#dso2kp.Dso.dsodraw" title="Link to this definition"></a></dt>
+<dd><p>It’s <a class="reference internal" href="dso_draw.html#dso_draw.Draw" title="dso_draw.Draw"><code class="xref py py-class docutils literal notranslate"><span class="pre">Draw</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dso2kp.Dso.gonogo">
+<span class="sig-name descname"><span class="pre">gonogo</span></span><a class="headerlink" href="#dso2kp.Dso.gonogo" title="Link to this definition"></a></dt>
+<dd><p>Find GoNoGo control in <a class="reference internal" href="dso_gonogo.html#dso_gonogo.GoNoGo" title="dso_gonogo.GoNoGo"><code class="xref py py-class docutils literal notranslate"><span class="pre">GoNoGo</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dso2kp.Dso.hardcopy">
+<span class="sig-name descname"><span class="pre">hardcopy</span></span><a class="headerlink" href="#dso2kp.Dso.hardcopy" title="Link to this definition"></a></dt>
+<dd><p>Find HardCopy control in <a class="reference internal" href="dso_hardcopy.html#dso_hardcopy.HardCopy" title="dso_hardcopy.HardCopy"><code class="xref py py-class docutils literal notranslate"><span class="pre">HardCopy</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dso2kp.Dso.math">
+<span class="sig-name descname"><span class="pre">math</span></span><a class="headerlink" href="#dso2kp.Dso.math" title="Link to this definition"></a></dt>
+<dd><p>Find Math control in <a class="reference internal" href="dso_math.html#dso_math.Math" title="dso_math.Math"><code class="xref py py-class docutils literal notranslate"><span class="pre">Math</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dso2kp.Dso.meas">
+<span class="sig-name descname"><span class="pre">meas</span></span><a class="headerlink" href="#dso2kp.Dso.meas" title="Link to this definition"></a></dt>
+<dd><p>Find Measure control in <a class="reference internal" href="dso_meas.html#dso_meas.Measure" title="dso_meas.Measure"><code class="xref py py-class docutils literal notranslate"><span class="pre">Measure</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dso2kp.Dso.power">
+<span class="sig-name descname"><span class="pre">power</span></span><a class="headerlink" href="#dso2kp.Dso.power" title="Link to this definition"></a></dt>
+<dd><p>Find Power Supply control in <a class="reference internal" href="dso_power_supply.html#dso_power_supply.PowerSupply" title="dso_power_supply.PowerSupply"><code class="xref py py-class docutils literal notranslate"><span class="pre">PowerSupply</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dso2kp.Dso.ref">
+<span class="sig-name descname"><span class="pre">ref</span></span><a class="headerlink" href="#dso2kp.Dso.ref" title="Link to this definition"></a></dt>
+<dd><p>Find Reference control in <a class="reference internal" href="dso_ref.html#dso_ref.Ref" title="dso_ref.Ref"><code class="xref py py-class docutils literal notranslate"><span class="pre">Ref</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dso2kp.Dso.sa">
+<span class="sig-name descname"><span class="pre">sa</span></span><a class="headerlink" href="#dso2kp.Dso.sa" title="Link to this definition"></a></dt>
+<dd><p>Find Spectrum control in <a class="reference internal" href="dso_spectrum.html#dso_spectrum.Spectrum" title="dso_spectrum.Spectrum"><code class="xref py py-class docutils literal notranslate"><span class="pre">Spectrum</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dso2kp.Dso.timebase">
+<span class="sig-name descname"><span class="pre">timebase</span></span><a class="headerlink" href="#dso2kp.Dso.timebase" title="Link to this definition"></a></dt>
+<dd><p>Find Horizontal control in <a class="reference internal" href="dso_timebase.html#dso_timebase.TimeBase" title="dso_timebase.TimeBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeBase</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dso2kp.Dso.trigger">
+<span class="sig-name descname"><span class="pre">trigger</span></span><a class="headerlink" href="#dso2kp.Dso.trigger" title="Link to this definition"></a></dt>
+<dd><p>Find Trigger control in <a class="reference internal" href="dso_trigger.html#dso_trigger.Trigger" title="dso_trigger.Trigger"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trigger</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dso2kp.Screen">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dso2kp.</span></span><span class="sig-name descname"><span class="pre">Screen</span></span><a class="reference internal" href="_modules/dso2kp.html#Screen"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso2kp.Screen" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="dso_basic.html#dso_basic.ScreenBasic" title="dso_basic.ScreenBasic"><code class="xref py py-class docutils literal notranslate"><span class="pre">ScreenBasic</span></code></a></p>
+<p>This DSO’s screen information.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dso2kp.Theme">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dso2kp.</span></span><span class="sig-name descname"><span class="pre">Theme</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dark_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso2kp.html#Theme"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso2kp.Theme" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="dso_basic.html#dso_basic.ThemeBasic" title="dso_basic.ThemeBasic"><code class="xref py py-class docutils literal notranslate"><span class="pre">ThemeBasic</span></code></a></p>
+<p>This DSO’s color theme.</p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to mpo_api’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="dso_acquire.html" class="btn btn-neutral float-right" title="dso_acquire module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, GW Instek.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

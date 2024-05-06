@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dso_channel &mdash; mpo_api 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            mpo_api
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dso2kp.html">dso2kp module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_acquire.html">dso_acquire module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_awg.html">dso_awg module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_basic.html">dso_basic module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_channel.html">dso_channel module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_colors.html">dso_colors module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_const.html">dso_const module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_display.html">dso_display module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_dmm.html">dso_dmm module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_draw.html">dso_draw module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_gonogo.html">dso_gonogo module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_gui.html">dso_gui module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_hardcopy.html">dso_hardcopy module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_math.html">dso_math module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_meas.html">dso_meas module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_power_supply.html">dso_power_supply module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_ref.html">dso_ref module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_sns.html">dso_sns module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_spectrum.html">dso_spectrum module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_timebase.html">dso_timebase module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_trigger.html">dso_trigger module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../load.html">load module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../psw.html">psw module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">mpo_api</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Module code</a></li>
+      <li class="breadcrumb-item active">dso_channel</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for dso_channel</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Name: dso_channel.py</span>
+<span class="c1">#</span>
+<span class="c1"># Description: </span>
+<span class="c1">#</span>
+<span class="c1"># Author: GW Instek</span>
+<span class="c1">#</span>
+<span class="c1"># Documentation:</span>
+<span class="c1"># https://github.com/OpenWave-GW/Python_APP</span>
+<span class="c1">#</span>
+<span class="c1"># License: GW Python APP License</span>
+<span class="c1"># Copyright (c) 2023 GOOD WILL INSTRUMENT CO., LTD.</span>
+<span class="c1"># https://github.com/OpenWave-GW/Python_APP/blob/main/LICENSE.txt</span>
+
+<div class="viewcode-block" id="Channel">
+<a class="viewcode-back" href="../dso_channel.html#dso_channel.Channel">[docs]</a>
+<span class="k">class</span> <span class="nc">Channel</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;This module can control the Channel Vertical function on your DSO</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">vernier</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span> <span class="o">=</span> <span class="n">parent</span><span class="o">.</span><span class="n">write</span> <span class="c1">#for DSO SCPI</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">query</span> <span class="o">=</span> <span class="n">parent</span><span class="o">.</span><span class="n">query</span> <span class="c1">#for DSO SCPI</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">is_support</span> <span class="o">=</span> <span class="n">parent</span><span class="o">.</span><span class="n">is_ch_support</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vernier</span> <span class="o">=</span> <span class="n">vernier</span>
+
+<div class="viewcode-block" id="Channel.is_on">
+<a class="viewcode-back" href="../dso_channel.html#dso_channel.Channel.is_on">[docs]</a>
+    <span class="k">def</span> <span class="nf">is_on</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ch</span><span class="p">:</span><span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_support</span><span class="p">(</span><span class="n">ch</span><span class="p">):</span>
+            <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;:CHAN</span><span class="si">%d</span><span class="s1">:DISP?</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">ch</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+            <span class="k">if</span><span class="p">(</span><span class="s1">&#39;ON&#39;</span> <span class="ow">in</span> <span class="n">ret</span><span class="p">):</span>
+                <span class="k">return</span> <span class="kc">True</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="Channel.set_on">
+<a class="viewcode-back" href="../dso_channel.html#dso_channel.Channel.set_on">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_on</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ch</span><span class="p">:</span><span class="nb">int</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set channel to ON</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            ch (int): channel number</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_support</span><span class="p">(</span><span class="n">ch</span><span class="p">):</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;:CHAN</span><span class="si">%d</span><span class="s1">:DISP ON</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">ch</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Channel.set_off">
+<a class="viewcode-back" href="../dso_channel.html#dso_channel.Channel.set_off">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_off</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ch</span><span class="p">:</span><span class="nb">int</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set channel to OFF</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            ch (int): channel number</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_support</span><span class="p">(</span><span class="n">ch</span><span class="p">):</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;:CHAN</span><span class="si">%d</span><span class="s1">:DISP OFF</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">ch</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Channel.get_scale">
+<a class="viewcode-back" href="../dso_channel.html#dso_channel.Channel.get_scale">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_scale</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ch</span><span class="p">:</span><span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get channel scale</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            ch (int): channel number</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            float: scale value</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_support</span><span class="p">(</span><span class="n">ch</span><span class="p">):</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;:CHAN</span><span class="si">%d</span><span class="s1">:SCAL?</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">ch</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Channel.set_scale">
+<a class="viewcode-back" href="../dso_channel.html#dso_channel.Channel.set_scale">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_scale</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ch</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">scale</span><span class="p">:</span><span class="nb">float</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set channel scale</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            ch (int): channel number</span>
+<span class="sd">            scale (float): scale value</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_support</span><span class="p">(</span><span class="n">ch</span><span class="p">):</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;:CHAN</span><span class="si">%d</span><span class="s1">:SCAL </span><span class="si">%f</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">ch</span><span class="p">,</span><span class="n">scale</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Channel.get_pos">
+<a class="viewcode-back" href="../dso_channel.html#dso_channel.Channel.get_pos">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_pos</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ch</span><span class="p">:</span><span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get channel position</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            ch (int): channel number</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            float: position</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_support</span><span class="p">(</span><span class="n">ch</span><span class="p">):</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;:CHAN</span><span class="si">%d</span><span class="s1">:POS?</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">ch</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>     </div>
+
+
+<div class="viewcode-block" id="Channel.set_pos">
+<a class="viewcode-back" href="../dso_channel.html#dso_channel.Channel.set_pos">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_pos</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ch</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">vpos</span><span class="p">:</span><span class="nb">float</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set channel position</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            ch (int): channel number</span>
+<span class="sd">            vpos (float): position</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_support</span><span class="p">(</span><span class="n">ch</span><span class="p">):</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;:CHAN</span><span class="si">%d</span><span class="s1">:POS </span><span class="si">%f</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">ch</span><span class="p">,</span><span class="n">vpos</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Channel.get_bandwidth">
+<a class="viewcode-back" href="../dso_channel.html#dso_channel.Channel.get_bandwidth">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_bandwidth</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ch</span><span class="p">:</span><span class="nb">int</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get channel bandwidth</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            ch (int): channel number</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str or float: bandwidth</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_support</span><span class="p">(</span><span class="n">ch</span><span class="p">):</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;:CHANnel</span><span class="si">%d</span><span class="s1">:BWLimit?</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">&#39;FULL&#39;</span> <span class="ow">in</span> <span class="n">ret</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">ret</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Channel.set_bandwidth">
+<a class="viewcode-back" href="../dso_channel.html#dso_channel.Channel.set_bandwidth">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_bandwidth</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ch</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set channel bandwidth</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            ch (int): channel number</span>
+<span class="sd">            value (str or float): FULL or bandwidth value</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_support</span><span class="p">(</span><span class="n">ch</span><span class="p">):</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="k">if</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span><span class="nb">str</span><span class="p">)):</span>
+            <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;:CHANnel</span><span class="si">%d</span><span class="s1">:BWLimit </span><span class="si">%s</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">ch</span><span class="p">,</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;:CHANnel</span><span class="si">%d</span><span class="s1">:BWLimit </span><span class="si">%f</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">ch</span><span class="p">,</span><span class="n">value</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Channel.get_deskew">
+<a class="viewcode-back" href="../dso_channel.html#dso_channel.Channel.get_deskew">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_deskew</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ch</span><span class="p">:</span><span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get channel deskew</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            ch (int): channel number</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            float: deskew</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_support</span><span class="p">(</span><span class="n">ch</span><span class="p">):</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;:CHANnel</span><span class="si">%d</span><span class="s1">:DESKew?</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Channel.set_deskew">
+<a class="viewcode-back" href="../dso_channel.html#dso_channel.Channel.set_deskew">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_deskew</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ch</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span><span class="nb">float</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set channel deskew</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            ch (int): channel number</span>
+<span class="sd">            value (float): deskew</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_support</span><span class="p">(</span><span class="n">ch</span><span class="p">):</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;:CHANnel</span><span class="si">%d</span><span class="s1">:DESKew </span><span class="si">%f</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">ch</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Channel.get_probe_ratio">
+<a class="viewcode-back" href="../dso_channel.html#dso_channel.Channel.get_probe_ratio">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_probe_ratio</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ch</span><span class="p">:</span><span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get channel probe ratio</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            ch (int): channel number</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            float: probe ratio</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_support</span><span class="p">(</span><span class="n">ch</span><span class="p">):</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;:CHAN</span><span class="si">%d</span><span class="s1">:PROB:RAT?</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">ch</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Channel.set_probe_ratio">
+<a class="viewcode-back" href="../dso_channel.html#dso_channel.Channel.set_probe_ratio">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_probe_ratio</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ch</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">ratio</span><span class="p">:</span><span class="nb">float</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set channel probe ratio</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            ch (int): channel number</span>
+<span class="sd">            ratio (float): probe ratio</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_support</span><span class="p">(</span><span class="n">ch</span><span class="p">):</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;:CHAN</span><span class="si">%d</span><span class="s1">:PROB:RAT </span><span class="si">%f</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">ch</span><span class="p">,</span><span class="n">ratio</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Channel.get_probe_type">
+<a class="viewcode-back" href="../dso_channel.html#dso_channel.Channel.get_probe_type">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_probe_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ch</span><span class="p">:</span><span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            ch (int): channel number</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: voltage or current</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;:CHAN</span><span class="si">%d</span><span class="s1">:PROB:TYP?</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">ch</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ret</span></div>
+
+
+<div class="viewcode-block" id="Channel.set_probe_type">
+<a class="viewcode-back" href="../dso_channel.html#dso_channel.Channel.set_probe_type">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_probe_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ch</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="nb">type</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            ch (int): channel number</span>
+<span class="sd">            type (str): voltage or current</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;:CHAN</span><span class="si">%d</span><span class="s1">:PROB:TYP </span><span class="si">%s</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">ch</span><span class="p">,</span><span class="nb">type</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Channel.get_coupling">
+<a class="viewcode-back" href="../dso_channel.html#dso_channel.Channel.get_coupling">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_coupling</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ch</span><span class="p">:</span><span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            ch (int): channel number</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: DC, AC or GND</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;:CHAN</span><span class="si">%d</span><span class="s1">:COUP?</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">ch</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ret</span></div>
+
+
+<div class="viewcode-block" id="Channel.set_coupling">
+<a class="viewcode-back" href="../dso_channel.html#dso_channel.Channel.set_coupling">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_coupling</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ch</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            ch (int): channel number</span>
+<span class="sd">            mode (str): DC, AC or GND</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;:CHAN</span><span class="si">%d</span><span class="s1">:COUP </span><span class="si">%s</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">ch</span><span class="p">,</span><span class="n">mode</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Channel.get_expend">
+<a class="viewcode-back" href="../dso_channel.html#dso_channel.Channel.get_expend">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_expend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ch</span><span class="p">:</span><span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Queries the Expand status of a channel.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            ch (int): channel number</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: Expand status of a channel</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:CHANnel</span><span class="si">%d</span><span class="s1">:EXPand?</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ret</span></div>
+
+    
+<div class="viewcode-block" id="Channel.set_expend">
+<a class="viewcode-back" href="../dso_channel.html#dso_channel.Channel.set_expend">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_expend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ch</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">expend</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Sets Expand from ground or from center for a channel.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            ch (int): channel number</span>
+<span class="sd">            expend (str):</span>
+
+<span class="sd">                GND : Expand by ground</span>
+<span class="sd">                </span>
+<span class="sd">                CENTer : Expand by center</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:CHANnel</span><span class="si">%d</span><span class="s1">:EXPand </span><span class="si">%s</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">ch</span><span class="p">,</span> <span class="n">expend</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Channel.get_impedance">
+<a class="viewcode-back" href="../dso_channel.html#dso_channel.Channel.get_impedance">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_impedance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ch</span><span class="p">:</span><span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get channel impedance</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            ch (int): channel number</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            int: impedance value</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_support</span><span class="p">(</span><span class="n">ch</span><span class="p">):</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:CHANnel</span><span class="si">%d</span><span class="s1">:IMPedance?</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">ret</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="Channel.set_impedance">
+<a class="viewcode-back" href="../dso_channel.html#dso_channel.Channel.set_impedance">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_impedance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ch</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span><span class="nb">float</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set channel impedance</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            ch (int): channel number</span>
+<span class="sd">            value (float): impedance value</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_support</span><span class="p">(</span><span class="n">ch</span><span class="p">):</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:CHANnel</span><span class="si">%d</span><span class="s1">:IMPedance </span><span class="si">%f</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">ch</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Channel.is_invert">
+<a class="viewcode-back" href="../dso_channel.html#dso_channel.Channel.is_invert">[docs]</a>
+    <span class="k">def</span> <span class="nf">is_invert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ch</span><span class="p">:</span><span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_support</span><span class="p">(</span><span class="n">ch</span><span class="p">):</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:CHANnel</span><span class="si">%d</span><span class="s1">:INVert?</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">&#39;ON&#39;</span> <span class="ow">in</span> <span class="n">ret</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="Channel.set_invert_on">
+<a class="viewcode-back" href="../dso_channel.html#dso_channel.Channel.set_invert_on">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_invert_on</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ch</span><span class="p">:</span><span class="nb">int</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set channel invert to ON</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            ch (int): channel number</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_support</span><span class="p">(</span><span class="n">ch</span><span class="p">):</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:CHANnel</span><span class="si">%d</span><span class="s1">:INVert ON</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Channel.set_invert_off">
+<a class="viewcode-back" href="../dso_channel.html#dso_channel.Channel.set_invert_off">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_invert_off</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ch</span><span class="p">:</span><span class="nb">int</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set channel invert to OFF</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            ch (int): channel number</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_support</span><span class="p">(</span><span class="n">ch</span><span class="p">):</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:CHANnel</span><span class="si">%d</span><span class="s1">:INVert OFF</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Channel.is_vernier">
+<a class="viewcode-back" href="../dso_channel.html#dso_channel.Channel.is_vernier">[docs]</a>
+    <span class="k">def</span> <span class="nf">is_vernier</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ch</span><span class="p">:</span><span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check the adjustment mode of vertical scale.</span>
+
+<span class="sd">        .. note:: Invalid in some models.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            ch (int): channel number</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: Invalid for this model</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bool: True or False</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">vernier</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Invalid for this model.&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_support</span><span class="p">(</span><span class="n">ch</span><span class="p">):</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;:CHANnel</span><span class="si">%d</span><span class="s1">:VERNier?</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">ch</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">&#39;ON&#39;</span> <span class="ow">in</span> <span class="n">ret</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="Channel.set_vernier_on">
+<a class="viewcode-back" href="../dso_channel.html#dso_channel.Channel.set_vernier_on">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_vernier_on</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ch</span><span class="p">:</span><span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the adjustment mode of vertical scale to ON.</span>
+
+<span class="sd">        .. note:: Invalid in some models.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            ch (int): channel number</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: Invalid for this model</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bool: True or False</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">vernier</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Invalid for this model.&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_support</span><span class="p">(</span><span class="n">ch</span><span class="p">):</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;:CHANnel</span><span class="si">%d</span><span class="s1">:VERNier ON</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">ch</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Channel.set_vernier_off">
+<a class="viewcode-back" href="../dso_channel.html#dso_channel.Channel.set_vernier_off">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_vernier_off</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ch</span><span class="p">:</span><span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the adjustment mode of vertical scale to OFF.</span>
+
+<span class="sd">        .. note:: Invalid in some models.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            ch (int): channel number</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: Invalid for this model</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bool: True or False</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">vernier</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Invalid for this model.&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_support</span><span class="p">(</span><span class="n">ch</span><span class="p">):</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;:CHANnel</span><span class="si">%d</span><span class="s1">:VERNier OFF</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">ch</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, GW Instek.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

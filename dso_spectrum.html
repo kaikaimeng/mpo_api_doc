@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dso_spectrum module &mdash; mpo_api 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="dso_timebase module" href="dso_timebase.html" />
+    <link rel="prev" title="dso_sns module" href="dso_sns.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            mpo_api
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="dso2kp.html">dso2kp module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_acquire.html">dso_acquire module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_awg.html">dso_awg module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_basic.html">dso_basic module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_channel.html">dso_channel module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_colors.html">dso_colors module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_const.html">dso_const module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_display.html">dso_display module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_dmm.html">dso_dmm module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_draw.html">dso_draw module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_gonogo.html">dso_gonogo module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_gui.html">dso_gui module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_hardcopy.html">dso_hardcopy module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_math.html">dso_math module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_meas.html">dso_meas module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_power_supply.html">dso_power_supply module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_ref.html">dso_ref module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_sns.html">dso_sns module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">dso_spectrum module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#dso_spectrum.Spectrum"><code class="docutils literal notranslate"><span class="pre">Spectrum</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dso_spectrum.Spectrum.get_freq"><code class="docutils literal notranslate"><span class="pre">Spectrum.get_freq()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_spectrum.Spectrum.get_rbw"><code class="docutils literal notranslate"><span class="pre">Spectrum.get_rbw()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_spectrum.Spectrum.get_source"><code class="docutils literal notranslate"><span class="pre">Spectrum.get_source()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_spectrum.Spectrum.get_span"><code class="docutils literal notranslate"><span class="pre">Spectrum.get_span()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_spectrum.Spectrum.get_start"><code class="docutils literal notranslate"><span class="pre">Spectrum.get_start()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_spectrum.Spectrum.get_state"><code class="docutils literal notranslate"><span class="pre">Spectrum.get_state()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_spectrum.Spectrum.get_stop"><code class="docutils literal notranslate"><span class="pre">Spectrum.get_stop()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_spectrum.Spectrum.get_trace"><code class="docutils literal notranslate"><span class="pre">Spectrum.get_trace()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_spectrum.Spectrum.get_trace_data_type"><code class="docutils literal notranslate"><span class="pre">Spectrum.get_trace_data_type()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_spectrum.Spectrum.is_RBW_Manual"><code class="docutils literal notranslate"><span class="pre">Spectrum.is_RBW_Manual()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_spectrum.Spectrum.is_spectrum_mode"><code class="docutils literal notranslate"><span class="pre">Spectrum.is_spectrum_mode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_spectrum.Spectrum.is_spectrum_trace"><code class="docutils literal notranslate"><span class="pre">Spectrum.is_spectrum_trace()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_spectrum.Spectrum.set_RBW_Manual"><code class="docutils literal notranslate"><span class="pre">Spectrum.set_RBW_Manual()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_spectrum.Spectrum.set_Span2RBW_Ratio"><code class="docutils literal notranslate"><span class="pre">Spectrum.set_Span2RBW_Ratio()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_spectrum.Spectrum.set_freq"><code class="docutils literal notranslate"><span class="pre">Spectrum.set_freq()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_spectrum.Spectrum.set_position"><code class="docutils literal notranslate"><span class="pre">Spectrum.set_position()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_spectrum.Spectrum.set_scale"><code class="docutils literal notranslate"><span class="pre">Spectrum.set_scale()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_spectrum.Spectrum.set_source"><code class="docutils literal notranslate"><span class="pre">Spectrum.set_source()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_spectrum.Spectrum.set_span"><code class="docutils literal notranslate"><span class="pre">Spectrum.set_span()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_spectrum.Spectrum.set_spectrum_mode"><code class="docutils literal notranslate"><span class="pre">Spectrum.set_spectrum_mode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_spectrum.Spectrum.set_spectrum_trace"><code class="docutils literal notranslate"><span class="pre">Spectrum.set_spectrum_trace()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_spectrum.Spectrum.set_start"><code class="docutils literal notranslate"><span class="pre">Spectrum.set_start()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_spectrum.Spectrum.set_state"><code class="docutils literal notranslate"><span class="pre">Spectrum.set_state()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_spectrum.Spectrum.set_stop"><code class="docutils literal notranslate"><span class="pre">Spectrum.set_stop()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_spectrum.Spectrum.set_trace_data_type"><code class="docutils literal notranslate"><span class="pre">Spectrum.set_trace_data_type()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_spectrum.Spectrum.set_window"><code class="docutils literal notranslate"><span class="pre">Spectrum.set_window()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dso_timebase.html">dso_timebase module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_trigger.html">dso_trigger module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="load.html">load module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psw.html">psw module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">mpo_api</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">dso_spectrum module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/dso_spectrum.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-dso_spectrum">
+<span id="dso-spectrum-module"></span><h1>dso_spectrum module<a class="headerlink" href="#module-dso_spectrum" title="Link to this heading"></a></h1>
+<p>Spectrum mode control on the DSO.</p>
+<p>Basic control functions for the spectrum mode.</p>
+<p>Typical usage example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dso2ke</span> <span class="k">as</span> <span class="nn">gds</span>
+
+<span class="c1"># Create a Dso instance, myDso, and get connected to it.</span>
+<span class="n">myDso</span> <span class="o">=</span> <span class="n">gds</span><span class="o">.</span><span class="n">Dso</span><span class="p">()</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">myDso</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">3000</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Socket connection failed.&#39;</span><span class="p">)</span>
+
+<span class="c1"># Activate spectrum mode</span>
+<span class="n">myDso</span><span class="o">.</span><span class="n">sa</span><span class="o">.</span><span class="n">set_spectrum_mode</span><span class="p">(</span><span class="s1">&#39;ON&#39;</span><span class="p">)</span>
+
+<span class="c1"># Configure SA parameters: center and span frequency</span>
+<span class="n">myDso</span><span class="o">.</span><span class="n">sa</span><span class="o">.</span><span class="n">set_freq</span><span class="p">(</span><span class="mf">10e6</span><span class="p">)</span>
+<span class="n">myDso</span><span class="o">.</span><span class="n">sa</span><span class="o">.</span><span class="n">set_span</span><span class="p">(</span><span class="mf">10e6</span><span class="p">)</span>
+
+<span class="c1"># Exit the spectrum mode</span>
+<span class="n">myDso</span><span class="o">.</span><span class="n">sa</span><span class="o">.</span><span class="n">set_spectrum_mode</span><span class="p">(</span><span class="s1">&#39;OFF&#39;</span><span class="p">)</span>
+
+<span class="n">myDso</span><span class="o">.</span><span class="n">close</span><span class="p">()</span> <span class="c1"># Clean-up</span>
+</pre></div>
+</div>
+<dl class="py class">
+<dt class="sig sig-object py" id="dso_spectrum.Spectrum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dso_spectrum.</span></span><span class="sig-name descname"><span class="pre">Spectrum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_instances</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_spectrum.html#Spectrum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_spectrum.Spectrum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This module controls the spectrum analyzer(SA) on the DSO.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_spectrum.Spectrum.get_freq">
+<span class="sig-name descname"><span class="pre">get_freq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/dso_spectrum.html#Spectrum.get_freq"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_spectrum.Spectrum.get_freq" title="Link to this definition"></a></dt>
+<dd><p>Get center frequency of a SA instance</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_spectrum.Spectrum.get_rbw">
+<span class="sig-name descname"><span class="pre">get_rbw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/dso_spectrum.html#Spectrum.get_rbw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_spectrum.Spectrum.get_rbw" title="Link to this definition"></a></dt>
+<dd><p>Get RBW of a SA instance</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_spectrum.Spectrum.get_source">
+<span class="sig-name descname"><span class="pre">get_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/dso_spectrum.html#Spectrum.get_source"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_spectrum.Spectrum.get_source" title="Link to this definition"></a></dt>
+<dd><p>Get input source of a SA instance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>_id</strong> (<em>int</em>) – 0 for single SA(optional) while 1,2, .. and etc for multi-SAs</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>1:CH1, 2:CH2, and etc.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ch (int)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_spectrum.Spectrum.get_span">
+<span class="sig-name descname"><span class="pre">get_span</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/dso_spectrum.html#Spectrum.get_span"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_spectrum.Spectrum.get_span" title="Link to this definition"></a></dt>
+<dd><p>Get span frequency of a SA instance</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_spectrum.Spectrum.get_start">
+<span class="sig-name descname"><span class="pre">get_start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/dso_spectrum.html#Spectrum.get_start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_spectrum.Spectrum.get_start" title="Link to this definition"></a></dt>
+<dd><p>Get start frequency of a SA instance</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_spectrum.Spectrum.get_state">
+<span class="sig-name descname"><span class="pre">get_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/dso_spectrum.html#Spectrum.get_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_spectrum.Spectrum.get_state" title="Link to this definition"></a></dt>
+<dd><p>Get ON/OFF state of a SA instance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>_id</strong> (<em>int</em>) – 0 for single SA(optional) while 1,2, .. and etc for multi-SAs</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True for the ‘ON’ state, False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_spectrum.Spectrum.get_stop">
+<span class="sig-name descname"><span class="pre">get_stop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/dso_spectrum.html#Spectrum.get_stop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_spectrum.Spectrum.get_stop" title="Link to this definition"></a></dt>
+<dd><p>Get stop frequency of a SA instance</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_spectrum.Spectrum.get_trace">
+<span class="sig-name descname"><span class="pre">get_trace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trace_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference internal" href="_modules/dso_spectrum.html#Spectrum.get_trace"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_spectrum.Spectrum.get_trace" title="Link to this definition"></a></dt>
+<dd><p>Get trace data of a SA instance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>trace_type</strong> (<em>str</em>) – NORMAL, AVERAGE, MAXHOLD, MINHOLD</p></li>
+<li><p><strong>_id</strong> (<em>int</em>) – 0 for single SA(optional) while 1,2, .. and etc for multi-SAs</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>spectrum data represented in 8-bit wordlength.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>trace_data (list)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_spectrum.Spectrum.get_trace_data_type">
+<span class="sig-name descname"><span class="pre">get_trace_data_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_spectrum.html#Spectrum.get_trace_data_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_spectrum.Spectrum.get_trace_data_type" title="Link to this definition"></a></dt>
+<dd><p>Get trace data type after set_trace_data_type().</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>_id</strong> (<em>int</em>) – 0 for single SA(optional) while 1,2, .. and etc for multi-SAs</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>NORMAL, AVERAGE, MAXHOLD, MINHOLD</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ret (str)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_spectrum.Spectrum.is_RBW_Manual">
+<span class="sig-name descname"><span class="pre">is_RBW_Manual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/dso_spectrum.html#Spectrum.is_RBW_Manual"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_spectrum.Spectrum.is_RBW_Manual" title="Link to this definition"></a></dt>
+<dd><p>Check for manual-RBW mode</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>_id</strong> (<em>int</em>) – 0 for single SA(optional) while 1,2, .. and etc for multi-SAs</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if manual-RBW mode, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_spectrum.Spectrum.is_spectrum_mode">
+<span class="sig-name descname"><span class="pre">is_spectrum_mode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/dso_spectrum.html#Spectrum.is_spectrum_mode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_spectrum.Spectrum.is_spectrum_mode" title="Link to this definition"></a></dt>
+<dd><p>Get state of the spectrum mode</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if present state is the spectrum mode. False otherwise.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_spectrum.Spectrum.is_spectrum_trace">
+<span class="sig-name descname"><span class="pre">is_spectrum_trace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trace_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/dso_spectrum.html#Spectrum.is_spectrum_trace"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_spectrum.Spectrum.is_spectrum_trace" title="Link to this definition"></a></dt>
+<dd><p>Get display state of a given spectrum trace</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>trace_type</strong> (<em>str</em>) – NORMAL, AVERAGE, MAXHOLD, or MINHOLD</p></li>
+<li><p><strong>_id</strong> (<em>int</em>) – 0 for single SA(optional) while 1,2, .. and etc for multi-SAs</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the trace is ‘ON’. False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_spectrum.Spectrum.set_RBW_Manual">
+<span class="sig-name descname"><span class="pre">set_RBW_Manual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rbw</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/dso_spectrum.html#Spectrum.set_RBW_Manual"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_spectrum.Spectrum.set_RBW_Manual" title="Link to this definition"></a></dt>
+<dd><p>Set manual-RBW value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rbw</strong> (<em>float</em>) – manual-RBW value to set</p></li>
+<li><p><strong>_id</strong> (<em>int</em>) – 0 for single SA(optional) while 1,2, .. and etc for multi-SAs</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_spectrum.Spectrum.set_Span2RBW_Ratio">
+<span class="sig-name descname"><span class="pre">set_Span2RBW_Ratio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ratio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/dso_spectrum.html#Spectrum.set_Span2RBW_Ratio"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_spectrum.Spectrum.set_Span2RBW_Ratio" title="Link to this definition"></a></dt>
+<dd><p>Set ratio of span over rbw in auto-RBW mode.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ratio</strong> (<em>str</em>) – RATIO_1K, RATIO_2K, or RATIO_5K</p></li>
+<li><p><strong>_id</strong> (<em>int</em>) – 0 for single SA(optional) while 1,2, .. and etc for multi-SAs</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_spectrum.Spectrum.set_freq">
+<span class="sig-name descname"><span class="pre">set_freq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">freq</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/dso_spectrum.html#Spectrum.set_freq"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_spectrum.Spectrum.set_freq" title="Link to this definition"></a></dt>
+<dd><p>Set center frequency of a SA instance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>freq</strong> (<em>float</em>) – frequency in Hz</p></li>
+<li><p><strong>_id</strong> (<em>int</em>) – 0 for single SA(optional) while 1,2, .. and etc for multi-SAs</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_spectrum.Spectrum.set_position">
+<span class="sig-name descname"><span class="pre">set_position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/dso_spectrum.html#Spectrum.set_position"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_spectrum.Spectrum.set_position" title="Link to this definition"></a></dt>
+<dd><p>Vertical offset for spectrum traces</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>position</strong> (<em>float</em>) – set value in unit of Div.</p></li>
+<li><p><strong>_id</strong> (<em>int</em>) – 0 for single SA(optional) while 1,2, .. and etc for multi-SAs</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_spectrum.Spectrum.set_scale">
+<span class="sig-name descname"><span class="pre">set_scale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/dso_spectrum.html#Spectrum.set_scale"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_spectrum.Spectrum.set_scale" title="Link to this definition"></a></dt>
+<dd><p>Scale of spectrum magnitude</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scale</strong> (<em>float</em>) – value of scale</p></li>
+<li><p><strong>unit</strong> (<em>int</em><em>, </em><em>optional</em>) – unit of the scale, kUnit_db, kUnit_Lin, or kUnit_dbm</p></li>
+<li><p><strong>_id</strong> (<em>int</em>) – 0 for single SA(optional) while 1,2, .. and etc for multi-SAs</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_spectrum.Spectrum.set_source">
+<span class="sig-name descname"><span class="pre">set_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_spectrum.html#Spectrum.set_source"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_spectrum.Spectrum.set_source" title="Link to this definition"></a></dt>
+<dd><p>Set input source for a SA instance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>_id</strong> (<em>int</em>) – 0 for single SA(optional) while 1,2, .. and etc for multi-SAs</p></li>
+<li><p><strong>source</strong> (<em>int</em>) – 1:CH1, 2:CH2, and etc.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_spectrum.Spectrum.set_span">
+<span class="sig-name descname"><span class="pre">set_span</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">freq</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/dso_spectrum.html#Spectrum.set_span"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_spectrum.Spectrum.set_span" title="Link to this definition"></a></dt>
+<dd><p>Set span frequency of a SA instance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>freq</strong> (<em>float</em>) – frequency in Hz</p></li>
+<li><p><strong>_id</strong> (<em>int</em>) – 0 for single SA(optional) while 1,2, .. and etc for multi-SAs</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_spectrum.Spectrum.set_spectrum_mode">
+<span class="sig-name descname"><span class="pre">set_spectrum_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/dso_spectrum.html#Spectrum.set_spectrum_mode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_spectrum.Spectrum.set_spectrum_mode" title="Link to this definition"></a></dt>
+<dd><p>Set state of the spectrum mode</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> (<em>str</em>) – ON or OFF</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_spectrum.Spectrum.set_spectrum_trace">
+<span class="sig-name descname"><span class="pre">set_spectrum_trace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trace_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/dso_spectrum.html#Spectrum.set_spectrum_trace"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_spectrum.Spectrum.set_spectrum_trace" title="Link to this definition"></a></dt>
+<dd><p>Set traces on and off</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>trace_type</strong> (<em>str</em>) – NORMAL, AVERAGE, MAXHOLD, or MINHOLD</p></li>
+<li><p><strong>state</strong> (<em>str</em>) – ON or OFF</p></li>
+<li><p><strong>_id</strong> (<em>int</em>) – 0 for single SA(optional) while 1,2, .. and etc for multi-SAs</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_spectrum.Spectrum.set_start">
+<span class="sig-name descname"><span class="pre">set_start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">freq</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/dso_spectrum.html#Spectrum.set_start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_spectrum.Spectrum.set_start" title="Link to this definition"></a></dt>
+<dd><p>Set start frequency of a SA instance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>freq</strong> (<em>float</em>) – frequency in Hz</p></li>
+<li><p><strong>_id</strong> (<em>int</em>) – 0 for single SA(optional) while 1,2, .. and etc for multi-SAs</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_spectrum.Spectrum.set_state">
+<span class="sig-name descname"><span class="pre">set_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/dso_spectrum.html#Spectrum.set_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_spectrum.Spectrum.set_state" title="Link to this definition"></a></dt>
+<dd><p>Set ON/OFF state of a SA instance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> (<em>str</em>) – ON or OFF</p></li>
+<li><p><strong>_id</strong> (<em>int</em>) – 0 for single SA(optional) while 1,2, .. and etc for multi-SAs</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_spectrum.Spectrum.set_stop">
+<span class="sig-name descname"><span class="pre">set_stop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">freq</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/dso_spectrum.html#Spectrum.set_stop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_spectrum.Spectrum.set_stop" title="Link to this definition"></a></dt>
+<dd><p>Set stop frequency of a SA instance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>freq</strong> (<em>float</em>) – frequency in Hz</p></li>
+<li><p><strong>_id</strong> (<em>int</em>) – 0 for single SA(optional) while 1,2, .. and etc for multi-SAs</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_spectrum.Spectrum.set_trace_data_type">
+<span class="sig-name descname"><span class="pre">set_trace_data_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trace_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/dso_spectrum.html#Spectrum.set_trace_data_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_spectrum.Spectrum.set_trace_data_type" title="Link to this definition"></a></dt>
+<dd><p>Set trace type before retrieving the trace data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>trace_type</strong> (<em>str</em>) – NORMAL, AVERAGE, MAXHOLD, MINHOLD</p></li>
+<li><p><strong>_id</strong> (<em>int</em>) – 0 for single SA(optional) while 1,2, .. and etc for multi-SAs</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if set successfully. False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_spectrum.Spectrum.set_window">
+<span class="sig-name descname"><span class="pre">set_window</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/dso_spectrum.html#Spectrum.set_window"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_spectrum.Spectrum.set_window" title="Link to this definition"></a></dt>
+<dd><p>Window function for spectrum analysis</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>window</strong> (<em>int</em><em>, </em><em>optional</em>) – <p>Choose one of the following window functions
+to trade-off amplitude accurary and side-lobe reduction.</p>
+<p>kRectWin    for Rectangular
+kHammingWin for Hamming
+kHanningWin for Hann(default)
+kBlackmanWin for Blackman</p>
+</p></li>
+<li><p><strong>_id</strong> (<em>int</em>) – 0 for single SA(optional) while 1,2, .. and etc for multi-SAs</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="dso_sns.html" class="btn btn-neutral float-left" title="dso_sns module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="dso_timebase.html" class="btn btn-neutral float-right" title="dso_timebase module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, GW Instek.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

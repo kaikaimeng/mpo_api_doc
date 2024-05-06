@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dso_sns module &mdash; mpo_api 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="dso_spectrum module" href="dso_spectrum.html" />
+    <link rel="prev" title="dso_ref module" href="dso_ref.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            mpo_api
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="dso2kp.html">dso2kp module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_acquire.html">dso_acquire module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_awg.html">dso_awg module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_basic.html">dso_basic module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_channel.html">dso_channel module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_colors.html">dso_colors module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_const.html">dso_const module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_display.html">dso_display module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_dmm.html">dso_dmm module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_draw.html">dso_draw module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_gonogo.html">dso_gonogo module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_gui.html">dso_gui module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_hardcopy.html">dso_hardcopy module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_math.html">dso_math module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_meas.html">dso_meas module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_power_supply.html">dso_power_supply module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_ref.html">dso_ref module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">dso_sns module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#dso_sns.LineNotify"><code class="docutils literal notranslate"><span class="pre">LineNotify</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dso_sns.LineNotify.make_data"><code class="docutils literal notranslate"><span class="pre">LineNotify.make_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_sns.LineNotify.send"><code class="docutils literal notranslate"><span class="pre">LineNotify.send()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dso_spectrum.html">dso_spectrum module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_timebase.html">dso_timebase module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_trigger.html">dso_trigger module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="load.html">load module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psw.html">psw module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">mpo_api</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">dso_sns module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/dso_sns.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-dso_sns">
+<span id="dso-sns-module"></span><h1>dso_sns module<a class="headerlink" href="#module-dso_sns" title="Link to this heading"></a></h1>
+<p>This module can send some message to SNS</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="dso_sns.LineNotify">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dso_sns.</span></span><span class="sig-name descname"><span class="pre">LineNotify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_sns.html#LineNotify"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_sns.LineNotify" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This can send Line Notify.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Need to have your own token, <a class="reference external" href="https://notify-bot.line.me/en/">https://notify-bot.line.me/en/</a></p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Need configure your network DNS settings.</p>
+</div>
+<p><strong>Useage:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dso_sns</span>
+<span class="n">TOKEN</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">your</span> <span class="n">tiken</span><span class="o">&gt;</span>
+<span class="n">l</span> <span class="o">=</span> <span class="n">dso_sns</span><span class="o">.</span><span class="n">LineNotify</span><span class="p">(</span><span class="n">TOKEN</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">make_data</span><span class="p">(</span><span class="s1">&#39;Message&#39;</span><span class="p">)</span>
+<span class="n">l</span><span class="o">.</span><span class="n">sned</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_sns.LineNotify.make_data">
+<span class="sig-name descname"><span class="pre">make_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stickerPackageId</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stickerId</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">imageFile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">imageThumbnail</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">imageFullsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/dso_sns.html#LineNotify.make_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_sns.LineNotify.make_data" title="Link to this definition"></a></dt>
+<dd><p>This can prepare your data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>msg</strong> (<em>str</em>) – The message you want to send, it’s necessarily.</p></li>
+<li><p><strong>stickerPackageId</strong> (<em>int</em><em>, </em><em>optional</em>) – <p>The sticker package ID.</p>
+<p>Defaults to None.</p>
+</p></li>
+<li><p><strong>stickerId</strong> (<em>int</em><em>, </em><em>optional</em>) – <p>The sticker ID.</p>
+<p>Defaults to None.</p>
+</p></li>
+<li><p><strong>imageFile</strong> (<em>str</em><em>, </em><em>optional</em>) – <p>The local image path.</p>
+<p>Defaults to None.</p>
+</p></li>
+<li><p><strong>imageThumbnail</strong> (<em>str</em><em>, </em><em>optional</em>) – <p>The HTTP image URL.</p>
+<p>Defaults to None.</p>
+</p></li>
+<li><p><strong>imageFullsize</strong> (<em>str</em><em>, </em><em>optional</em>) – <p>The HTTP image URL.</p>
+<p>Defaults to None.</p>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>data</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The sticker info is here <a class="reference external" href="https://developers.line.biz/en/docs/messaging-api/sticker-list/#specify-sticker-in-message-object">https://developers.line.biz/en/docs/messaging-api/sticker-list/#specify-sticker-in-message-object</a></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you specified imageThumbnail ,imageFullsize and imageFile, imageFile takes precedence.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_sns.LineNotify.send">
+<span class="sig-name descname"><span class="pre">send</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_sns.html#LineNotify.send"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_sns.LineNotify.send" title="Link to this definition"></a></dt>
+<dd><p>Send your data to Line Notify</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>dict</em>) – data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="dso_ref.html" class="btn btn-neutral float-left" title="dso_ref module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="dso_spectrum.html" class="btn btn-neutral float-right" title="dso_spectrum module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, GW Instek.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

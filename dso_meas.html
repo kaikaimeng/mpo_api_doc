@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dso_meas module &mdash; mpo_api 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="dso_power_supply module" href="dso_power_supply.html" />
+    <link rel="prev" title="dso_math module" href="dso_math.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            mpo_api
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="dso2kp.html">dso2kp module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_acquire.html">dso_acquire module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_awg.html">dso_awg module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_basic.html">dso_basic module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_channel.html">dso_channel module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_colors.html">dso_colors module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_const.html">dso_const module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_display.html">dso_display module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_dmm.html">dso_dmm module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_draw.html">dso_draw module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_gonogo.html">dso_gonogo module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_gui.html">dso_gui module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_hardcopy.html">dso_hardcopy module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_math.html">dso_math module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">dso_meas module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#dso_meas.Measure"><code class="docutils literal notranslate"><span class="pre">Measure</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.add"><code class="docutils literal notranslate"><span class="pre">Measure.add()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.get_amplitude"><code class="docutils literal notranslate"><span class="pre">Measure.get_amplitude()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.get_area"><code class="docutils literal notranslate"><span class="pre">Measure.get_area()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.get_cyclearea"><code class="docutils literal notranslate"><span class="pre">Measure.get_cyclearea()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.get_cyclemean"><code class="docutils literal notranslate"><span class="pre">Measure.get_cyclemean()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.get_cyclerms"><code class="docutils literal notranslate"><span class="pre">Measure.get_cyclerms()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.get_fallovershoot"><code class="docutils literal notranslate"><span class="pre">Measure.get_fallovershoot()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.get_fallpreshoot"><code class="docutils literal notranslate"><span class="pre">Measure.get_fallpreshoot()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.get_falltime"><code class="docutils literal notranslate"><span class="pre">Measure.get_falltime()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.get_fff"><code class="docutils literal notranslate"><span class="pre">Measure.get_fff()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.get_ffr"><code class="docutils literal notranslate"><span class="pre">Measure.get_ffr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.get_flickindex"><code class="docutils literal notranslate"><span class="pre">Measure.get_flickindex()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.get_flickindex_percent"><code class="docutils literal notranslate"><span class="pre">Measure.get_flickindex_percent()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.get_frequency"><code class="docutils literal notranslate"><span class="pre">Measure.get_frequency()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.get_frf"><code class="docutils literal notranslate"><span class="pre">Measure.get_frf()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.get_frr"><code class="docutils literal notranslate"><span class="pre">Measure.get_frr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.get_high"><code class="docutils literal notranslate"><span class="pre">Measure.get_high()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.get_lff"><code class="docutils literal notranslate"><span class="pre">Measure.get_lff()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.get_lfr"><code class="docutils literal notranslate"><span class="pre">Measure.get_lfr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.get_low"><code class="docutils literal notranslate"><span class="pre">Measure.get_low()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.get_lrf"><code class="docutils literal notranslate"><span class="pre">Measure.get_lrf()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.get_lrr"><code class="docutils literal notranslate"><span class="pre">Measure.get_lrr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.get_max"><code class="docutils literal notranslate"><span class="pre">Measure.get_max()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.get_mean"><code class="docutils literal notranslate"><span class="pre">Measure.get_mean()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.get_min"><code class="docutils literal notranslate"><span class="pre">Measure.get_min()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.get_neg_edge"><code class="docutils literal notranslate"><span class="pre">Measure.get_neg_edge()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.get_neg_pulse"><code class="docutils literal notranslate"><span class="pre">Measure.get_neg_pulse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.get_neg_width"><code class="docutils literal notranslate"><span class="pre">Measure.get_neg_width()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.get_period"><code class="docutils literal notranslate"><span class="pre">Measure.get_period()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.get_phase"><code class="docutils literal notranslate"><span class="pre">Measure.get_phase()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.get_pos_duty"><code class="docutils literal notranslate"><span class="pre">Measure.get_pos_duty()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.get_pos_edge"><code class="docutils literal notranslate"><span class="pre">Measure.get_pos_edge()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.get_pos_pulse"><code class="docutils literal notranslate"><span class="pre">Measure.get_pos_pulse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.get_pos_width"><code class="docutils literal notranslate"><span class="pre">Measure.get_pos_width()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.get_reference_levels"><code class="docutils literal notranslate"><span class="pre">Measure.get_reference_levels()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.get_riseovershoot"><code class="docutils literal notranslate"><span class="pre">Measure.get_riseovershoot()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.get_risepreshoot"><code class="docutils literal notranslate"><span class="pre">Measure.get_risepreshoot()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.get_risetime"><code class="docutils literal notranslate"><span class="pre">Measure.get_risetime()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.get_rms"><code class="docutils literal notranslate"><span class="pre">Measure.get_rms()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.get_vpp"><code class="docutils literal notranslate"><span class="pre">Measure.get_vpp()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.help"><code class="docutils literal notranslate"><span class="pre">Measure.help()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.is_on"><code class="docutils literal notranslate"><span class="pre">Measure.is_on()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.remove"><code class="docutils literal notranslate"><span class="pre">Measure.remove()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.remove_all"><code class="docutils literal notranslate"><span class="pre">Measure.remove_all()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.reset_reference_levels"><code class="docutils literal notranslate"><span class="pre">Measure.reset_reference_levels()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.set_reference_levels"><code class="docutils literal notranslate"><span class="pre">Measure.set_reference_levels()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_meas.Measure.update"><code class="docutils literal notranslate"><span class="pre">Measure.update()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#dso_meas.MeasureError"><code class="docutils literal notranslate"><span class="pre">MeasureError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dso_meas.remove_measure_all"><code class="docutils literal notranslate"><span class="pre">remove_measure_all()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dso_meas.update_measure"><code class="docutils literal notranslate"><span class="pre">update_measure()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dso_power_supply.html">dso_power_supply module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_ref.html">dso_ref module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_sns.html">dso_sns module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_spectrum.html">dso_spectrum module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_timebase.html">dso_timebase module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_trigger.html">dso_trigger module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="load.html">load module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psw.html">psw module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">mpo_api</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">dso_meas module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/dso_meas.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-dso_meas">
+<span id="dso-meas-module"></span><h1>dso_meas module<a class="headerlink" href="#module-dso_meas" title="Link to this heading"></a></h1>
+<p>Perform automated measurements on the DSO.</p>
+<p>Basic signal parameters in both vertical and horizontal dimensions are
+calculated using the atuomated measurement functions.</p>
+<p>Typical usage example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dso_const</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">dso2ke</span> <span class="k">as</span> <span class="nn">gds</span>
+
+<span class="c1"># Create a Dso instance, myDso, and get connected to it.</span>
+<span class="n">myDso</span> <span class="o">=</span> <span class="n">gds</span><span class="o">.</span><span class="n">Dso</span><span class="p">()</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">myDso</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">3000</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Socket connection failed.&#39;</span><span class="p">)</span>
+
+<span class="c1"># List all supported measurements in the REPL</span>
+<span class="n">myDso</span><span class="o">.</span><span class="n">meas</span><span class="o">.</span><span class="n">help</span><span class="p">()</span>
+
+<span class="c1"># Perform automated measurements on input sources.</span>
+<span class="n">vmax</span> <span class="o">=</span> <span class="n">myDso</span><span class="o">.</span><span class="n">meas</span><span class="o">.</span><span class="n">get_max</span><span class="p">(</span><span class="n">kCH1</span><span class="p">)</span>
+<span class="n">freq</span> <span class="o">=</span> <span class="n">myDso</span><span class="o">.</span><span class="n">meas</span><span class="o">.</span><span class="n">get_frequency</span><span class="p">(</span><span class="n">kCH1</span><span class="p">)</span>
+<span class="n">phase</span> <span class="o">=</span> <span class="n">myDso</span><span class="o">.</span><span class="n">meas</span><span class="o">.</span><span class="n">get_phase</span><span class="p">(</span><span class="n">kCH1</span><span class="p">,</span> <span class="n">kCH2</span><span class="p">)</span>
+<span class="n">vpp_math</span> <span class="o">=</span> <span class="n">myDso</span><span class="o">.</span><span class="n">meas</span><span class="o">.</span><span class="n">get_vpp</span><span class="p">(</span><span class="n">kMATH1</span><span class="p">)</span>
+
+<span class="c1"># Control of active measurements</span>
+<span class="n">myDso</span><span class="o">.</span><span class="n">meas</span><span class="o">.</span><span class="n">update</span><span class="p">()</span> <span class="c1"># update from current active measurements</span>
+<span class="n">myDso</span><span class="o">.</span><span class="n">meas</span><span class="o">.</span><span class="n">remove_all</span><span class="p">()</span> <span class="c1"># Clean up all active measurements</span>
+<span class="n">myDso</span><span class="o">.</span><span class="n">meas</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">,</span> <span class="n">kCH1</span><span class="p">)</span>
+<span class="n">myDso</span><span class="o">.</span><span class="n">meas</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;phase&#39;</span><span class="p">,</span> <span class="n">kCH1</span><span class="p">,</span> <span class="n">kCH2</span><span class="p">)</span>
+<span class="n">phase_diff</span> <span class="o">=</span> <span class="n">myDso</span><span class="o">.</span><span class="n">meas</span><span class="o">.</span><span class="n">_value</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">myDso</span><span class="o">.</span><span class="n">meas</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py class">
+<dt class="sig sig-object py" id="dso_meas.Measure">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dso_meas.</span></span><span class="sig-name descname"><span class="pre">Measure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_meas.html#Measure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This module controls the automated measurement function on the DSO.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.add">
+<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meas</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/dso_meas.html#Measure.add"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.add" title="Link to this definition"></a></dt>
+<dd><p>Add new measurment items or change existing ones.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>item</strong> (<em>int</em>) – measurement of interested ranges in 1 to a maximum item,
+which is 8 by default.</p></li>
+<li><p><strong>meas</strong> (<em>str</em>) – index key for a given measurement defined in
+dso_meas.Measure.all_measures.</p></li>
+<li><p><strong>args</strong> (<em>int</em>) – source(s) with respect to a given measurement above.
+See dso_meas.Measure.supported_sources.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#dso_meas.MeasureError" title="dso_meas.MeasureError"><strong>MeasureError</strong></a> – An error occurred parsing the input argument.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.get_amplitude">
+<span class="sig-name descname"><span class="pre">get_amplitude</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_meas.html#Measure.get_amplitude"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.get_amplitude" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.get_area">
+<span class="sig-name descname"><span class="pre">get_area</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_meas.html#Measure.get_area"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.get_area" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.get_cyclearea">
+<span class="sig-name descname"><span class="pre">get_cyclearea</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_meas.html#Measure.get_cyclearea"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.get_cyclearea" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.get_cyclemean">
+<span class="sig-name descname"><span class="pre">get_cyclemean</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_meas.html#Measure.get_cyclemean"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.get_cyclemean" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.get_cyclerms">
+<span class="sig-name descname"><span class="pre">get_cyclerms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_meas.html#Measure.get_cyclerms"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.get_cyclerms" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.get_fallovershoot">
+<span class="sig-name descname"><span class="pre">get_fallovershoot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_meas.html#Measure.get_fallovershoot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.get_fallovershoot" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.get_fallpreshoot">
+<span class="sig-name descname"><span class="pre">get_fallpreshoot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_meas.html#Measure.get_fallpreshoot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.get_fallpreshoot" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.get_falltime">
+<span class="sig-name descname"><span class="pre">get_falltime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_meas.html#Measure.get_falltime"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.get_falltime" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.get_fff">
+<span class="sig-name descname"><span class="pre">get_fff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_meas.html#Measure.get_fff"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.get_fff" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.get_ffr">
+<span class="sig-name descname"><span class="pre">get_ffr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_meas.html#Measure.get_ffr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.get_ffr" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.get_flickindex">
+<span class="sig-name descname"><span class="pre">get_flickindex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_meas.html#Measure.get_flickindex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.get_flickindex" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.get_flickindex_percent">
+<span class="sig-name descname"><span class="pre">get_flickindex_percent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_meas.html#Measure.get_flickindex_percent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.get_flickindex_percent" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.get_frequency">
+<span class="sig-name descname"><span class="pre">get_frequency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_meas.html#Measure.get_frequency"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.get_frequency" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.get_frf">
+<span class="sig-name descname"><span class="pre">get_frf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_meas.html#Measure.get_frf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.get_frf" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.get_frr">
+<span class="sig-name descname"><span class="pre">get_frr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_meas.html#Measure.get_frr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.get_frr" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.get_high">
+<span class="sig-name descname"><span class="pre">get_high</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_meas.html#Measure.get_high"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.get_high" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.get_lff">
+<span class="sig-name descname"><span class="pre">get_lff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_meas.html#Measure.get_lff"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.get_lff" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.get_lfr">
+<span class="sig-name descname"><span class="pre">get_lfr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_meas.html#Measure.get_lfr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.get_lfr" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.get_low">
+<span class="sig-name descname"><span class="pre">get_low</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_meas.html#Measure.get_low"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.get_low" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.get_lrf">
+<span class="sig-name descname"><span class="pre">get_lrf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_meas.html#Measure.get_lrf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.get_lrf" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.get_lrr">
+<span class="sig-name descname"><span class="pre">get_lrr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_meas.html#Measure.get_lrr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.get_lrr" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.get_max">
+<span class="sig-name descname"><span class="pre">get_max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_meas.html#Measure.get_max"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.get_max" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.get_mean">
+<span class="sig-name descname"><span class="pre">get_mean</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_meas.html#Measure.get_mean"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.get_mean" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.get_min">
+<span class="sig-name descname"><span class="pre">get_min</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_meas.html#Measure.get_min"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.get_min" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.get_neg_edge">
+<span class="sig-name descname"><span class="pre">get_neg_edge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_meas.html#Measure.get_neg_edge"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.get_neg_edge" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.get_neg_pulse">
+<span class="sig-name descname"><span class="pre">get_neg_pulse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_meas.html#Measure.get_neg_pulse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.get_neg_pulse" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.get_neg_width">
+<span class="sig-name descname"><span class="pre">get_neg_width</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_meas.html#Measure.get_neg_width"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.get_neg_width" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.get_period">
+<span class="sig-name descname"><span class="pre">get_period</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_meas.html#Measure.get_period"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.get_period" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.get_phase">
+<span class="sig-name descname"><span class="pre">get_phase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_meas.html#Measure.get_phase"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.get_phase" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.get_pos_duty">
+<span class="sig-name descname"><span class="pre">get_pos_duty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_meas.html#Measure.get_pos_duty"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.get_pos_duty" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.get_pos_edge">
+<span class="sig-name descname"><span class="pre">get_pos_edge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_meas.html#Measure.get_pos_edge"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.get_pos_edge" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.get_pos_pulse">
+<span class="sig-name descname"><span class="pre">get_pos_pulse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_meas.html#Measure.get_pos_pulse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.get_pos_pulse" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.get_pos_width">
+<span class="sig-name descname"><span class="pre">get_pos_width</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_meas.html#Measure.get_pos_width"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.get_pos_width" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.get_reference_levels">
+<span class="sig-name descname"><span class="pre">get_reference_levels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'percent'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/dso_meas.html#Measure.get_reference_levels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.get_reference_levels" title="Link to this definition"></a></dt>
+<dd><p>Get reference settings for measurements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>settings in a dict form.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>_levels (dict)</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#dso_meas.MeasureError" title="dso_meas.MeasureError"><strong>MeasureError</strong></a> – An error occurred parsing the input argument.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.get_riseovershoot">
+<span class="sig-name descname"><span class="pre">get_riseovershoot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_meas.html#Measure.get_riseovershoot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.get_riseovershoot" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.get_risepreshoot">
+<span class="sig-name descname"><span class="pre">get_risepreshoot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_meas.html#Measure.get_risepreshoot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.get_risepreshoot" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.get_risetime">
+<span class="sig-name descname"><span class="pre">get_risetime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_meas.html#Measure.get_risetime"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.get_risetime" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.get_rms">
+<span class="sig-name descname"><span class="pre">get_rms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_meas.html#Measure.get_rms"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.get_rms" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.get_vpp">
+<span class="sig-name descname"><span class="pre">get_vpp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_meas.html#Measure.get_vpp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.get_vpp" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.help">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">help</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_meas.html#Measure.help"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.help" title="Link to this definition"></a></dt>
+<dd><p>Show all available measurements</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.is_on">
+<span class="sig-name descname"><span class="pre">is_on</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/dso_meas.html#Measure.is_on"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.is_on" title="Link to this definition"></a></dt>
+<dd><p>Check state of a given measurement item.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>item</strong> (<em>int</em>) – measurement of interested ranges in 1 to a maximum item,
+which is 8 by default.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the state of a given measurement is ‘ON’ else False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.remove">
+<span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/dso_meas.html#Measure.remove"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.remove" title="Link to this definition"></a></dt>
+<dd><p>Remove existing measurment items</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>item</strong> (<em>int</em>) – measurement of interested ranges in 1 to a maximum item,
+which is 8 by default.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#dso_meas.MeasureError" title="dso_meas.MeasureError"><strong>MeasureError</strong></a> – An error occurred for non-existed items.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.remove_all">
+<span class="sig-name descname"><span class="pre">remove_all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/dso_meas.html#Measure.remove_all"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.remove_all" title="Link to this definition"></a></dt>
+<dd><p>Remove all active measurements on the instrument.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.reset_reference_levels">
+<span class="sig-name descname"><span class="pre">reset_reference_levels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'percent'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/dso_meas.html#Measure.reset_reference_levels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.reset_reference_levels" title="Link to this definition"></a></dt>
+<dd><p>Set reference levels to defaults.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>unit</strong> (<em>str</em><em>, </em><em>optional</em>) – unit of reference levels</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#dso_meas.MeasureError" title="dso_meas.MeasureError"><strong>MeasureError</strong></a> – An error occurred parsing the input argument.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.set_reference_levels">
+<span class="sig-name descname"><span class="pre">set_reference_levels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rlvls</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'percent'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/dso_meas.html#Measure.set_reference_levels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.set_reference_levels" title="Link to this definition"></a></dt>
+<dd><p>Setup reference levels in a dict form.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rlvls</strong> (<em>dict</em>) – reference levels</p></li>
+<li><p><strong>unit</strong> (<em>str</em><em>, </em><em>optional</em>) – unit of reference levels</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#dso_meas.MeasureError" title="dso_meas.MeasureError"><strong>MeasureError</strong></a> – An error occurred parsing the input argument.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_meas.Measure.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/dso_meas.html#Measure.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.Measure.update" title="Link to this definition"></a></dt>
+<dd><p>Update the instance with active measurements on the instrument.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="dso_meas.MeasureError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dso_meas.</span></span><span class="sig-name descname"><span class="pre">MeasureError</span></span><a class="reference internal" href="_modules/dso_meas.html#MeasureError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.MeasureError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="dso_meas.remove_measure_all">
+<span class="sig-prename descclassname"><span class="pre">dso_meas.</span></span><span class="sig-name descname"><span class="pre">remove_measure_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mobj</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/dso_meas.html#remove_measure_all"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.remove_measure_all" title="Link to this definition"></a></dt>
+<dd><p>Remove all active measurements from a instance of Measure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mobj</strong> (<a class="reference internal" href="#dso_meas.Measure" title="dso_meas.Measure"><em>Measure</em></a>) – target instance for the update.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="dso_meas.update_measure">
+<span class="sig-prename descclassname"><span class="pre">dso_meas.</span></span><span class="sig-name descname"><span class="pre">update_measure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mobj</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/dso_meas.html#update_measure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_meas.update_measure" title="Link to this definition"></a></dt>
+<dd><p>Update a instance of Measure with active measurements on the instrument.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mobj</strong> (<a class="reference internal" href="#dso_meas.Measure" title="dso_meas.Measure"><em>Measure</em></a>) – target instance for the update.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="dso_math.html" class="btn btn-neutral float-left" title="dso_math module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="dso_power_supply.html" class="btn btn-neutral float-right" title="dso_power_supply module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, GW Instek.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

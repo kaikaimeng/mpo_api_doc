@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dso_draw &mdash; mpo_api 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            mpo_api
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dso2kp.html">dso2kp module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_acquire.html">dso_acquire module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_awg.html">dso_awg module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_basic.html">dso_basic module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_channel.html">dso_channel module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_colors.html">dso_colors module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_const.html">dso_const module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_display.html">dso_display module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_dmm.html">dso_dmm module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_draw.html">dso_draw module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_gonogo.html">dso_gonogo module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_gui.html">dso_gui module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_hardcopy.html">dso_hardcopy module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_math.html">dso_math module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_meas.html">dso_meas module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_power_supply.html">dso_power_supply module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_ref.html">dso_ref module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_sns.html">dso_sns module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_spectrum.html">dso_spectrum module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_timebase.html">dso_timebase module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_trigger.html">dso_trigger module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../load.html">load module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../psw.html">psw module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">mpo_api</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Module code</a></li>
+      <li class="breadcrumb-item active">dso_draw</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for dso_draw</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Name: dso_draw.py</span>
+<span class="c1">#</span>
+<span class="c1"># Description: </span>
+<span class="c1">#</span>
+<span class="c1"># Author: GW Instek</span>
+<span class="c1">#</span>
+<span class="c1"># Documentation:</span>
+<span class="c1"># https://github.com/OpenWave-GW/Python_APP</span>
+<span class="c1">#</span>
+<span class="c1"># License: GW Python APP License</span>
+<span class="c1"># Copyright (c) 2023 GOOD WILL INSTRUMENT CO., LTD.</span>
+<span class="c1"># https://github.com/OpenWave-GW/Python_APP/blob/main/LICENSE.txt</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+<div class="viewcode-block" id="Draw">
+<a class="viewcode-back" href="../dso_draw.html#dso_draw.Draw">[docs]</a>
+<span class="k">class</span> <span class="nc">Draw</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;This module can draw or display certain drawing content on your DSO.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span> <span class="o">=</span> <span class="n">parent</span><span class="o">.</span><span class="n">write</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">query</span> <span class="o">=</span> <span class="n">parent</span><span class="o">.</span><span class="n">query</span>
+        
+    <span class="k">def</span> <span class="nf">__set_py_flag</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="p">):</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s2">&quot;:PYFLAG &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="n">mode</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ChkCommand</span><span class="p">(</span><span class="s2">&quot;:PYFLAG?&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Draw.ChkCommand">
+<a class="viewcode-back" href="../dso_draw.html#dso_draw.Draw.ChkCommand">[docs]</a>
+    <span class="k">def</span> <span class="nf">ChkCommand</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmd</span><span class="p">:</span><span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">time</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span> 
+            <span class="n">info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">info</span> <span class="o">==</span> <span class="s1">&#39;ON&#39;</span><span class="p">:</span>
+                <span class="k">break</span>
+            <span class="k">elif</span> <span class="n">time</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">:</span>
+                <span class="c1">#sys.exit(1)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;command error!&#39;</span><span class="p">)</span>
+                <span class="k">break</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">time</span> <span class="o">+=</span> <span class="mi">1</span></div>
+
+
+<div class="viewcode-block" id="Draw.get_winid">
+<a class="viewcode-back" href="../dso_draw.html#dso_draw.Draw.get_winid">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_winid</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Description</span>
+<span class="sd">            Returns the ID of a specified widget window.</span>
+<span class="sd">        Prototype</span>
+<span class="sd">            def get_winid(self);             </span>
+<span class="sd">        &quot;&quot;&quot;</span>        
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s2">&quot;:PYWID?&quot;</span>
+        <span class="n">info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">info</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Draw.creat_win">
+<a class="viewcode-back" href="../dso_draw.html#dso_draw.Draw.creat_win">[docs]</a>
+    <span class="k">def</span> <span class="nf">creat_win</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x_pos</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">y_pos</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">x_size</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">y_size</span><span class="p">:</span><span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Description</span>
+<span class="sd">            Creates a window as a child window.</span>
+<span class="sd">        Prototype</span>
+<span class="sd">            def creat_win(self, x_pos:int, y_pos:int, x_size:int, y_size:int) -&gt; int;</span>
+<span class="sd">        Return value</span>
+<span class="sd">            Handle for the child window.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s2">&quot;:PYWID &#39;</span><span class="si">%d</span><span class="s2">,</span><span class="si">%d</span><span class="s2">,</span><span class="si">%d</span><span class="s2">,</span><span class="si">%d</span><span class="s2">,&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">x_pos</span><span class="p">,</span> <span class="n">y_pos</span><span class="p">,</span> <span class="n">x_size</span><span class="p">,</span> <span class="n">y_size</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">devid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_winid</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">devid</span></div>
+
+
+<div class="viewcode-block" id="Draw.clear_win">
+<a class="viewcode-back" href="../dso_draw.html#dso_draw.Draw.clear_win">[docs]</a>
+    <span class="k">def</span> <span class="nf">clear_win</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Description</span>
+<span class="sd">            Clears the current window.</span>
+<span class="sd">        Prototype</span>
+<span class="sd">            def clear_win(self);</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s2">&quot;:PYCLEARWID&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Draw.del_win">
+<a class="viewcode-back" href="../dso_draw.html#dso_draw.Draw.del_win">[docs]</a>
+    <span class="k">def</span> <span class="nf">del_win</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wid</span><span class="p">:</span><span class="nb">int</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Description</span>
+<span class="sd">            Deletes a specified window.</span>
+<span class="sd">        Prototype</span>
+<span class="sd">            def del_win(self, wid:int);</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s2">&quot;:PYDELETEWID &#39;</span><span class="si">%d</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">wid</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Draw.sel_win">
+<a class="viewcode-back" href="../dso_draw.html#dso_draw.Draw.sel_win">[docs]</a>
+    <span class="k">def</span> <span class="nf">sel_win</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wid</span><span class="p">:</span><span class="nb">int</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Description</span>
+<span class="sd">            Sets the active window to be used for drawing operations.</span>
+<span class="sd">        Prototype</span>
+<span class="sd">            def sel_win(self, wid:int);</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s2">&quot;:PYSELECTWID &#39;</span><span class="si">%d</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">wid</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Draw.del_allwin">
+<a class="viewcode-back" href="../dso_draw.html#dso_draw.Draw.del_allwin">[docs]</a>
+    <span class="k">def</span> <span class="nf">del_allwin</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Description</span>
+<span class="sd">            Deletes all window.</span>
+<span class="sd">        Prototype</span>
+<span class="sd">            def del_win(self, wid:int);</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s2">&quot;:PYDELALLWID&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Draw.draw_win">
+<a class="viewcode-back" href="../dso_draw.html#dso_draw.Draw.draw_win">[docs]</a>
+    <span class="k">def</span> <span class="nf">draw_win</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Description</span>
+<span class="sd">            Redraw all windows</span>
+<span class="sd">        Prototype</span>
+<span class="sd">            def draw_win(self);</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s2">&quot;:PYDRAW&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ChkCommand</span><span class="p">(</span><span class="s2">&quot;:PYDRAW?&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Draw.set_color">
+<a class="viewcode-back" href="../dso_draw.html#dso_draw.Draw.set_color">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_color</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rad</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">green</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">blue</span><span class="p">:</span><span class="nb">int</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Description</span>
+<span class="sd">            Sets the current foreground color.</span>
+<span class="sd">        Prototype</span>
+<span class="sd">            def set_color(self, rad:int, green:int, blue:int);        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s2">&quot;:PYSETCOLOR &#39;</span><span class="si">%d</span><span class="s2">,</span><span class="si">%d</span><span class="s2">,</span><span class="si">%d</span><span class="s2">,&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">rad</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ChkCommand</span><span class="p">(</span><span class="s2">&quot;:PYSETCOLOR?&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Draw.set_bkcolor">
+<a class="viewcode-back" href="../dso_draw.html#dso_draw.Draw.set_bkcolor">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_bkcolor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rad</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">green</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">blue</span><span class="p">:</span><span class="nb">int</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Description</span>
+<span class="sd">            Sets the current background color.</span>
+<span class="sd">        Prototype</span>
+<span class="sd">            def set_bkcolor(self, rad:int, green:int, blue:int);</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s2">&quot;:PYSETBKCOLOR &#39;</span><span class="si">%d</span><span class="s2">,</span><span class="si">%d</span><span class="s2">,</span><span class="si">%d</span><span class="s2">,&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">rad</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ChkCommand</span><span class="p">(</span><span class="s2">&quot;:PYSETBKCOLOR?&quot;</span><span class="p">)</span></div>
+
+
+    <span class="k">def</span> <span class="nf">_del_button</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wid</span><span class="p">:</span><span class="nb">int</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Description</span>
+<span class="sd">            Deletes a specified button.</span>
+<span class="sd">        Prototype</span>
+<span class="sd">            def del_button(self, wid:int);</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s2">&quot;:PYDELBUTTON &#39;</span><span class="si">%d</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">wid</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">_get_button</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Description</span>
+<span class="sd">            Retrieves the text of the specified BUTTON widget.</span>
+<span class="sd">        Prototype</span>
+<span class="sd">            def get_button(self) -&gt; str;</span>
+<span class="sd">        Return value</span>
+<span class="sd">            Handle for the child button.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s2">&quot;:PYBUTTON?&quot;</span>
+        <span class="n">info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">info</span>
+
+    <span class="k">def</span> <span class="nf">_set_button</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x_pos</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">y_pos</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">x_size</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">y_size</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">idx</span><span class="p">:</span><span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Description</span>
+<span class="sd">            Creates a BUTTON widget of a specified size at a specified location.</span>
+<span class="sd">        Prototype</span>
+<span class="sd">            def set_button(self, x_pos:int, y_pos:int, x_size:int, y_size:int, idx:str) -&gt; int;</span>
+<span class="sd">        Return value</span>
+<span class="sd">            Handle of the created BUTTON widget; 0 if the function fails.</span>
+<span class="sd">        &quot;&quot;&quot;</span>        
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s2">&quot;:PYBUTTON &#39;</span><span class="si">%d</span><span class="s2">,</span><span class="si">%d</span><span class="s2">,</span><span class="si">%d</span><span class="s2">,</span><span class="si">%d</span><span class="s2">,</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">x_pos</span><span class="p">,</span> <span class="n">y_pos</span><span class="p">,</span> <span class="n">x_size</span><span class="p">,</span> <span class="n">y_size</span><span class="p">,</span> <span class="n">idx</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_button</span><span class="p">())</span>
+
+<div class="viewcode-block" id="Draw.draw_point">
+<a class="viewcode-back" href="../dso_draw.html#dso_draw.Draw.draw_point">[docs]</a>
+    <span class="k">def</span> <span class="nf">draw_point</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x_pos</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">y_pos</span><span class="p">:</span><span class="nb">int</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Description</span>
+<span class="sd">            Draws a point with the current pen size at a specified position in the current window.</span>
+<span class="sd">        Prototype</span>
+<span class="sd">            def draw_point(self, x_pos:int, y_pos:int);&quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s2">&quot;:PYPOINT &#39;</span><span class="si">%d</span><span class="s2">,</span><span class="si">%d</span><span class="s2">,&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">x_pos</span><span class="p">,</span> <span class="n">y_pos</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ChkCommand</span><span class="p">(</span><span class="s2">&quot;:PYPOINT?&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Draw.draw_line">
+<a class="viewcode-back" href="../dso_draw.html#dso_draw.Draw.draw_line">[docs]</a>
+    <span class="k">def</span> <span class="nf">draw_line</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x0_pos</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">y0_pos</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">x1_pos</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">y1_pos</span><span class="p">:</span><span class="nb">int</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Description</span>
+<span class="sd">            Draws a line from a specified starting point to a specified endpoint in the current window(absolute coordinates).</span>
+<span class="sd">        Prototype</span>
+<span class="sd">            def draw_line(self, x0_pos:int, y0_pos:int, x1_pos:int, y1_pos:int);</span>
+<span class="sd">        &quot;&quot;&quot;</span>        
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s2">&quot;:PYLINE &#39;</span><span class="si">%d</span><span class="s2">,</span><span class="si">%d</span><span class="s2">,</span><span class="si">%d</span><span class="s2">,</span><span class="si">%d</span><span class="s2">,&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">x0_pos</span><span class="p">,</span> <span class="n">y0_pos</span><span class="p">,</span> <span class="n">x1_pos</span><span class="p">,</span> <span class="n">y1_pos</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ChkCommand</span><span class="p">(</span><span class="s2">&quot;:PYLINE?&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Draw.draw_rect">
+<a class="viewcode-back" href="../dso_draw.html#dso_draw.Draw.draw_rect">[docs]</a>
+    <span class="k">def</span> <span class="nf">draw_rect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x_pos</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">y_pos</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">x_size</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">y_size</span><span class="p">:</span><span class="nb">int</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Description</span>
+<span class="sd">            Draws a rectangle at a specified position in the current window.</span>
+<span class="sd">        Prototype</span>
+<span class="sd">            def draw_rect(self, x_pos:int, y_pos:int, x_size:int, y_size:int);  </span>
+<span class="sd">        &quot;&quot;&quot;</span>   
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s2">&quot;:PYRECT &#39;</span><span class="si">%d</span><span class="s2">,</span><span class="si">%d</span><span class="s2">,</span><span class="si">%d</span><span class="s2">,</span><span class="si">%d</span><span class="s2">,&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">x_pos</span><span class="p">,</span> <span class="n">y_pos</span><span class="p">,</span> <span class="n">x_size</span><span class="p">,</span> <span class="n">y_size</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ChkCommand</span><span class="p">(</span><span class="s2">&quot;:PYRECT?&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Draw.draw_fillrect">
+<a class="viewcode-back" href="../dso_draw.html#dso_draw.Draw.draw_fillrect">[docs]</a>
+    <span class="k">def</span> <span class="nf">draw_fillrect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x_pos</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">y_pos</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">x_size</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">y_size</span><span class="p">:</span><span class="nb">int</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Description</span>
+<span class="sd">            Draws a filled rectangular area at a specified position in the current window.</span>
+<span class="sd">        Prototype</span>
+<span class="sd">            def draw_fillrect(self, x_pos:int, y_pos:int, x_size:int, y_size:int);        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s2">&quot;:PYFILLRECT &#39;</span><span class="si">%d</span><span class="s2">,</span><span class="si">%d</span><span class="s2">,</span><span class="si">%d</span><span class="s2">,</span><span class="si">%d</span><span class="s2">,&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">x_pos</span><span class="p">,</span> <span class="n">y_pos</span><span class="p">,</span> <span class="n">x_size</span><span class="p">,</span> <span class="n">y_size</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ChkCommand</span><span class="p">(</span><span class="s2">&quot;:PYFILLRECT?&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Draw.draw_poly">
+<a class="viewcode-back" href="../dso_draw.html#dso_draw.Draw.draw_poly">[docs]</a>
+    <span class="k">def</span> <span class="nf">draw_poly</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x0_pos</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">y0_pos</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">x1_pos</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">y1_pos</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">x2_pos</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">y2_pos</span><span class="p">:</span><span class="nb">int</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Description</span>
+<span class="sd">            Draws the outline of a polygon defined by a list of points in the current window.</span>
+<span class="sd">        Prototype</span>
+<span class="sd">            def draw_poly(self, x0_pos:int, y0_pos:int, x1_pos:int, y1_pos:int, x2_pos:int, y2_pos:int);</span>
+<span class="sd">        &quot;&quot;&quot;</span>        
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s2">&quot;:PYPOLY &#39;</span><span class="si">%d</span><span class="s2">,</span><span class="si">%d</span><span class="s2">,</span><span class="si">%d</span><span class="s2">,</span><span class="si">%d</span><span class="s2">,</span><span class="si">%d</span><span class="s2">,</span><span class="si">%d</span><span class="s2">,&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">x0_pos</span><span class="p">,</span> <span class="n">y0_pos</span><span class="p">,</span> <span class="n">x1_pos</span><span class="p">,</span> <span class="n">y1_pos</span><span class="p">,</span> <span class="n">x2_pos</span><span class="p">,</span> <span class="n">y2_pos</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ChkCommand</span><span class="p">(</span><span class="s2">&quot;:PYPOLY?&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Draw.draw_fillpoly">
+<a class="viewcode-back" href="../dso_draw.html#dso_draw.Draw.draw_fillpoly">[docs]</a>
+    <span class="k">def</span> <span class="nf">draw_fillpoly</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x0_pos</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">y0_pos</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">x1_pos</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">y1_pos</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">x2_pos</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">y2_pos</span><span class="p">:</span><span class="nb">int</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Description</span>
+<span class="sd">            Draws a filled polygon defined by a list of points in the current window.</span>
+<span class="sd">        Prototype</span>
+<span class="sd">            def draw_fillpoly(self, x0_pos:int, y0_pos:int, x1_pos:int, y1_pos:int, x2_pos:int, y2_pos:int);</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s2">&quot;:PYFILLPOLY &#39;</span><span class="si">%d</span><span class="s2">,</span><span class="si">%d</span><span class="s2">,</span><span class="si">%d</span><span class="s2">,</span><span class="si">%d</span><span class="s2">,</span><span class="si">%d</span><span class="s2">,</span><span class="si">%d</span><span class="s2">,&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">x0_pos</span><span class="p">,</span> <span class="n">y0_pos</span><span class="p">,</span> <span class="n">x1_pos</span><span class="p">,</span> <span class="n">y1_pos</span><span class="p">,</span> <span class="n">x2_pos</span><span class="p">,</span> <span class="n">y2_pos</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ChkCommand</span><span class="p">(</span><span class="s2">&quot;:PYFILLPOLY?&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Draw.draw_ellipse">
+<a class="viewcode-back" href="../dso_draw.html#dso_draw.Draw.draw_ellipse">[docs]</a>
+    <span class="k">def</span> <span class="nf">draw_ellipse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x_pos</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">y_pos</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">rx</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">ry</span><span class="p">:</span><span class="nb">int</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Description</span>
+<span class="sd">            Draws the outline of an ellipse of specified dimensions, at a specified position in the current window.</span>
+<span class="sd">        Prototype</span>
+<span class="sd">            def draw_ellipse(self, x_pos:int, y_pos:int, rx:int, ry:int);</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s2">&quot;:PYELLIPSE &#39;</span><span class="si">%d</span><span class="s2">,</span><span class="si">%d</span><span class="s2">,</span><span class="si">%d</span><span class="s2">,</span><span class="si">%d</span><span class="s2">,&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">x_pos</span><span class="p">,</span> <span class="n">y_pos</span><span class="p">,</span> <span class="n">rx</span><span class="p">,</span> <span class="n">ry</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ChkCommand</span><span class="p">(</span><span class="s2">&quot;:PYELLIPSE?&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Draw.draw_fillellipse">
+<a class="viewcode-back" href="../dso_draw.html#dso_draw.Draw.draw_fillellipse">[docs]</a>
+    <span class="k">def</span> <span class="nf">draw_fillellipse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x_pos</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">y_pos</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">rx</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">ry</span><span class="p">:</span><span class="nb">int</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Description</span>
+<span class="sd">            Draws a filled ellipse of specified dimensions at a specified position in the current window.</span>
+<span class="sd">        Prototype</span>
+<span class="sd">            def draw_fillellipse(self, x_pos:int, y_pos:int, rx:int, ry:int);</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s2">&quot;:PYFILLELLIPSE &#39;</span><span class="si">%d</span><span class="s2">,</span><span class="si">%d</span><span class="s2">,</span><span class="si">%d</span><span class="s2">,</span><span class="si">%d</span><span class="s2">,&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">x_pos</span><span class="p">,</span> <span class="n">y_pos</span><span class="p">,</span> <span class="n">rx</span><span class="p">,</span> <span class="n">ry</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ChkCommand</span><span class="p">(</span><span class="s2">&quot;:PYFILLELLIPSE?&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Draw.draw_text">
+<a class="viewcode-back" href="../dso_draw.html#dso_draw.Draw.draw_text">[docs]</a>
+    <span class="k">def</span> <span class="nf">draw_text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x_pos</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">y_pos</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Description</span>
+<span class="sd">            Displays the string passed as parameter at a specified position in the current window using the current font.</span>
+<span class="sd">        Prototype</span>
+<span class="sd">            def draw_text(self, x_pos:int, y_pos:int, str:str);</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">)):</span>
+            <span class="n">num</span> <span class="o">=</span> <span class="nb">ord</span><span class="p">(</span><span class="nb">str</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">num</span><span class="o">&gt;</span><span class="mi">127</span><span class="p">):</span>
+                <span class="n">text</span> <span class="o">+=</span> <span class="p">(</span><span class="s2">&quot;{</span><span class="si">%s</span><span class="s2">}&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="n">num</span><span class="o">-</span><span class="mi">127</span><span class="p">)))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">text</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s2">&quot;:PYTEXT &#39;</span><span class="si">%d</span><span class="s2">,</span><span class="si">%d</span><span class="s2">,</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">x_pos</span><span class="p">,</span> <span class="n">y_pos</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ChkCommand</span><span class="p">(</span><span class="s2">&quot;:PYTEXT?&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Draw.draw_poptext">
+<a class="viewcode-back" href="../dso_draw.html#dso_draw.Draw.draw_poptext">[docs]</a>
+    <span class="k">def</span> <span class="nf">draw_poptext</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">str</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Description</span>
+<span class="sd">            Displays the string passed as a parameter at the specified position in the popup message using the current font.</span>
+<span class="sd">        Prototype</span>
+<span class="sd">            def draw_text(self, x_pos:int, y_pos:int, str:str);</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">)):</span>
+            <span class="k">if</span><span class="p">(</span><span class="nb">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">):</span>
+                <span class="n">tmp</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\x7F</span><span class="s2">&quot;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">tmp</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s2">&quot;:PYPOPTEXT &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">tmp</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ChkCommand</span><span class="p">(</span><span class="s2">&quot;:PYPOPTEXT?&quot;</span><span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, GW Instek.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

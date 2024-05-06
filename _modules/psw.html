@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>psw &mdash; mpo_api 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            mpo_api
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dso2kp.html">dso2kp module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_acquire.html">dso_acquire module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_awg.html">dso_awg module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_basic.html">dso_basic module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_channel.html">dso_channel module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_colors.html">dso_colors module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_const.html">dso_const module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_display.html">dso_display module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_dmm.html">dso_dmm module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_draw.html">dso_draw module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_gonogo.html">dso_gonogo module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_gui.html">dso_gui module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_hardcopy.html">dso_hardcopy module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_math.html">dso_math module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_meas.html">dso_meas module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_power_supply.html">dso_power_supply module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_ref.html">dso_ref module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_sns.html">dso_sns module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_spectrum.html">dso_spectrum module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_timebase.html">dso_timebase module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_trigger.html">dso_trigger module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../load.html">load module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../psw.html">psw module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">mpo_api</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Module code</a></li>
+      <li class="breadcrumb-item active">psw</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for psw</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Name: psw.py</span>
+<span class="c1">#</span>
+<span class="c1"># Description: </span>
+<span class="c1">#</span>
+<span class="c1"># Author: GW Instek</span>
+<span class="c1">#</span>
+<span class="c1"># Documentation:</span>
+<span class="c1"># https://github.com/OpenWave-GW/Python_APP</span>
+<span class="c1">#</span>
+<span class="c1"># License: GW Python APP License</span>
+<span class="c1"># Copyright (c) 2023 GOOD WILL INSTRUMENT CO., LTD.</span>
+<span class="c1"># https://github.com/OpenWave-GW/Python_APP/blob/main/LICENSE.txt</span>
+
+<span class="kn">import</span> <span class="nn">dso_usb</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<div class="viewcode-block" id="Psw">
+<a class="viewcode-back" href="../psw.html#psw.Psw">[docs]</a>
+<span class="k">class</span> <span class="nc">Psw</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;This module can control the PSW.</span>
+
+<span class="sd">    It supports USB interface to use SCPI.</span>
+
+<span class="sd">    It will scan available instruments on your DSO, then require a Serial Number to specify and connect to it.</span>
+
+<span class="sd">    Usage:</span>
+<span class="sd">    -------</span>
+<span class="sd">    .. code-block:: python</span>
+
+<span class="sd">        import psw</span>
+<span class="sd">        inst = psw.Psw()</span>
+<span class="sd">        inst.connect(&#39;&lt;Instrument Serial Number&gt;&#39;)</span>
+<span class="sd">        print(inst.idn())</span>
+<span class="sd">        inst.close()</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">com</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ModelName</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">SerialNumber</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scpi_delay</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;SCPI delay.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_current</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;MAX Current for this instrument. You will get it after connection.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">min_current</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;MIN Current for this instrument. You will get it after connection.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_voltage</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;MAX Voltage for this instrument. You will get it after connection.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">min_voltage</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;MIN Voltage for this instrument. You will get it after connection.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Psw.set_scpi_delay">
+<a class="viewcode-back" href="../psw.html#psw.Psw.set_scpi_delay">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_scpi_delay</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">delay</span><span class="p">:</span><span class="nb">float</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the SCPI delay</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            delay (float): delay time</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scpi_delay</span> <span class="o">=</span> <span class="n">delay</span></div>
+
+    
+    <span class="k">def</span> <span class="nf">__fillModelInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;*idn?&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ModelName</span> <span class="o">=</span> <span class="n">ret</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">SerialNumber</span> <span class="o">=</span> <span class="n">ret</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_current</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;CURR? MAX&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">min_current</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;CURR? MIN&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_voltage</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;VOLT? MAX&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">min_voltage</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;VOLT? MIN&#39;</span><span class="p">))</span>
+
+<div class="viewcode-block" id="Psw.connect">
+<a class="viewcode-back" href="../psw.html#psw.Psw.connect">[docs]</a>
+    <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">SN</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">baudrate</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="mi">115200</span><span class="p">,</span> <span class="n">timeout</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Connect to the PSW.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            SN (str): Serial Number is necessary.</span>
+<span class="sd">            baudrate (int, optional): baudrate. Defaults to 115200.</span>
+<span class="sd">            timeout (int, optional): timeout. Defaults to 3.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            int: 0 or -1</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">com</span> <span class="o">=</span> <span class="n">dso_usb</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">SN</span><span class="p">,</span> <span class="n">baudrate</span><span class="p">,</span> <span class="n">timeout</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">scpi_delay</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">com</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">com</span> <span class="o">=</span> <span class="n">com</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__fillModelInfo</span><span class="p">()</span>
+            <span class="k">return</span> <span class="mi">0</span></div>
+
+
+<div class="viewcode-block" id="Psw.close">
+<a class="viewcode-back" href="../psw.html#psw.Psw.close">[docs]</a>
+    <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Close the connection.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">com</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">com</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="Psw.write">
+<a class="viewcode-back" href="../psw.html#psw.Psw.write">[docs]</a>
+    <span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmd</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Write an SCPI command to the instrument.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            cmd (str): SCPI command to be written.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">com</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="k">if</span> <span class="n">cmd</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cmd</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">com</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Psw.readline">
+<a class="viewcode-back" href="../psw.html#psw.Psw.readline">[docs]</a>
+    <span class="k">def</span> <span class="nf">readline</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Read a line from the instrument&#39;s communication port and return it as a string.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: The string read from the instrument.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;&#39;</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">com</span><span class="o">.</span><span class="n">in_waiting</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">break</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">tmp</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">com</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">tmp</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">):</span>
+                    <span class="k">break</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="k">break</span>
+        <span class="nb">str</span><span class="o">=</span><span class="n">tmp</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+        <span class="k">if</span><span class="p">(</span><span class="nb">str</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="s1">&#39;&#39;</span>
+        <span class="k">elif</span><span class="p">(</span><span class="nb">str</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="nb">str</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">str</span></div>
+
+
+<div class="viewcode-block" id="Psw.query">
+<a class="viewcode-back" href="../psw.html#psw.Psw.query">[docs]</a>
+    <span class="k">def</span> <span class="nf">query</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmd</span><span class="p">:</span><span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Send a query SCPI command to the instrument and return the result.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            cmd (str): SCPI command to be queried.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: Result of the SCPI command.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">com</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="k">if</span> <span class="n">cmd</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cmd</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scpi_delay</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="Psw.idn">
+<a class="viewcode-back" href="../psw.html#psw.Psw.idn">[docs]</a>
+    <span class="k">def</span> <span class="nf">idn</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;*idn?&#39;</span><span class="p">)</span></div>
+
+    
+<div class="viewcode-block" id="Psw.opc">
+<a class="viewcode-back" href="../psw.html#psw.Psw.opc">[docs]</a>
+    <span class="k">def</span> <span class="nf">opc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;*opc?&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Psw.ocp">
+<a class="viewcode-back" href="../psw.html#psw.Psw.ocp">[docs]</a>
+    <span class="k">def</span> <span class="nf">ocp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;Queries the OCP (over-current protection) level in amps.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            float: current</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;:CURR:PROT?&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Psw.set_ocp">
+<a class="viewcode-back" href="../psw.html#psw.Psw.set_ocp">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_ocp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">current</span><span class="p">:</span><span class="nb">float</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;Sets the OCP (over-current protection) level in amps.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;:CURR:PROT </span><span class="si">%f</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">current</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Psw.set_ocp_on">
+<a class="viewcode-back" href="../psw.html#psw.Psw.set_ocp_on">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_ocp_on</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;Turns OCP (over-current protection) on.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;:CURR:PROT:STAT 1&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Psw.set_ocp_off">
+<a class="viewcode-back" href="../psw.html#psw.Psw.set_ocp_off">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_ocp_off</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;Turns OCP (over-current protection) off.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;:CURR:PROT:STAT OFF&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Psw.is_ocp_on">
+<a class="viewcode-back" href="../psw.html#psw.Psw.is_ocp_on">[docs]</a>
+    <span class="k">def</span> <span class="nf">is_ocp_on</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;Returns the OCP (over-current protection) status.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;:CURR:PROT:STAT?&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">&#39;1&#39;</span> <span class="ow">in</span> <span class="n">ret</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="Psw.ovp">
+<a class="viewcode-back" href="../psw.html#psw.Psw.ovp">[docs]</a>
+    <span class="k">def</span> <span class="nf">ovp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;Queries the overvoltage protection level.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            float: current</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;:VOLT:PROT?&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Psw.set_ovp">
+<a class="viewcode-back" href="../psw.html#psw.Psw.set_ovp">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_ovp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">voltage</span><span class="p">:</span><span class="nb">float</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;Sets the overvoltage protection level.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;:VOLT:PROT </span><span class="si">%f</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">voltage</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Psw.is_on">
+<a class="viewcode-back" href="../psw.html#psw.Psw.is_on">[docs]</a>
+    <span class="k">def</span> <span class="nf">is_on</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;Returns output status of the instrument.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;OUTP?&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">&#39;1&#39;</span> <span class="ow">in</span> <span class="n">ret</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="Psw.set_on">
+<a class="viewcode-back" href="../psw.html#psw.Psw.set_on">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_on</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Turns the output on.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;:OUTP ON&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Psw.set_off">
+<a class="viewcode-back" href="../psw.html#psw.Psw.set_off">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_off</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Turns the output off.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;:OUTP OFF&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Psw.current">
+<a class="viewcode-back" href="../psw.html#psw.Psw.current">[docs]</a>
+    <span class="k">def</span> <span class="nf">current</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Queries the current level in amps.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            float: output current</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;CURR?&#39;</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="Psw.set_current">
+<a class="viewcode-back" href="../psw.html#psw.Psw.set_current">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_current</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Sets the current level in amps.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value : (float) output current level. (str): MAX or MIN</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">if</span> <span class="s1">&#39;MAX&#39;</span> <span class="ow">in</span> <span class="n">value</span><span class="p">:</span>
+                <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;CURR MAX&#39;</span>
+            <span class="k">elif</span> <span class="s1">&#39;MIN&#39;</span> <span class="ow">in</span> <span class="n">value</span><span class="p">:</span>
+                <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;CURR MIN&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;CURR </span><span class="si">%f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Psw.voltage">
+<a class="viewcode-back" href="../psw.html#psw.Psw.voltage">[docs]</a>
+    <span class="k">def</span> <span class="nf">voltage</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Queries the voltage level in volts.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            float: output voltage</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;VOLT?&#39;</span><span class="p">)</span></div>
+
+    
+<div class="viewcode-block" id="Psw.set_voltage">
+<a class="viewcode-back" href="../psw.html#psw.Psw.set_voltage">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_voltage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Sets the voltage level in volts.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value : (float) output voltage level. (str): MAX or MIN</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">if</span> <span class="s1">&#39;MAX&#39;</span> <span class="ow">in</span> <span class="n">value</span><span class="p">:</span>
+                <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;VOLT MAX&#39;</span>
+            <span class="k">elif</span> <span class="s1">&#39;MIN&#39;</span> <span class="ow">in</span> <span class="n">value</span><span class="p">:</span>
+                <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;VOLT MIN&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;VOLT </span><span class="si">%f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Psw.mode">
+<a class="viewcode-back" href="../psw.html#psw.Psw.mode">[docs]</a>
+    <span class="k">def</span> <span class="nf">mode</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the output mode.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: output mode</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;OUTPut:MODE?&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Psw.set_mode">
+<a class="viewcode-back" href="../psw.html#psw.Psw.set_mode">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_mode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span><span class="nb">int</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Sets the PSW output mode.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            mode (int): 0:&#39;CVHS&#39;,</span>
+<span class="sd">                1:&#39;CCHS&#39;,</span>
+<span class="sd">                2:&#39;CVLS&#39;,</span>
+<span class="sd">                3:&#39;CCLS&#39;,</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">s</span><span class="o">=</span><span class="p">{</span>
+            <span class="mi">0</span><span class="p">:</span><span class="s1">&#39;CVHS&#39;</span><span class="p">,</span>
+            <span class="mi">1</span><span class="p">:</span><span class="s1">&#39;CCHS&#39;</span><span class="p">,</span>
+            <span class="mi">2</span><span class="p">:</span><span class="s1">&#39;CVLS&#39;</span><span class="p">,</span>
+            <span class="mi">3</span><span class="p">:</span><span class="s1">&#39;CCLS&#39;</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:OUTPut:MODE &#39;</span><span class="o">+</span> <span class="n">s</span><span class="p">[</span><span class="n">mode</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Psw.meas_power">
+<a class="viewcode-back" href="../psw.html#psw.Psw.meas_power">[docs]</a>
+    <span class="k">def</span> <span class="nf">meas_power</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Takes a measurement and returns the average output power</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            float: output power</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;MEAS:POW?&#39;</span>
+        <span class="n">ret</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Psw.meas_voltage">
+<a class="viewcode-back" href="../psw.html#psw.Psw.meas_voltage">[docs]</a>
+    <span class="k">def</span> <span class="nf">meas_voltage</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Takes a measurement and returns the average output voltage</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            float: output voltage</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;MEAS:VOLT?&#39;</span>
+        <span class="n">ret</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Psw.meas_current">
+<a class="viewcode-back" href="../psw.html#psw.Psw.meas_current">[docs]</a>
+    <span class="k">def</span> <span class="nf">meas_current</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Takes a measurement and returns the average output current</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            float: output current</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;MEAS:CURR?&#39;</span>
+        <span class="n">ret</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Psw.is_prot_trip">
+<a class="viewcode-back" href="../psw.html#psw.Psw.is_prot_trip">[docs]</a>
+    <span class="k">def</span> <span class="nf">is_prot_trip</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the state of the protection circuits (OVP, OCP, OTP).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;:OUTP:PROT:TRIP?&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">&#39;1&#39;</span> <span class="ow">in</span> <span class="n">ret</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="Psw.clear_prot">
+<a class="viewcode-back" href="../psw.html#psw.Psw.clear_prot">[docs]</a>
+    <span class="k">def</span> <span class="nf">clear_prot</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Clears over-voltage, over-current and overtemperature (OVP, OCP, OTP) protection circuits.</span>
+<span class="sd">           It also clears the shutdown protection circuit.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;:OUTP:PROT:CLE&#39;</span><span class="p">)</span></div>
+</div>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span><span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">pass</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, GW Instek.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dso_spectrum &mdash; mpo_api 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            mpo_api
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dso2kp.html">dso2kp module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_acquire.html">dso_acquire module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_awg.html">dso_awg module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_basic.html">dso_basic module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_channel.html">dso_channel module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_colors.html">dso_colors module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_const.html">dso_const module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_display.html">dso_display module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_dmm.html">dso_dmm module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_draw.html">dso_draw module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_gonogo.html">dso_gonogo module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_gui.html">dso_gui module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_hardcopy.html">dso_hardcopy module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_math.html">dso_math module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_meas.html">dso_meas module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_power_supply.html">dso_power_supply module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_ref.html">dso_ref module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_sns.html">dso_sns module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_spectrum.html">dso_spectrum module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_timebase.html">dso_timebase module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_trigger.html">dso_trigger module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../load.html">load module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../psw.html">psw module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">mpo_api</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Module code</a></li>
+      <li class="breadcrumb-item active">dso_spectrum</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for dso_spectrum</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Name: dso_spectrum.py</span>
+<span class="c1">#</span>
+<span class="c1"># Description: Spectrum mode control on the DSO.</span>
+<span class="c1">#</span>
+<span class="c1"># Author: GW Instek</span>
+<span class="c1">#</span>
+<span class="c1"># Documentation:</span>
+<span class="c1"># https://github.com/OpenWave-GW/Python_APP</span>
+<span class="c1">#</span>
+<span class="c1"># License: GW Python APP License</span>
+<span class="c1"># Copyright (c) 2023 GOOD WILL INSTRUMENT CO., LTD.</span>
+<span class="c1"># https://github.com/OpenWave-GW/Python_APP/blob/main/LICENSE.txt</span>
+
+<span class="sd">&quot;&quot;&quot;Spectrum mode control on the DSO.</span>
+
+<span class="sd">Basic control functions for the spectrum mode.</span>
+
+<span class="sd">Typical usage example:</span>
+
+<span class="sd">.. code-block::</span>
+
+<span class="sd">    import dso2ke as gds</span>
+<span class="sd">    </span>
+<span class="sd">    # Create a Dso instance, myDso, and get connected to it.</span>
+<span class="sd">    myDso = gds.Dso()</span>
+<span class="sd">    ret = myDso.connect(host=&#39;localhost&#39;, port=3000)</span>
+<span class="sd">    if ret != 0:</span>
+<span class="sd">        raise ValueError(&#39;Socket connection failed.&#39;)</span>
+
+<span class="sd">    # Activate spectrum mode</span>
+<span class="sd">    myDso.sa.set_spectrum_mode(&#39;ON&#39;)</span>
+<span class="sd">    </span>
+<span class="sd">    # Configure SA parameters: center and span frequency</span>
+<span class="sd">    myDso.sa.set_freq(10e6)</span>
+<span class="sd">    myDso.sa.set_span(10e6)</span>
+<span class="sd">    </span>
+<span class="sd">    # Exit the spectrum mode</span>
+<span class="sd">    myDso.sa.set_spectrum_mode(&#39;OFF&#39;)</span>
+<span class="sd">    </span>
+<span class="sd">    myDso.close() # Clean-up</span>
+<span class="sd">    </span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="n">__VERSION__</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="n">SA</span><span class="p">,</span> <span class="n">XSA1</span><span class="p">,</span> <span class="n">XSA2</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">micropython</span> <span class="kn">import</span> <span class="n">const</span>
+    <span class="n">SA</span> <span class="o">=</span> <span class="n">const</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">XSA1</span> <span class="o">=</span> <span class="n">const</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">XSA2</span> <span class="o">=</span> <span class="n">const</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+        <span class="k">pass</span>
+        
+<span class="n">trace_types</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;NORMAL&#39;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s1">&#39;AVERAGE&#39;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s1">&#39;MAXHOLD&#39;</span> <span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s1">&#39;MINHOLD&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">_span2rbw_ratios</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;RATIO_1K&#39;</span> <span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+    <span class="s1">&#39;RATIO_2K&#39;</span> <span class="p">:</span> <span class="mi">2000</span><span class="p">,</span>
+    <span class="s1">&#39;RATIO_5K&#39;</span> <span class="p">:</span> <span class="mi">5000</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">_rbw_modes</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;AUTO&#39;</span><span class="p">,</span> <span class="s1">&#39;MANUAL&#39;</span><span class="p">)</span>
+
+<span class="n">kRectWin</span><span class="p">,</span> <span class="n">kHammingWin</span><span class="p">,</span> <span class="n">kHanningWin</span><span class="p">,</span> <span class="n">kBlackmanWin</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+
+<span class="n">kUnit_db</span><span class="p">,</span> <span class="n">kUnit_Lin</span><span class="p">,</span> <span class="n">kUnit_dbm</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="n">_windows</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">kRectWin</span> <span class="p">:</span> <span class="s1">&#39;RECTANGULAR&#39;</span><span class="p">,</span>
+    <span class="n">kHammingWin</span> <span class="p">:</span> <span class="s1">&#39;HAMMING&#39;</span><span class="p">,</span>
+    <span class="n">kHanningWin</span> <span class="p">:</span> <span class="s1">&#39;HANNING&#39;</span><span class="p">,</span>
+    <span class="n">kBlackmanWin</span> <span class="p">:</span> <span class="s1">&#39;BLACKMAN&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">_units</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">kUnit_db</span> <span class="p">:</span> <span class="s1">&#39;DBV&#39;</span><span class="p">,</span>
+    <span class="n">kUnit_Lin</span> <span class="p">:</span> <span class="s1">&#39;LINEAR&#39;</span><span class="p">,</span>
+    <span class="n">kUnit_dbm</span> <span class="p">:</span> <span class="s1">&#39;DBM&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+
+
+<div class="viewcode-block" id="Spectrum">
+<a class="viewcode-back" href="../dso_spectrum.html#dso_spectrum.Spectrum">[docs]</a>
+<span class="k">class</span> <span class="nc">Spectrum</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;This module controls the spectrum analyzer(SA) on the DSO.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">max_instances</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">parent</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;A parent object of class DsoBasic or its derived class is required.&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span> <span class="o">=</span> <span class="n">parent</span><span class="o">.</span><span class="n">write</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">query</span> <span class="o">=</span> <span class="n">parent</span><span class="o">.</span><span class="n">query</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dso</span> <span class="o">=</span> <span class="n">parent</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">terminator</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="c1">#: list of str: [ &#39;&#39;, &#39;1&#39;, &#39;2&#39; ]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_id_prefix</span> <span class="o">=</span> <span class="p">[</span> <span class="nb">str</span><span class="p">(</span><span class="n">_</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_instances</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_id_prefix</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_instances</span> <span class="o">=</span> <span class="n">max_instances</span>
+                
+    <span class="k">def</span> <span class="nf">_is_valid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">:</span><span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Check validility of a SA ID. Applied only for a multi-SA feature.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            id (int): ranges from 0 to a value of max_instances.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">id</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_instances</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;id exceeded a maximum value of </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">max_instances</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="kc">True</span>
+        
+    <span class="k">def</span> <span class="nf">_fset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">param</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">freq</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">_id</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="n">SA</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_valid</span><span class="p">(</span><span class="n">_id</span><span class="p">):</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:SA</span><span class="si">%s</span><span class="s1">:</span><span class="si">%s</span><span class="s1"> </span><span class="si">%f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_id_prefix</span><span class="p">[</span><span class="n">_id</span><span class="p">],</span> <span class="n">param</span><span class="p">,</span> <span class="n">freq</span><span class="p">)</span>
+            <span class="n">cmd</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">terminator</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+            
+    <span class="k">def</span> <span class="nf">_fget</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">param</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">_id</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="n">SA</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_valid</span><span class="p">(</span><span class="n">_id</span><span class="p">):</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:SA</span><span class="si">%s</span><span class="s1">:</span><span class="si">%s</span><span class="s1">?&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_id_prefix</span><span class="p">[</span><span class="n">_id</span><span class="p">],</span> <span class="n">param</span><span class="p">)</span>
+            <span class="n">cmd</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">terminator</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+            <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+    
+<div class="viewcode-block" id="Spectrum.set_freq">
+<a class="viewcode-back" href="../dso_spectrum.html#dso_spectrum.Spectrum.set_freq">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_freq</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">freq</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">_id</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="n">SA</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set center frequency of a SA instance</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            freq (float): frequency in Hz</span>
+<span class="sd">            _id  (int): 0 for single SA(optional) while 1,2, .. and etc for multi-SAs</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_fset</span><span class="p">(</span><span class="s1">&#39;FREQuency&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="p">,</span> <span class="n">_id</span><span class="p">)</span></div>
+
+    
+<div class="viewcode-block" id="Spectrum.set_span">
+<a class="viewcode-back" href="../dso_spectrum.html#dso_spectrum.Spectrum.set_span">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_span</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">freq</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">_id</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="n">SA</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set span frequency of a SA instance</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            freq (float): frequency in Hz</span>
+<span class="sd">            _id  (int): 0 for single SA(optional) while 1,2, .. and etc for multi-SAs</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_fset</span><span class="p">(</span><span class="s1">&#39;SPAN&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="p">,</span> <span class="n">_id</span><span class="p">)</span></div>
+
+            
+<div class="viewcode-block" id="Spectrum.set_start">
+<a class="viewcode-back" href="../dso_spectrum.html#dso_spectrum.Spectrum.set_start">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">freq</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">_id</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="n">SA</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set start frequency of a SA instance</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            freq (float): frequency in Hz</span>
+<span class="sd">            _id  (int): 0 for single SA(optional) while 1,2, .. and etc for multi-SAs</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_fset</span><span class="p">(</span><span class="s1">&#39;START&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="p">,</span> <span class="n">_id</span><span class="p">)</span></div>
+
+            
+<div class="viewcode-block" id="Spectrum.set_stop">
+<a class="viewcode-back" href="../dso_spectrum.html#dso_spectrum.Spectrum.set_stop">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_stop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">freq</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">_id</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="n">SA</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set stop frequency of a SA instance</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            freq (float): frequency in Hz</span>
+<span class="sd">            _id  (int): 0 for single SA(optional) while 1,2, .. and etc for multi-SAs</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_fset</span><span class="p">(</span><span class="s1">&#39;STOP&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="p">,</span> <span class="n">_id</span><span class="p">)</span></div>
+
+    
+<div class="viewcode-block" id="Spectrum.set_RBW_Manual">
+<a class="viewcode-back" href="../dso_spectrum.html#dso_spectrum.Spectrum.set_RBW_Manual">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_RBW_Manual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rbw</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">_id</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="n">SA</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Set manual-RBW value</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            rbw (float): manual-RBW value to set</span>
+<span class="sd">            _id  (int): 0 for single SA(optional) while 1,2, .. and etc for multi-SAs</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_RBW_Manual</span><span class="p">(</span><span class="n">_id</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_fset</span><span class="p">(</span><span class="s1">&#39;RBW&#39;</span><span class="p">,</span> <span class="n">rbw</span><span class="p">,</span> <span class="n">_id</span><span class="p">)</span></div>
+
+    
+<div class="viewcode-block" id="Spectrum.set_Span2RBW_Ratio">
+<a class="viewcode-back" href="../dso_spectrum.html#dso_spectrum.Spectrum.set_Span2RBW_Ratio">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_Span2RBW_Ratio</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ratio</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">_id</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="n">SA</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Set ratio of span over rbw in auto-RBW mode.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            ratio (str): RATIO_1K, RATIO_2K, or RATIO_5K</span>
+<span class="sd">            _id (int): 0 for single SA(optional) while 1,2, .. and etc for multi-SAs</span>
+<span class="sd">            </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_RBW_Manual</span><span class="p">(</span><span class="n">_id</span><span class="p">):</span>
+            <span class="n">rvalue</span> <span class="o">=</span> <span class="n">_span2rbw_ratios</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">ratio</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">rvalue</span><span class="p">:</span>
+                <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:SA</span><span class="si">{0}</span><span class="s1">:SPANRbwratio </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_id_prefix</span><span class="p">[</span><span class="n">_id</span><span class="p">],</span> <span class="n">rvalue</span><span class="p">)</span>
+                <span class="n">cmd</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">terminator</span>
+                <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Unknown value:</span><span class="si">{</span><span class="n">ratio</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span></div>
+
+                
+<div class="viewcode-block" id="Spectrum.set_scale">
+<a class="viewcode-back" href="../dso_spectrum.html#dso_spectrum.Spectrum.set_scale">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_scale</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scale</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">unit</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="n">kUnit_db</span><span class="p">,</span> <span class="n">_id</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="n">SA</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Scale of spectrum magnitude</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            scale (float): value of scale</span>
+<span class="sd">            unit (int, optional): unit of the scale, kUnit_db, kUnit_Lin, or kUnit_dbm</span>
+<span class="sd">            _id (int): 0 for single SA(optional) while 1,2, .. and etc for multi-SAs</span>
+<span class="sd">            </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_valid</span><span class="p">(</span><span class="n">_id</span><span class="p">):</span>
+            <span class="n">_unit</span> <span class="o">=</span> <span class="n">_units</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">unit</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">_unit</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Invalid unit:</span><span class="si">{</span><span class="n">unit</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
+            <span class="n">_prefix</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;:SA</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_id_prefix</span><span class="p">[</span><span class="n">_id</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span>
+            <span class="n">_unit</span> <span class="o">=</span> <span class="n">_prefix</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">&#39;:UNITS </span><span class="si">{</span><span class="n">_unit</span><span class="si">}</span><span class="s1">&#39;</span>
+            <span class="n">_scale</span> <span class="o">=</span> <span class="n">_prefix</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">&#39;:SCALE </span><span class="si">{</span><span class="n">scale</span><span class="si">}</span><span class="s1">&#39;</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">_unit</span><span class="p">,</span> <span class="n">_scale</span><span class="p">])</span>
+            <span class="n">cmd</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">terminator</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="Spectrum.set_position">
+<a class="viewcode-back" href="../dso_spectrum.html#dso_spectrum.Spectrum.set_position">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_position</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">position</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">_id</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="n">SA</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Vertical offset for spectrum traces</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            position (float): set value in unit of Div.</span>
+<span class="sd">            _id (int): 0 for single SA(optional) while 1,2, .. and etc for multi-SAs</span>
+<span class="sd">            </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_valid</span><span class="p">(</span><span class="n">_id</span><span class="p">):</span>
+            <span class="n">_prefix</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;:SA</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_id_prefix</span><span class="p">[</span><span class="n">_id</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="n">_prefix</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">&#39;:POSITION </span><span class="si">{</span><span class="n">position</span><span class="si">}</span><span class="s1">&#39;</span>
+            <span class="n">cmd</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">terminator</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+            
+<div class="viewcode-block" id="Spectrum.set_window">
+<a class="viewcode-back" href="../dso_spectrum.html#dso_spectrum.Spectrum.set_window">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_window</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">window</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="n">kHanningWin</span><span class="p">,</span> <span class="n">_id</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="n">SA</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Window function for spectrum analysis</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            window(int, optional): Choose one of the following window functions</span>
+<span class="sd">                to trade-off amplitude accurary and side-lobe reduction.</span>
+<span class="sd">                </span>
+<span class="sd">                kRectWin    for Rectangular</span>
+<span class="sd">                kHammingWin for Hamming </span>
+<span class="sd">                kHanningWin for Hann(default)</span>
+<span class="sd">                kBlackmanWin for Blackman</span>
+<span class="sd">                </span>
+<span class="sd">            _id (int): 0 for single SA(optional) while 1,2, .. and etc for multi-SAs</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_valid</span><span class="p">(</span><span class="n">_id</span><span class="p">):</span>
+            <span class="n">_window</span> <span class="o">=</span> <span class="n">_windows</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">window</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">_window</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Invalid window:</span><span class="si">{</span><span class="n">window</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
+            <span class="n">_prefix</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;:SA</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_id_prefix</span><span class="p">[</span><span class="n">_id</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="n">_prefix</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">&#39;:WINDOW </span><span class="si">{</span><span class="n">_window</span><span class="si">}</span><span class="s1">&#39;</span>
+            <span class="n">cmd</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">terminator</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+    
+<div class="viewcode-block" id="Spectrum.is_RBW_Manual">
+<a class="viewcode-back" href="../dso_spectrum.html#dso_spectrum.Spectrum.is_RBW_Manual">[docs]</a>
+    <span class="k">def</span> <span class="nf">is_RBW_Manual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_id</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="n">SA</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Check for manual-RBW mode</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            _id  (int): 0 for single SA(optional) while 1,2, .. and etc for multi-SAs</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            True if manual-RBW mode, False otherwise.</span>
+<span class="sd">            </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_valid</span><span class="p">(</span><span class="n">_id</span><span class="p">):</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:SA</span><span class="si">{0}</span><span class="s1">:RBW:MODE?&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_id_prefix</span><span class="p">[</span><span class="n">_id</span><span class="p">])</span>
+            <span class="n">cmd</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">terminator</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">idx</span> <span class="o">=</span> <span class="n">_rbw_modes</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">ret</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+                <span class="k">return</span> <span class="kc">True</span> <span class="k">if</span> <span class="n">idx</span> <span class="k">else</span> <span class="kc">False</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Unknown value:</span><span class="si">{</span><span class="n">ret</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Spectrum.get_freq">
+<a class="viewcode-back" href="../dso_spectrum.html#dso_spectrum.Spectrum.get_freq">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_freq</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_id</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="n">SA</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get center frequency of a SA instance&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fget</span><span class="p">(</span><span class="s1">&#39;FREQuency&#39;</span><span class="p">,</span> <span class="n">_id</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="Spectrum.get_span">
+<a class="viewcode-back" href="../dso_spectrum.html#dso_spectrum.Spectrum.get_span">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_span</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_id</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="n">SA</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get span frequency of a SA instance&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fget</span><span class="p">(</span><span class="s1">&#39;SPAN&#39;</span><span class="p">,</span> <span class="n">_id</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="Spectrum.get_start">
+<a class="viewcode-back" href="../dso_spectrum.html#dso_spectrum.Spectrum.get_start">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_id</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="n">SA</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get start frequency of a SA instance&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fget</span><span class="p">(</span><span class="s1">&#39;START&#39;</span><span class="p">,</span> <span class="n">_id</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="Spectrum.get_stop">
+<a class="viewcode-back" href="../dso_spectrum.html#dso_spectrum.Spectrum.get_stop">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_stop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_id</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="n">SA</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get stop frequency of a SA instance&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fget</span><span class="p">(</span><span class="s1">&#39;STOP&#39;</span><span class="p">,</span> <span class="n">_id</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="Spectrum.get_rbw">
+<a class="viewcode-back" href="../dso_spectrum.html#dso_spectrum.Spectrum.get_rbw">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_rbw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_id</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="n">SA</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get RBW of a SA instance&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fget</span><span class="p">(</span><span class="s1">&#39;RBW&#39;</span><span class="p">,</span> <span class="n">_id</span><span class="p">)</span>        </div>
+
+        
+<div class="viewcode-block" id="Spectrum.set_spectrum_mode">
+<a class="viewcode-back" href="../dso_spectrum.html#dso_spectrum.Spectrum.set_spectrum_mode">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_spectrum_mode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span><span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set state of the spectrum mode</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            state (str): ON or OFF</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">state</span> <span class="ow">in</span> <span class="p">{</span><span class="s1">&#39;ON&#39;</span><span class="p">,</span> <span class="s1">&#39;OFF&#39;</span><span class="p">}:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Invalid value of argument:</span><span class="si">{</span><span class="n">state</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:SA:STATE </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">state</span><span class="p">)</span>
+        <span class="n">cmd</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">terminator</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Spectrum.is_spectrum_mode">
+<a class="viewcode-back" href="../dso_spectrum.html#dso_spectrum.Spectrum.is_spectrum_mode">[docs]</a>
+    <span class="k">def</span> <span class="nf">is_spectrum_mode</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get state of the spectrum mode</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bool: True if present state is the spectrum mode. False otherwise.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>    
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:SA:STATE?&#39;</span>
+        <span class="n">cmd</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">terminator</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">ret</span> <span class="ow">in</span> <span class="p">{</span><span class="s1">&#39;ON&#39;</span><span class="p">,</span> <span class="s1">&#39;OFF&#39;</span><span class="p">}</span>
+        <span class="k">return</span> <span class="kc">True</span> <span class="k">if</span> <span class="n">ret</span> <span class="o">==</span> <span class="s1">&#39;ON&#39;</span> <span class="k">else</span> <span class="kc">False</span></div>
+
+        
+<div class="viewcode-block" id="Spectrum.set_state">
+<a class="viewcode-back" href="../dso_spectrum.html#dso_spectrum.Spectrum.set_state">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_state</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">_id</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="n">SA</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set ON/OFF state of a SA instance</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            state (str): ON or OFF</span>
+<span class="sd">            _id  (int): 0 for single SA(optional) while 1,2, .. and etc for multi-SAs</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+        <span class="k">assert</span> <span class="n">state</span> <span class="ow">in</span> <span class="p">{</span><span class="s1">&#39;ON&#39;</span><span class="p">,</span> <span class="s1">&#39;OFF&#39;</span><span class="p">}</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_valid</span><span class="p">(</span><span class="n">_id</span><span class="p">):</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:SA</span><span class="si">%s</span><span class="s1">:INPut </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_id_prefix</span><span class="p">[</span><span class="n">_id</span><span class="p">],</span> <span class="n">state</span><span class="p">)</span>
+            <span class="n">cmd</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">terminator</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="Spectrum.get_state">
+<a class="viewcode-back" href="../dso_spectrum.html#dso_spectrum.Spectrum.get_state">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_state</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_id</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="n">SA</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get ON/OFF state of a SA instance</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            _id  (int): 0 for single SA(optional) while 1,2, .. and etc for multi-SAs</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bool: True for the &#39;ON&#39; state, False otherwise.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_valid</span><span class="p">(</span><span class="n">_id</span><span class="p">):</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:SA</span><span class="si">%s</span><span class="s1">:INPut?&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_id_prefix</span><span class="p">[</span><span class="n">_id</span><span class="p">])</span>
+            <span class="n">cmd</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">terminator</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+            <span class="k">assert</span> <span class="n">ret</span> <span class="ow">in</span> <span class="p">{</span><span class="s1">&#39;ON&#39;</span><span class="p">,</span> <span class="s1">&#39;OFF&#39;</span><span class="p">}</span>
+            <span class="k">return</span> <span class="kc">True</span> <span class="k">if</span> <span class="n">ret</span> <span class="o">==</span> <span class="s1">&#39;ON&#39;</span> <span class="k">else</span> <span class="kc">False</span></div>
+
+        
+<div class="viewcode-block" id="Spectrum.set_source">
+<a class="viewcode-back" href="../dso_spectrum.html#dso_spectrum.Spectrum.set_source">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_source</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ch</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">_id</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="n">SA</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set input source for a SA instance</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            _id  (int): 0 for single SA(optional) while 1,2, .. and etc for multi-SAs</span>
+<span class="sd">            source (int): 1:CH1, 2:CH2, and etc.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dso</span><span class="o">.</span><span class="n">is_ch_support</span><span class="p">(</span><span class="n">ch</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Not supported ch=</span><span class="si">{</span><span class="n">ch</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_valid</span><span class="p">(</span><span class="n">_id</span><span class="p">):</span>
+                <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:SA</span><span class="si">%s</span><span class="s1">:SOURce CH</span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_id_prefix</span><span class="p">[</span><span class="n">_id</span><span class="p">],</span> <span class="n">ch</span><span class="p">)</span>
+                <span class="n">cmd</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">terminator</span>
+                <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="Spectrum.get_source">
+<a class="viewcode-back" href="../dso_spectrum.html#dso_spectrum.Spectrum.get_source">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_source</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_id</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="n">SA</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get input source of a SA instance</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            _id  (int): 0 for single SA(optional) while 1,2, .. and etc for multi-SAs</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            ch (int): 1:CH1, 2:CH2, and etc.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_valid</span><span class="p">(</span><span class="n">_id</span><span class="p">):</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:SA</span><span class="si">%s</span><span class="s1">:SOURce?&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_id_prefix</span><span class="p">[</span><span class="n">_id</span><span class="p">])</span>
+            <span class="n">cmd</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">terminator</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        
+            <span class="n">ch</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">ret</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+            <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dso</span><span class="o">.</span><span class="n">is_ch_support</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">ch</span></div>
+
+
+<div class="viewcode-block" id="Spectrum.set_trace_data_type">
+<a class="viewcode-back" href="../dso_spectrum.html#dso_spectrum.Spectrum.set_trace_data_type">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_trace_data_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trace_type</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">_id</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="n">SA</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set trace type before retrieving the trace data</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            trace_type (str): NORMAL, AVERAGE, MAXHOLD, MINHOLD</span>
+<span class="sd">            _id  (int): 0 for single SA(optional) while 1,2, .. and etc for multi-SAs</span>
+<span class="sd">                       </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            True if set successfully. False otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_valid</span><span class="p">(</span><span class="n">_id</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">trace_types</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">trace_type</span><span class="p">)</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">False</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:SA</span><span class="si">%s</span><span class="s1">:MEMory:SOURce </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_id_prefix</span><span class="p">[</span><span class="n">_id</span><span class="p">],</span> <span class="n">trace_type</span><span class="p">)</span>
+            <span class="n">cmd</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">terminator</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">True</span></div>
+
+        
+<div class="viewcode-block" id="Spectrum.get_trace_data_type">
+<a class="viewcode-back" href="../dso_spectrum.html#dso_spectrum.Spectrum.get_trace_data_type">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_trace_data_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_id</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="n">SA</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get trace data type after set_trace_data_type().</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            _id  (int): 0 for single SA(optional) while 1,2, .. and etc for multi-SAs</span>
+<span class="sd">       </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            ret (str): NORMAL, AVERAGE, MAXHOLD, MINHOLD </span>
+<span class="sd">            </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_valid</span><span class="p">(</span><span class="n">_id</span><span class="p">):</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:SA</span><span class="si">%s</span><span class="s1">:MEMory:SOURce?&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_id_prefix</span><span class="p">[</span><span class="n">_id</span><span class="p">])</span>
+            <span class="n">cmd</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">terminator</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">ret</span></div>
+
+         
+<div class="viewcode-block" id="Spectrum.get_trace">
+<a class="viewcode-back" href="../dso_spectrum.html#dso_spectrum.Spectrum.get_trace">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_trace</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trace_type</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">_id</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="n">SA</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get trace data of a SA instance</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            trace_type (str): NORMAL, AVERAGE, MAXHOLD, MINHOLD</span>
+<span class="sd">            _id  (int): 0 for single SA(optional) while 1,2, .. and etc for multi-SAs</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            trace_data (list): spectrum data represented in 8-bit wordlength.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_valid</span><span class="p">(</span><span class="n">_id</span><span class="p">):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_trace_data_type</span><span class="p">(</span><span class="n">trace_type</span><span class="p">,</span> <span class="n">_id</span><span class="p">):</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="kn">import</span> <span class="nn">dso_math</span>
+                    <span class="k">return</span> <span class="n">dso_math</span><span class="o">.</span><span class="n">_get_waveform</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dso</span><span class="p">,</span> <span class="s1">&#39;spectrum&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_id_prefix</span><span class="p">[</span><span class="n">_id</span><span class="p">])</span>
+                <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;import dso_math failed.&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Spectrum.set_spectrum_trace">
+<a class="viewcode-back" href="../dso_spectrum.html#dso_spectrum.Spectrum.set_spectrum_trace">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_spectrum_trace</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trace_type</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">_id</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="n">SA</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Set traces on and off</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            trace_type (str): NORMAL, AVERAGE, MAXHOLD, or MINHOLD</span>
+<span class="sd">            </span>
+<span class="sd">            state (str): ON or OFF</span>
+<span class="sd">            </span>
+<span class="sd">            _id  (int): 0 for single SA(optional) while 1,2, .. and etc for multi-SAs</span>
+<span class="sd">            </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_valid</span><span class="p">(</span><span class="n">_id</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">trace_types</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">trace_type</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Invalid trace type:</span><span class="si">{</span><span class="n">trace_type</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="n">_prefix</span> <span class="o">=</span> <span class="s1">&#39;:SELect&#39;</span> <span class="k">if</span> <span class="n">_id</span> <span class="o">==</span> <span class="n">SA</span> <span class="k">else</span> <span class="s1">&#39;:SA</span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_id_prefix</span><span class="p">[</span><span class="n">_id</span><span class="p">])</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="n">_prefix</span> <span class="o">+</span> <span class="s1">&#39;:</span><span class="si">{0}</span><span class="s1"> </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">trace_type</span><span class="p">,</span> <span class="n">state</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+            <span class="n">cmd</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">terminator</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+    
+<div class="viewcode-block" id="Spectrum.is_spectrum_trace">
+<a class="viewcode-back" href="../dso_spectrum.html#dso_spectrum.Spectrum.is_spectrum_trace">[docs]</a>
+    <span class="k">def</span> <span class="nf">is_spectrum_trace</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trace_type</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">_id</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="n">SA</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Get display state of a given spectrum trace</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            trace_type (str): NORMAL, AVERAGE, MAXHOLD, or MINHOLD</span>
+<span class="sd">            </span>
+<span class="sd">            _id  (int): 0 for single SA(optional) while 1,2, .. and etc for multi-SAs</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            True if the trace is &#39;ON&#39;. False otherwise.</span>
+<span class="sd">            </span>
+<span class="sd">        &quot;&quot;&quot;</span>    
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_valid</span><span class="p">(</span><span class="n">_id</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">trace_types</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">trace_type</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Invalid trace type:</span><span class="si">{</span><span class="n">trace_type</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="n">_prefix</span> <span class="o">=</span> <span class="s1">&#39;:SELect&#39;</span> <span class="k">if</span> <span class="n">_id</span> <span class="o">==</span> <span class="n">SA</span> <span class="k">else</span> <span class="s1">&#39;:SA</span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_id_prefix</span><span class="p">[</span><span class="n">_id</span><span class="p">])</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="n">_prefix</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">&#39;:</span><span class="si">{</span><span class="n">trace_type</span><span class="si">}</span><span class="s1">?&#39;</span>
+            <span class="n">cmd</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">terminator</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+            <span class="k">assert</span> <span class="n">ret</span> <span class="ow">in</span> <span class="p">{</span><span class="s1">&#39;ON&#39;</span><span class="p">,</span> <span class="s1">&#39;OFF&#39;</span><span class="p">}</span>
+            <span class="k">return</span> <span class="kc">True</span> <span class="k">if</span> <span class="n">ret</span> <span class="o">==</span> <span class="s1">&#39;ON&#39;</span> <span class="k">else</span> <span class="kc">False</span></div>
+</div>
+
+
+                    
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Command line arguments</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        sys.argv[1] (str, optional): connection string</span>
+<span class="sd">        </span>
+<span class="sd">    Examples:</span>
+<span class="sd">        # Run in local loop-back</span>
+<span class="sd">            python dso_spectrum.py</span>
+<span class="sd">            </span>
+<span class="sd">        # Run with user&#39;s connection</span>
+<span class="sd">            python dso_spectrum.py 192.168.1.1:3000</span>
+<span class="sd">            </span>
+<span class="sd">        # Run with auto-scanning port</span>
+<span class="sd">            python dso_spectrum.py 192.168.1.1</span>
+<span class="sd">            </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_host</span><span class="o">=</span> <span class="s1">&#39;localhost:3000&#39;</span>
+    <span class="kn">import</span> <span class="nn">sys</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">_host</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> 
+        
+    <span class="k">if</span> <span class="n">_host</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">):</span>
+        <span class="n">_host</span><span class="p">,</span> <span class="n">_port</span> <span class="o">=</span> <span class="n">_host</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+        <span class="n">_port</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">_port</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">_port</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Invalid port no:</span><span class="si">{</span><span class="n">_port</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">__debug__</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Connecting </span><span class="si">{</span><span class="n">_host</span><span class="si">}</span><span class="s1">:</span><span class="si">{</span><span class="n">_port</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">_port</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># Auto-scan mode</span>
+
+    <span class="kn">import</span> <span class="nn">dso2ke</span> <span class="k">as</span> <span class="nn">gds</span>
+    <span class="n">myDso</span> <span class="o">=</span> <span class="n">gds</span><span class="o">.</span><span class="n">Dso</span><span class="p">()</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">myDso</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">_host</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">_port</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Socket connection failed.&#39;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">myDso</span><span class="o">.</span><span class="n">sa</span><span class="o">.</span><span class="n">is_spectrum_mode</span><span class="p">():</span>
+        <span class="n">myDso</span><span class="o">.</span><span class="n">sa</span><span class="o">.</span><span class="n">set_spectrum_mode</span><span class="p">(</span><span class="s1">&#39;ON&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Configure SA parameters: center and span frequency        </span>
+    <span class="n">myDso</span><span class="o">.</span><span class="n">sa</span><span class="o">.</span><span class="n">set_freq</span><span class="p">(</span><span class="mf">10e6</span><span class="p">)</span>
+    <span class="n">myDso</span><span class="o">.</span><span class="n">sa</span><span class="o">.</span><span class="n">set_span</span><span class="p">(</span><span class="mf">10e6</span><span class="p">)</span>
+    
+    <span class="c1">#myDso.stop()</span>
+    
+    <span class="c1"># Get spectrum trace</span>
+    <span class="c1">#trace = myDso.sa.get_trace(&#39;NORMAL&#39;)</span>
+    
+    <span class="c1">#if trace:</span>
+    
+        
+    
+    <span class="c1"># if myDso.sa.is_spectrum_mode():</span>
+        <span class="c1"># myDso.sa.set_spectrum_mode(&#39;OFF&#39;)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, GW Instek.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

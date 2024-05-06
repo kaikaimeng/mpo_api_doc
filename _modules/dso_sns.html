@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dso_sns &mdash; mpo_api 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            mpo_api
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dso2kp.html">dso2kp module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_acquire.html">dso_acquire module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_awg.html">dso_awg module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_basic.html">dso_basic module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_channel.html">dso_channel module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_colors.html">dso_colors module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_const.html">dso_const module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_display.html">dso_display module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_dmm.html">dso_dmm module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_draw.html">dso_draw module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_gonogo.html">dso_gonogo module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_gui.html">dso_gui module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_hardcopy.html">dso_hardcopy module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_math.html">dso_math module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_meas.html">dso_meas module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_power_supply.html">dso_power_supply module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_ref.html">dso_ref module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_sns.html">dso_sns module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_spectrum.html">dso_spectrum module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_timebase.html">dso_timebase module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_trigger.html">dso_trigger module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../load.html">load module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../psw.html">psw module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">mpo_api</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Module code</a></li>
+      <li class="breadcrumb-item active">dso_sns</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for dso_sns</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Name: dso_sns.py</span>
+<span class="c1">#</span>
+<span class="c1"># Description: </span>
+<span class="c1">#</span>
+<span class="c1"># Author: GW Instek</span>
+<span class="c1">#</span>
+<span class="c1"># Documentation:</span>
+<span class="c1"># https://github.com/OpenWave-GW/Python_APP</span>
+<span class="c1">#</span>
+<span class="c1"># License: GW Python APP License</span>
+<span class="c1"># Copyright (c) 2023 GOOD WILL INSTRUMENT CO., LTD.</span>
+<span class="c1"># https://github.com/OpenWave-GW/Python_APP/blob/main/LICENSE.txt</span>
+
+<span class="sd">&quot;&quot;&quot;This module can send some message to SNS&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">socket</span>
+<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">implementation</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;micropython&quot;</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">urequests</span> <span class="k">as</span> <span class="nn">requests</span>
+    <span class="kn">import</span> <span class="nn">ubinascii</span> <span class="k">as</span> <span class="nn">binascii</span>
+    <span class="kn">import</span> <span class="nn">uhashlib</span> <span class="k">as</span> <span class="nn">hashlib</span>
+    <span class="kn">import</span> <span class="nn">ussl</span> <span class="k">as</span> <span class="nn">ssl</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">requests</span>
+    <span class="kn">import</span> <span class="nn">binascii</span>
+    <span class="kn">import</span> <span class="nn">hashlib</span>
+    <span class="kn">import</span> <span class="nn">ssl</span>
+
+<div class="viewcode-block" id="LineNotify">
+<a class="viewcode-back" href="../dso_sns.html#dso_sns.LineNotify">[docs]</a>
+<span class="k">class</span> <span class="nc">LineNotify</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;This can send Line Notify.</span>
+
+<span class="sd">    .. important:: Need to have your own token, https://notify-bot.line.me/en/</span>
+
+<span class="sd">    .. important:: Need configure your network DNS settings.</span>
+
+<span class="sd">    **Useage:**</span>
+
+<span class="sd">    .. code-block:: python</span>
+
+<span class="sd">        import dso_sns</span>
+<span class="sd">        TOKEN = &lt;your tiken&gt;</span>
+<span class="sd">        l = dso_sns.LineNotify(TOKEN)</span>
+<span class="sd">        data = l.make_data(&#39;Message&#39;)</span>
+<span class="sd">        l.sned(data)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">token</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">token</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Need token!&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">implementation</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;micropython&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__micropython</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__micropython</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">token</span> <span class="o">=</span> <span class="n">token</span>
+
+<div class="viewcode-block" id="LineNotify.make_data">
+<a class="viewcode-back" href="../dso_sns.html#dso_sns.LineNotify.make_data">[docs]</a>
+    <span class="k">def</span> <span class="nf">make_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">stickerPackageId</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">stickerId</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">imageFile</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">imageThumbnail</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">imageFullsize</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;This can prepare your data</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            msg (str): The message you want to send, it&#39;s necessarily.</span>
+<span class="sd">            stickerPackageId (int, optional): The sticker package ID.</span>
+<span class="sd">            </span>
+<span class="sd">                Defaults to None.</span>
+
+<span class="sd">            stickerId (int, optional): The sticker ID.</span>
+<span class="sd">            </span>
+<span class="sd">                Defaults to None.</span>
+
+<span class="sd">            imageFile (str, optional): The local image path.</span>
+<span class="sd">            </span>
+<span class="sd">                 Defaults to None.</span>
+<span class="sd">            imageThumbnail (str, optional): The HTTP image URL.</span>
+
+<span class="sd">                Defaults to None.</span>
+<span class="sd">            imageFullsize (str, optional): The HTTP image URL. </span>
+<span class="sd">            </span>
+<span class="sd">                Defaults to None.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            dict: data</span>
+<span class="sd">        </span>
+<span class="sd">        .. tip:: The sticker info is here https://developers.line.biz/en/docs/messaging-api/sticker-list/#specify-sticker-in-message-object</span>
+<span class="sd">        .. note:: If you specified imageThumbnail ,imageFullsize and imageFile, imageFile takes precedence.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">data</span><span class="o">=</span><span class="p">{}</span>
+        <span class="k">if</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+            <span class="n">data</span><span class="p">[</span><span class="s2">&quot;message&quot;</span><span class="p">]</span><span class="o">=</span><span class="n">msg</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;message is empty.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="c1"># sticker</span>
+        <span class="k">if</span> <span class="n">stickerPackageId</span> <span class="o">==</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">stickerId</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">data</span><span class="p">[</span><span class="s2">&quot;stickerPackageId&quot;</span><span class="p">]</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">stickerPackageId</span><span class="p">)</span>
+            <span class="n">data</span><span class="p">[</span><span class="s2">&quot;stickerId&quot;</span><span class="p">]</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">stickerId</span><span class="p">)</span>
+
+        <span class="c1"># imageFile</span>
+        <span class="k">if</span> <span class="n">imageFile</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">data</span><span class="p">[</span><span class="s2">&quot;imageFile&quot;</span><span class="p">]</span><span class="o">=</span><span class="n">imageFile</span>
+        
+        <span class="c1"># imageurl</span>
+        <span class="k">if</span> <span class="n">imageThumbnail</span> <span class="o">==</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">imageFullsize</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">data</span><span class="p">[</span><span class="s2">&quot;imageThumbnail&quot;</span><span class="p">]</span><span class="o">=</span><span class="n">imageThumbnail</span>
+            <span class="n">data</span><span class="p">[</span><span class="s2">&quot;imageFullsize&quot;</span><span class="p">]</span><span class="o">=</span><span class="n">imageFullsize</span>
+        <span class="c1">#print(data)</span>
+        <span class="k">return</span> <span class="n">data</span></div>
+
+
+    <span class="k">def</span> <span class="nf">__make_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">data</span><span class="p">:</span><span class="nb">dict</span><span class="p">):</span>
+        <span class="n">boundary</span> <span class="o">=</span> <span class="n">binascii</span><span class="o">.</span><span class="n">hexlify</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">urandom</span><span class="p">(</span><span class="mi">16</span><span class="p">))</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">encode_field</span><span class="p">(</span><span class="n">field_name</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__micropython</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">(</span>
+                    <span class="sa">b</span><span class="s1">&#39;--</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">boundary</span><span class="p">,</span>
+                    <span class="sa">b</span><span class="s1">&#39;Content-Disposition: form-data; name=&quot;</span><span class="si">%s</span><span class="s1">&quot;&#39;</span> <span class="o">%</span> <span class="n">field_name</span><span class="p">,</span>
+                    <span class="sa">b</span><span class="s1">&#39;&#39;</span><span class="p">,</span> 
+                    <span class="sa">b</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span> <span class="n">data</span><span class="p">[</span><span class="n">field_name</span><span class="p">]</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">(</span>
+                    <span class="sa">b</span><span class="s1">&#39;--</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">boundary</span><span class="o">.</span><span class="n">encode</span><span class="p">(),</span>
+                    <span class="sa">b</span><span class="s1">&#39;Content-Disposition: form-data; name=&quot;</span><span class="si">%s</span><span class="s1">&quot;&#39;</span> <span class="o">%</span> <span class="n">field_name</span><span class="o">.</span><span class="n">encode</span><span class="p">(),</span>
+                    <span class="sa">b</span><span class="s1">&#39;&#39;</span><span class="p">,</span> 
+                    <span class="sa">b</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span> <span class="n">data</span><span class="p">[</span><span class="n">field_name</span><span class="p">]</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
+                <span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">encode_file</span><span class="p">(</span><span class="n">field_name</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+            <span class="n">file_full</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="n">field_name</span><span class="p">]</span>
+            <span class="k">if</span> <span class="s2">&quot;.png&quot;</span> <span class="ow">in</span> <span class="n">file_full</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+                <span class="n">fext</span> <span class="o">=</span> <span class="s2">&quot;png&quot;</span>
+            <span class="k">elif</span> <span class="p">(</span><span class="s2">&quot;.jpg&quot;</span> <span class="ow">or</span> <span class="s2">&quot;.jpeg&quot;</span><span class="p">)</span> <span class="ow">in</span> <span class="n">file_full</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+                <span class="n">fext</span> <span class="o">=</span> <span class="s2">&quot;jpeg&quot;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+            <span class="n">file_name</span><span class="o">=</span><span class="s2">&quot;test.&quot;</span><span class="o">+</span><span class="n">fext</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_full</span><span class="p">,</span><span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+                <span class="n">image</span><span class="o">=</span><span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__micropython</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">(</span>
+                    <span class="sa">b</span><span class="s1">&#39;--</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">boundary</span><span class="p">,</span>
+                    <span class="sa">b</span><span class="s1">&#39;Content-Disposition: form-data; name=&quot;</span><span class="si">%s</span><span class="s1">&quot;; filename=&quot;</span><span class="si">%s</span><span class="s1">&quot;&#39;</span> <span class="o">%</span> <span class="p">(</span>
+                        <span class="n">field_name</span><span class="p">,</span> <span class="n">file_name</span><span class="p">),</span>
+                    <span class="sa">b</span><span class="s1">&#39;Content-Type: image/</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">fext</span><span class="p">),</span>
+                    <span class="sa">b</span><span class="s1">&#39;&#39;</span><span class="p">,</span> 
+                    <span class="n">image</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">(</span>
+                    <span class="sa">b</span><span class="s1">&#39;--</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">boundary</span><span class="o">.</span><span class="n">encode</span><span class="p">(),</span>
+                    <span class="sa">b</span><span class="s1">&#39;Content-Disposition: form-data; name=&quot;</span><span class="si">%s</span><span class="s1">&quot;; filename=&quot;</span><span class="si">%s</span><span class="s1">&quot;&#39;</span> <span class="o">%</span> <span class="p">(</span>
+                        <span class="n">field_name</span><span class="o">.</span><span class="n">encode</span><span class="p">(),</span> <span class="n">file_name</span><span class="o">.</span><span class="n">encode</span><span class="p">()),</span>
+                    <span class="sa">b</span><span class="s1">&#39;Content-Type: image/</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">fext</span><span class="o">.</span><span class="n">encode</span><span class="p">()),</span>
+                    <span class="sa">b</span><span class="s1">&#39;&#39;</span><span class="p">,</span> 
+                    <span class="n">image</span>
+                <span class="p">)</span>
+
+        <span class="n">lines</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;imageFile&quot;</span><span class="p">):</span>
+                <span class="n">lines</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">encode_file</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">lines</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">encode_field</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+                
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__micropython</span><span class="p">:</span>
+            <span class="n">lines</span><span class="o">.</span><span class="n">extend</span><span class="p">((</span><span class="sa">b</span><span class="s1">&#39;--</span><span class="si">%s</span><span class="s1">--&#39;</span> <span class="o">%</span> <span class="n">boundary</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;&#39;</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">lines</span><span class="o">.</span><span class="n">extend</span><span class="p">((</span><span class="sa">b</span><span class="s1">&#39;--</span><span class="si">%s</span><span class="s1">--&#39;</span> <span class="o">%</span> <span class="n">boundary</span><span class="o">.</span><span class="n">encode</span><span class="p">(),</span> <span class="sa">b</span><span class="s1">&#39;&#39;</span><span class="p">))</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\r\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+
+        <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;Bearer &#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">token</span><span class="p">,</span>
+            <span class="s1">&#39;content-type&#39;</span><span class="p">:</span> <span class="s1">&#39;multipart/form-data; boundary=&#39;</span> <span class="o">+</span> <span class="n">boundary</span><span class="p">,</span>
+            <span class="p">}</span>
+        <span class="k">return</span> <span class="n">body</span><span class="p">,</span> <span class="n">headers</span>
+
+<div class="viewcode-block" id="LineNotify.send">
+<a class="viewcode-back" href="../dso_sns.html#dso_sns.LineNotify.send">[docs]</a>
+    <span class="k">def</span> <span class="nf">send</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span><span class="nb">dict</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Send your data to Line Notify</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            data (dict): data</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">data</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">body</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__make_request</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;https://notify-api.line.me/api/notify&quot;</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">body</span><span class="p">)</span></div>
+</div>
+
+        <span class="c1">#print(r.text)</span>
+
+<span class="k">class</span> <span class="nc">__Twitter</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;This can tweet.</span>
+
+<span class="sd">    .. important:: Need to have your own keys.</span>
+
+<span class="sd">    .. important:: Need configure your network DNS settings.</span>
+
+<span class="sd">    **Useage:**</span>
+
+<span class="sd">    .. code-block:: python</span>
+
+<span class="sd">        import dso_sns</span>
+
+<span class="sd">        CK = &lt;CONSUMER_KEY&gt;</span>
+<span class="sd">        CS = &lt;CONSUMER_SECRET&gt;</span>
+<span class="sd">        AT = &lt;ACCESS_KEY&gt;</span>
+<span class="sd">        AS = &lt;ACCESS_SECRET&gt;</span>
+
+<span class="sd">        t = dso_sns.Twitter(CK,CS,AT,AS)</span>
+<span class="sd">        t.set_time_zone(8)</span>
+<span class="sd">        t.send(&quot;You can&#39;t send same tweet as last time.&quot;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">CK</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">CS</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">AT</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">AS</span><span class="p">:</span><span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">CK</span> <span class="o">=</span> <span class="n">CK</span> <span class="c1">#CONSUMER_KEY</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">CS</span> <span class="o">=</span> <span class="n">CS</span> <span class="c1">#CONSUMER_SECRET</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">AT</span> <span class="o">=</span> <span class="n">AT</span> <span class="c1">#ACCESS_KEY</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">AS</span> <span class="o">=</span> <span class="n">AS</span> <span class="c1">#ACCESS_SECRET</span>
+        <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">implementation</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;micropython&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__micropython</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tz</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__micropython</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tz</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">__current_time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">t</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">tz</span> <span class="o">*</span><span class="mi">3600</span>
+
+    <span class="k">def</span> <span class="nf">__enc_percent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+            <span class="n">ordc</span> <span class="o">=</span> <span class="nb">ord</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">ordc</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mh">0x30</span><span class="p">,</span> <span class="mh">0x39</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">or</span> \
+            <span class="n">ordc</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mh">0x41</span><span class="p">,</span> <span class="mh">0x5a</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">or</span> \
+            <span class="n">ordc</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mh">0x61</span><span class="p">,</span> <span class="mh">0x7a</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">or</span> \
+            <span class="n">ordc</span> <span class="ow">in</span> <span class="p">(</span><span class="mh">0x2d</span><span class="p">,</span> <span class="mh">0x2e</span><span class="p">,</span> <span class="mh">0x5f</span><span class="p">,</span> <span class="mh">0x7e</span><span class="p">):</span>
+                <span class="n">ret</span> <span class="o">+=</span> <span class="n">c</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">ret</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="si">%%%02X</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">ordc</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ret</span>
+
+    <span class="k">def</span> <span class="nf">__oauth_sign</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">vcs</span><span class="p">,</span> <span class="n">vas</span><span class="p">):</span>
+        <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">str</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+                <span class="nb">str</span> <span class="o">+=</span> <span class="s1">&#39;&amp;&#39;</span>
+            <span class="nb">str</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">=</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">__enc_percent</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">&amp;</span><span class="si">%s</span><span class="s2">&amp;</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">method</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">__enc_percent</span><span class="p">(</span><span class="n">url</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">__enc_percent</span><span class="p">(</span><span class="nb">str</span><span class="p">))</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__micropython</span><span class="p">:</span>
+            <span class="n">signing_key</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__enc_percent</span><span class="p">(</span><span class="n">vcs</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;&amp;&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">__enc_percent</span><span class="p">(</span><span class="n">vas</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">signing_key</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__enc_percent</span><span class="p">(</span><span class="n">vcs</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;&amp;&#39;</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">__enc_percent</span><span class="p">(</span><span class="n">vas</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="kn">import</span> <span class="nn">hmac</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__micropython</span><span class="p">:</span>
+                <span class="nb">hash</span> <span class="o">=</span> <span class="n">hmac</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">signing_key</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">digestmod</span><span class="o">=</span><span class="n">hashlib</span><span class="o">.</span><span class="n">sha1</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">hash</span> <span class="o">=</span> <span class="n">hmac</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">signing_key</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="nb">str</span><span class="o">.</span><span class="n">encode</span><span class="p">(),</span> <span class="n">digestmod</span><span class="o">=</span><span class="n">hashlib</span><span class="o">.</span><span class="n">sha1</span><span class="p">)</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">binascii</span><span class="o">.</span><span class="n">b2a_base64</span><span class="p">(</span><span class="nb">hash</span><span class="o">.</span><span class="n">digest</span><span class="p">())</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="c1"># HMAC implementation, as hashlib/hmac wouldn&#39;t fit</span>
+            <span class="c1"># From https://en.wikipedia.org/wiki/Hash-based_message_authentication_code</span>
+            <span class="k">def</span> <span class="nf">HMAC_sha1</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>
+                <span class="n">SHA1</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha1</span>
+                <span class="n">SHA1_BLOCK_SIZE</span> <span class="o">=</span> <span class="mi">64</span>
+                <span class="k">if</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">&gt;</span><span class="n">SHA1_BLOCK_SIZE</span><span class="p">):</span>
+                    <span class="n">k</span><span class="o">=</span><span class="n">SHA1</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>
+                <span class="n">KEY_BLOCK</span> <span class="o">=</span> <span class="n">k</span> <span class="o">+</span> <span class="p">(</span><span class="sa">b</span><span class="s1">&#39;</span><span class="se">\0</span><span class="s1">&#39;</span> <span class="o">*</span> <span class="p">(</span><span class="n">SHA1_BLOCK_SIZE</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">k</span><span class="p">)))</span>
+                <span class="n">KEY_INNER</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">((</span><span class="n">x</span> <span class="o">^</span> <span class="mh">0x36</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">KEY_BLOCK</span><span class="p">)</span>
+                <span class="n">KEY_OUTER</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">((</span><span class="n">x</span> <span class="o">^</span> <span class="mh">0x5C</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">KEY_BLOCK</span><span class="p">)</span>
+                <span class="n">inner_message</span> <span class="o">=</span> <span class="n">KEY_INNER</span> <span class="o">+</span> <span class="n">m</span>
+                <span class="n">outer_message</span> <span class="o">=</span> <span class="n">KEY_OUTER</span> <span class="o">+</span> <span class="n">SHA1</span><span class="p">(</span><span class="n">inner_message</span><span class="p">)</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>
+                <span class="k">return</span> <span class="n">SHA1</span><span class="p">(</span><span class="n">outer_message</span><span class="p">)</span>
+            <span class="nb">hash</span><span class="o">=</span><span class="n">HMAC_sha1</span><span class="p">(</span><span class="n">signing_key</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">binascii</span><span class="o">.</span><span class="n">b2a_base64</span><span class="p">(</span><span class="nb">hash</span><span class="p">)</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">ret</span>
+
+    <span class="k">def</span> <span class="nf">__oauth_genhead</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vck</span><span class="p">,</span> <span class="n">vcs</span><span class="p">,</span> <span class="n">vat</span><span class="p">,</span> <span class="n">vas</span><span class="p">,</span> <span class="n">status</span><span class="p">):</span>
+        <span class="n">tstamp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__current_time</span><span class="p">()</span>
+        <span class="c1">#print(&#39;----tstamp----&#39;, tstamp)</span>
+        <span class="n">nonce</span> <span class="o">=</span> <span class="s1">&#39;nonce</span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">tstamp</span><span class="p">)</span>
+        <span class="n">pairs</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="n">status</span><span class="p">),</span>
+            <span class="p">(</span><span class="s1">&#39;include_entities&#39;</span><span class="p">,</span> <span class="s1">&#39;true&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s1">&#39;oauth_consumer_key&#39;</span><span class="p">,</span> <span class="n">vck</span><span class="p">),</span>
+            <span class="p">(</span><span class="s1">&#39;oauth_nonce&#39;</span><span class="p">,</span> <span class="n">nonce</span><span class="p">),</span>
+            <span class="p">(</span><span class="s1">&#39;oauth_signature_method&#39;</span><span class="p">,</span> <span class="s1">&#39;HMAC-SHA1&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s1">&#39;oauth_timestamp&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">tstamp</span><span class="p">)),</span>
+            <span class="p">(</span><span class="s1">&#39;oauth_token&#39;</span><span class="p">,</span> <span class="n">vat</span><span class="p">),</span>
+            <span class="p">(</span><span class="s1">&#39;oauth_version&#39;</span><span class="p">,</span> <span class="s1">&#39;1.0&#39;</span><span class="p">)}</span>
+
+        <span class="n">sig</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__oauth_sign</span><span class="p">(</span><span class="s1">&#39;POST&#39;</span><span class="p">,</span> \
+            <span class="s1">&#39;https://api.twitter.com/1.1/statuses/update.json&#39;</span><span class="p">,</span> \
+            <span class="n">pairs</span><span class="p">,</span> <span class="n">vcs</span><span class="p">,</span> <span class="n">vas</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;    OAuth oauth_consumer_key=&quot;</span><span class="si">%s</span><span class="s1">&quot;,</span>
+<span class="s1">        oauth_nonce=&quot;</span><span class="si">%s</span><span class="s1">&quot;,</span>
+<span class="s1">        oauth_signature=&quot;</span><span class="si">%s</span><span class="s1">&quot;,</span>
+<span class="s1">        oauth_signature_method=&quot;HMAC-SHA1&quot;,</span>
+<span class="s1">        oauth_timestamp=&quot;</span><span class="si">%d</span><span class="s1">&quot;,</span>
+<span class="s1">        oauth_token=&quot;</span><span class="si">%s</span><span class="s1">&quot;,</span>
+<span class="s1">        oauth_version=&quot;1.0&quot;&#39;&#39;&#39;</span> <span class="o">%</span> \
+            <span class="p">(</span><span class="n">vck</span><span class="p">,</span> <span class="n">nonce</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__enc_percent</span><span class="p">(</span><span class="n">sig</span><span class="p">),</span> <span class="n">tstamp</span><span class="p">,</span> <span class="n">vat</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">s</span>
+
+    <span class="k">def</span> <span class="nf">__tweet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="s1">&#39;status=</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__enc_percent</span><span class="p">(</span><span class="n">msg</span><span class="p">))</span>
+        <span class="n">oauth_head</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__oauth_genhead</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">CK</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">CS</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">AT</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">AS</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+        <span class="n">header</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;POST /1.1/statuses/update.json?include_entities=true HTTP/1.1</span>
+<span class="s1">Accept: */*</span>
+<span class="s1">Connection: close</span>
+<span class="s1">User-Agent: OAuth gem v0.4.4</span>
+<span class="s1">Content-Type: application/x-www-form-urlencoded</span>
+<span class="s1">Authorization:</span>
+<span class="si">%s</span>
+<span class="s1">Content-Length: </span><span class="si">%d</span>
+<span class="s1">Host: api.twitter.com</span>
+<span class="s1">&#39;&#39;&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">oauth_head</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">body</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">header</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">body</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+
+    <span class="k">def</span> <span class="nf">send</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Send a message tweet.</span>
+
+<span class="sd">        .. caution:: You can&#39;t send same tweet as last time.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            msg (str): message</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__tweet</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>  <span class="c1"># Generate data that we are goint to post.</span>
+        <span class="c1">#print(&#39;---Generated data---&#39;, data)</span>
+        <span class="n">s</span><span class="o">=</span><span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">addr</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">getaddrinfo</span><span class="p">(</span><span class="s2">&quot;api.twitter.com&quot;</span><span class="p">,</span> <span class="mi">443</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">s</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">addr</span><span class="p">)</span>
+        <span class="n">s</span><span class="o">=</span><span class="n">ssl</span><span class="o">.</span><span class="n">wrap_socket</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__micropython</span><span class="p">:</span>
+            <span class="n">s</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">s</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+        <span class="c1">#print(s.read(4096))</span>
+        <span class="n">s</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">set_time_zone</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">tz</span><span class="p">:</span><span class="nb">int</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set time zone</span>
+
+<span class="sd">        .. hint:: If you are using CPython, you can ignore it.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            tz (int): time zone</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__micropython</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tz</span> <span class="o">=</span> <span class="n">tz</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tz</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">get_time_zone</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get time zone</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            int: time zone</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">tz</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, GW Instek.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

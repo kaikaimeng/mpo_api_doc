@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>psw module &mdash; mpo_api 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="load module" href="load.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            mpo_api
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="dso2kp.html">dso2kp module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_acquire.html">dso_acquire module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_awg.html">dso_awg module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_basic.html">dso_basic module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_channel.html">dso_channel module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_colors.html">dso_colors module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_const.html">dso_const module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_display.html">dso_display module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_dmm.html">dso_dmm module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_draw.html">dso_draw module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_gonogo.html">dso_gonogo module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_gui.html">dso_gui module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_hardcopy.html">dso_hardcopy module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_math.html">dso_math module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_meas.html">dso_meas module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_power_supply.html">dso_power_supply module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_ref.html">dso_ref module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_sns.html">dso_sns module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_spectrum.html">dso_spectrum module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_timebase.html">dso_timebase module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_trigger.html">dso_trigger module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="load.html">load module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">psw module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#psw.Psw"><code class="docutils literal notranslate"><span class="pre">Psw</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#psw.Psw.clear_prot"><code class="docutils literal notranslate"><span class="pre">Psw.clear_prot()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#psw.Psw.close"><code class="docutils literal notranslate"><span class="pre">Psw.close()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#psw.Psw.connect"><code class="docutils literal notranslate"><span class="pre">Psw.connect()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#psw.Psw.current"><code class="docutils literal notranslate"><span class="pre">Psw.current()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#psw.Psw.idn"><code class="docutils literal notranslate"><span class="pre">Psw.idn()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#psw.Psw.is_ocp_on"><code class="docutils literal notranslate"><span class="pre">Psw.is_ocp_on()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#psw.Psw.is_on"><code class="docutils literal notranslate"><span class="pre">Psw.is_on()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#psw.Psw.is_prot_trip"><code class="docutils literal notranslate"><span class="pre">Psw.is_prot_trip()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#psw.Psw.max_current"><code class="docutils literal notranslate"><span class="pre">Psw.max_current</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#psw.Psw.max_voltage"><code class="docutils literal notranslate"><span class="pre">Psw.max_voltage</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#psw.Psw.meas_current"><code class="docutils literal notranslate"><span class="pre">Psw.meas_current()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#psw.Psw.meas_power"><code class="docutils literal notranslate"><span class="pre">Psw.meas_power()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#psw.Psw.meas_voltage"><code class="docutils literal notranslate"><span class="pre">Psw.meas_voltage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#psw.Psw.min_current"><code class="docutils literal notranslate"><span class="pre">Psw.min_current</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#psw.Psw.min_voltage"><code class="docutils literal notranslate"><span class="pre">Psw.min_voltage</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#psw.Psw.mode"><code class="docutils literal notranslate"><span class="pre">Psw.mode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#psw.Psw.ocp"><code class="docutils literal notranslate"><span class="pre">Psw.ocp()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#psw.Psw.opc"><code class="docutils literal notranslate"><span class="pre">Psw.opc()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#psw.Psw.ovp"><code class="docutils literal notranslate"><span class="pre">Psw.ovp()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#psw.Psw.query"><code class="docutils literal notranslate"><span class="pre">Psw.query()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#psw.Psw.readline"><code class="docutils literal notranslate"><span class="pre">Psw.readline()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#psw.Psw.scpi_delay"><code class="docutils literal notranslate"><span class="pre">Psw.scpi_delay</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#psw.Psw.set_current"><code class="docutils literal notranslate"><span class="pre">Psw.set_current()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#psw.Psw.set_mode"><code class="docutils literal notranslate"><span class="pre">Psw.set_mode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#psw.Psw.set_ocp"><code class="docutils literal notranslate"><span class="pre">Psw.set_ocp()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#psw.Psw.set_ocp_off"><code class="docutils literal notranslate"><span class="pre">Psw.set_ocp_off()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#psw.Psw.set_ocp_on"><code class="docutils literal notranslate"><span class="pre">Psw.set_ocp_on()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#psw.Psw.set_off"><code class="docutils literal notranslate"><span class="pre">Psw.set_off()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#psw.Psw.set_on"><code class="docutils literal notranslate"><span class="pre">Psw.set_on()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#psw.Psw.set_ovp"><code class="docutils literal notranslate"><span class="pre">Psw.set_ovp()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#psw.Psw.set_scpi_delay"><code class="docutils literal notranslate"><span class="pre">Psw.set_scpi_delay()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#psw.Psw.set_voltage"><code class="docutils literal notranslate"><span class="pre">Psw.set_voltage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#psw.Psw.voltage"><code class="docutils literal notranslate"><span class="pre">Psw.voltage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#psw.Psw.write"><code class="docutils literal notranslate"><span class="pre">Psw.write()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">mpo_api</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">psw module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/psw.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-psw">
+<span id="psw-module"></span><h1>psw module<a class="headerlink" href="#module-psw" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="psw.Psw">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">psw.</span></span><span class="sig-name descname"><span class="pre">Psw</span></span><a class="reference internal" href="_modules/psw.html#Psw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psw.Psw" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This module can control the PSW.</p>
+<p>It supports USB interface to use SCPI.</p>
+<p>It will scan available instruments on your DSO, then require a Serial Number to specify and connect to it.</p>
+<section id="usage">
+<h2>Usage:<a class="headerlink" href="#usage" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">psw</span>
+<span class="n">inst</span> <span class="o">=</span> <span class="n">psw</span><span class="o">.</span><span class="n">Psw</span><span class="p">()</span>
+<span class="n">inst</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;&lt;Instrument Serial Number&gt;&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">inst</span><span class="o">.</span><span class="n">idn</span><span class="p">())</span>
+<span class="n">inst</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="psw.Psw.clear_prot">
+<span class="sig-name descname"><span class="pre">clear_prot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/psw.html#Psw.clear_prot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psw.Psw.clear_prot" title="Link to this definition"></a></dt>
+<dd><p>Clears over-voltage, over-current and overtemperature (OVP, OCP, OTP) protection circuits.
+It also clears the shutdown protection circuit.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psw.Psw.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/psw.html#Psw.close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psw.Psw.close" title="Link to this definition"></a></dt>
+<dd><p>Close the connection.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psw.Psw.connect">
+<span class="sig-name descname"><span class="pre">connect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">SN</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">baudrate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">115200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/psw.html#Psw.connect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psw.Psw.connect" title="Link to this definition"></a></dt>
+<dd><p>Connect to the PSW.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>SN</strong> (<em>str</em>) – Serial Number is necessary.</p></li>
+<li><p><strong>baudrate</strong> (<em>int</em><em>, </em><em>optional</em>) – baudrate. Defaults to 115200.</p></li>
+<li><p><strong>timeout</strong> (<em>int</em><em>, </em><em>optional</em>) – timeout. Defaults to 3.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>0 or -1</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psw.Psw.current">
+<span class="sig-name descname"><span class="pre">current</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/psw.html#Psw.current"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psw.Psw.current" title="Link to this definition"></a></dt>
+<dd><p>Queries the current level in amps.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>output current</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psw.Psw.idn">
+<span class="sig-name descname"><span class="pre">idn</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/psw.html#Psw.idn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psw.Psw.idn" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psw.Psw.is_ocp_on">
+<span class="sig-name descname"><span class="pre">is_ocp_on</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/psw.html#Psw.is_ocp_on"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psw.Psw.is_ocp_on" title="Link to this definition"></a></dt>
+<dd><p>Returns the OCP (over-current protection) status.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psw.Psw.is_on">
+<span class="sig-name descname"><span class="pre">is_on</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/psw.html#Psw.is_on"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psw.Psw.is_on" title="Link to this definition"></a></dt>
+<dd><p>Returns output status of the instrument.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psw.Psw.is_prot_trip">
+<span class="sig-name descname"><span class="pre">is_prot_trip</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/psw.html#Psw.is_prot_trip"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psw.Psw.is_prot_trip" title="Link to this definition"></a></dt>
+<dd><p>Returns the state of the protection circuits (OVP, OCP, OTP).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="psw.Psw.max_current">
+<span class="sig-name descname"><span class="pre">max_current</span></span><a class="headerlink" href="#psw.Psw.max_current" title="Link to this definition"></a></dt>
+<dd><p>MAX Current for this instrument. You will get it after connection.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="psw.Psw.max_voltage">
+<span class="sig-name descname"><span class="pre">max_voltage</span></span><a class="headerlink" href="#psw.Psw.max_voltage" title="Link to this definition"></a></dt>
+<dd><p>MAX Voltage for this instrument. You will get it after connection.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psw.Psw.meas_current">
+<span class="sig-name descname"><span class="pre">meas_current</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/psw.html#Psw.meas_current"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psw.Psw.meas_current" title="Link to this definition"></a></dt>
+<dd><p>Takes a measurement and returns the average output current</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>output current</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psw.Psw.meas_power">
+<span class="sig-name descname"><span class="pre">meas_power</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/psw.html#Psw.meas_power"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psw.Psw.meas_power" title="Link to this definition"></a></dt>
+<dd><p>Takes a measurement and returns the average output power</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>output power</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psw.Psw.meas_voltage">
+<span class="sig-name descname"><span class="pre">meas_voltage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/psw.html#Psw.meas_voltage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psw.Psw.meas_voltage" title="Link to this definition"></a></dt>
+<dd><p>Takes a measurement and returns the average output voltage</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>output voltage</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="psw.Psw.min_current">
+<span class="sig-name descname"><span class="pre">min_current</span></span><a class="headerlink" href="#psw.Psw.min_current" title="Link to this definition"></a></dt>
+<dd><p>MIN Current for this instrument. You will get it after connection.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="psw.Psw.min_voltage">
+<span class="sig-name descname"><span class="pre">min_voltage</span></span><a class="headerlink" href="#psw.Psw.min_voltage" title="Link to this definition"></a></dt>
+<dd><p>MIN Voltage for this instrument. You will get it after connection.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psw.Psw.mode">
+<span class="sig-name descname"><span class="pre">mode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/psw.html#Psw.mode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psw.Psw.mode" title="Link to this definition"></a></dt>
+<dd><p>Returns the output mode.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>output mode</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psw.Psw.ocp">
+<span class="sig-name descname"><span class="pre">ocp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/psw.html#Psw.ocp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psw.Psw.ocp" title="Link to this definition"></a></dt>
+<dd><p>Queries the OCP (over-current protection) level in amps.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>current</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psw.Psw.opc">
+<span class="sig-name descname"><span class="pre">opc</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/psw.html#Psw.opc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psw.Psw.opc" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psw.Psw.ovp">
+<span class="sig-name descname"><span class="pre">ovp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/psw.html#Psw.ovp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psw.Psw.ovp" title="Link to this definition"></a></dt>
+<dd><p>Queries the overvoltage protection level.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>current</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psw.Psw.query">
+<span class="sig-name descname"><span class="pre">query</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmd</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/psw.html#Psw.query"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psw.Psw.query" title="Link to this definition"></a></dt>
+<dd><p>Send a query SCPI command to the instrument and return the result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cmd</strong> (<em>str</em>) – SCPI command to be queried.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the SCPI command.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psw.Psw.readline">
+<span class="sig-name descname"><span class="pre">readline</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/psw.html#Psw.readline"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psw.Psw.readline" title="Link to this definition"></a></dt>
+<dd><p>Read a line from the instrument’s communication port and return it as a string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The string read from the instrument.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="psw.Psw.scpi_delay">
+<span class="sig-name descname"><span class="pre">scpi_delay</span></span><a class="headerlink" href="#psw.Psw.scpi_delay" title="Link to this definition"></a></dt>
+<dd><p>SCPI delay.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psw.Psw.set_current">
+<span class="sig-name descname"><span class="pre">set_current</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/psw.html#Psw.set_current"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psw.Psw.set_current" title="Link to this definition"></a></dt>
+<dd><p>Sets the current level in amps.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> – (float) output current level. (str): MAX or MIN</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psw.Psw.set_mode">
+<span class="sig-name descname"><span class="pre">set_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/psw.html#Psw.set_mode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psw.Psw.set_mode" title="Link to this definition"></a></dt>
+<dd><p>Sets the PSW output mode.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mode</strong> (<em>int</em>) – 0:’CVHS’,
+1:’CCHS’,
+2:’CVLS’,
+3:’CCLS’,</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psw.Psw.set_ocp">
+<span class="sig-name descname"><span class="pre">set_ocp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">current</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/psw.html#Psw.set_ocp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psw.Psw.set_ocp" title="Link to this definition"></a></dt>
+<dd><p>Sets the OCP (over-current protection) level in amps.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psw.Psw.set_ocp_off">
+<span class="sig-name descname"><span class="pre">set_ocp_off</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/psw.html#Psw.set_ocp_off"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psw.Psw.set_ocp_off" title="Link to this definition"></a></dt>
+<dd><p>Turns OCP (over-current protection) off.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psw.Psw.set_ocp_on">
+<span class="sig-name descname"><span class="pre">set_ocp_on</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/psw.html#Psw.set_ocp_on"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psw.Psw.set_ocp_on" title="Link to this definition"></a></dt>
+<dd><p>Turns OCP (over-current protection) on.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psw.Psw.set_off">
+<span class="sig-name descname"><span class="pre">set_off</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/psw.html#Psw.set_off"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psw.Psw.set_off" title="Link to this definition"></a></dt>
+<dd><p>Turns the output off.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psw.Psw.set_on">
+<span class="sig-name descname"><span class="pre">set_on</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/psw.html#Psw.set_on"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psw.Psw.set_on" title="Link to this definition"></a></dt>
+<dd><p>Turns the output on.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psw.Psw.set_ovp">
+<span class="sig-name descname"><span class="pre">set_ovp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">voltage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/psw.html#Psw.set_ovp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psw.Psw.set_ovp" title="Link to this definition"></a></dt>
+<dd><p>Sets the overvoltage protection level.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psw.Psw.set_scpi_delay">
+<span class="sig-name descname"><span class="pre">set_scpi_delay</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/psw.html#Psw.set_scpi_delay"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psw.Psw.set_scpi_delay" title="Link to this definition"></a></dt>
+<dd><p>Set the SCPI delay</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>delay</strong> (<em>float</em>) – delay time</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psw.Psw.set_voltage">
+<span class="sig-name descname"><span class="pre">set_voltage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/psw.html#Psw.set_voltage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psw.Psw.set_voltage" title="Link to this definition"></a></dt>
+<dd><p>Sets the voltage level in volts.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> – (float) output voltage level. (str): MAX or MIN</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psw.Psw.voltage">
+<span class="sig-name descname"><span class="pre">voltage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/psw.html#Psw.voltage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psw.Psw.voltage" title="Link to this definition"></a></dt>
+<dd><p>Queries the voltage level in volts.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>output voltage</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psw.Psw.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmd</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/psw.html#Psw.write"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psw.Psw.write" title="Link to this definition"></a></dt>
+<dd><p>Write an SCPI command to the instrument.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cmd</strong> (<em>str</em>) – SCPI command to be written.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="load.html" class="btn btn-neutral float-left" title="load module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, GW Instek.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dso_basic &mdash; mpo_api 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            mpo_api
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dso2kp.html">dso2kp module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_acquire.html">dso_acquire module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_awg.html">dso_awg module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_basic.html">dso_basic module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_channel.html">dso_channel module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_colors.html">dso_colors module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_const.html">dso_const module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_display.html">dso_display module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_dmm.html">dso_dmm module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_draw.html">dso_draw module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_gonogo.html">dso_gonogo module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_gui.html">dso_gui module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_hardcopy.html">dso_hardcopy module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_math.html">dso_math module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_meas.html">dso_meas module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_power_supply.html">dso_power_supply module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_ref.html">dso_ref module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_sns.html">dso_sns module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_spectrum.html">dso_spectrum module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_timebase.html">dso_timebase module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_trigger.html">dso_trigger module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../load.html">load module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../psw.html">psw module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">mpo_api</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Module code</a></li>
+      <li class="breadcrumb-item active">dso_basic</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for dso_basic</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Name: dso_basic.py</span>
+<span class="c1">#</span>
+<span class="c1"># Description: </span>
+<span class="c1">#</span>
+<span class="c1"># Author: GW Instek</span>
+<span class="c1">#</span>
+<span class="c1"># Documentation:</span>
+<span class="c1"># https://github.com/OpenWave-GW/Python_APP</span>
+<span class="c1">#</span>
+<span class="c1"># License: GW Python APP License</span>
+<span class="c1"># Copyright (c) 2023 GOOD WILL INSTRUMENT CO., LTD.</span>
+<span class="c1"># https://github.com/OpenWave-GW/Python_APP/blob/main/LICENSE.txt</span>
+
+<span class="kn">import</span> <span class="nn">socket</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">gc</span>
+<span class="kn">import</span> <span class="nn">struct</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">dso_colors</span> <span class="k">as</span> <span class="nn">color</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+<div class="viewcode-block" id="DsoBasic">
+<a class="viewcode-back" href="../dso_basic.html#dso_basic.DsoBasic">[docs]</a>
+<span class="k">class</span> <span class="nc">DsoBasic</span><span class="p">():</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">key_flag</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">key_cnt</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">key_code</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__ModelName</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__Chnum</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">implementation</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;micropython&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__micropython</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__micropython</span> <span class="o">=</span> <span class="kc">False</span>
+        
+<div class="viewcode-block" id="DsoBasic.write">
+<a class="viewcode-back" href="../dso_basic.html#dso_basic.DsoBasic.write">[docs]</a>
+    <span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmd</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;SCPI command write</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            cmd (str): SCPI command</span>
+
+<span class="sd">        .. note::</span>
+<span class="sd">            You can write &quot;RUN&quot; SCPI command, set DSO to RUN by yourself. Try use:</span>
+<span class="sd">            </span>
+<span class="sd">            .write(&#39;RUN&#39;)</span>
+
+<span class="sd">            You can write &quot;STOP&quot; SCPI command, set DSO to STOP by yourself. Try use:</span>
+
+<span class="sd">            .write(&#39;STOP&#39;)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">cmd</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cmd</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__micropython</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="n">cmd</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span></div>
+
+    
+    <span class="k">def</span> <span class="nf">__fill_Model</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">idn</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__ModelName</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__ModelName</span><span class="p">))):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__Chnum</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__ModelName</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="k">break</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="k">pass</span>
+
+<div class="viewcode-block" id="DsoBasic.connect">
+<a class="viewcode-back" href="../dso_basic.html#dso_basic.DsoBasic.connect">[docs]</a>
+    <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span><span class="n">port</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="mi">32767</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            port (int, optional): port number. Defaults to 32767 is internal connection.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">s</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">settimeout</span><span class="p">(</span><span class="mf">5.0</span><span class="p">)</span>
+        <span class="n">addr</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">getaddrinfo</span><span class="p">(</span><span class="n">host</span><span class="p">,</span><span class="n">port</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">addr</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dsodraw</span><span class="o">.</span><span class="n">__set_py_flag</span><span class="p">(</span><span class="s2">&quot;ON&quot;</span><span class="p">)</span>
+            <span class="c1">#__ShmThread()</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__fill_Model</span><span class="p">()</span>
+        <span class="k">return</span> <span class="mi">0</span></div>
+
+    
+<div class="viewcode-block" id="DsoBasic.close">
+<a class="viewcode-back" href="../dso_basic.html#dso_basic.DsoBasic.close">[docs]</a>
+    <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        close connection</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dsodraw</span><span class="o">.</span><span class="n">__set_py_flag</span><span class="p">(</span><span class="s2">&quot;OFF&quot;</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+    
+<div class="viewcode-block" id="DsoBasic.readline">
+<a class="viewcode-back" href="../dso_basic.html#dso_basic.DsoBasic.readline">[docs]</a>
+    <span class="k">def</span> <span class="nf">readline</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: return string</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__micropython</span><span class="p">:</span>
+            <span class="nb">str</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">tmp</span><span class="o">=</span><span class="sa">b</span><span class="s1">&#39;&#39;</span>
+            <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">tmp</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">tmp</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">):</span>
+                        <span class="k">break</span>
+                <span class="k">except</span><span class="p">:</span>
+                    <span class="k">break</span>
+            <span class="nb">str</span><span class="o">=</span><span class="n">tmp</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+        <span class="k">if</span><span class="p">(</span><span class="nb">str</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="s1">&#39;&#39;</span>
+        <span class="k">elif</span><span class="p">(</span><span class="nb">str</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="nb">str</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">str</span></div>
+
+
+<div class="viewcode-block" id="DsoBasic.query">
+<a class="viewcode-back" href="../dso_basic.html#dso_basic.DsoBasic.query">[docs]</a>
+    <span class="k">def</span> <span class="nf">query</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmd</span><span class="p">:</span><span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;SCPI command query</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            cmd (str): SCPI command</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: SCPI return</span>
+
+<span class="sd">        .. note::</span>
+<span class="sd">            You can query &quot;*IDN?&quot; SCPI command, to query return value by yourself. Try use:</span>
+<span class="sd">            </span>
+<span class="sd">            .query(&#39;*IDN?&#39;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">cmd</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cmd</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span></div>
+
+
+    <span class="k">def</span> <span class="nf">__read_block</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">info</span> <span class="o">==</span> <span class="sa">b</span><span class="s1">&#39;#&#39;</span><span class="p">):</span>
+            <span class="n">head</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">head_d</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">head</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
+            <span class="n">length</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="n">head_d</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+            <span class="n">length</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">length</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;&#39;</span>
+            <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">):</span>
+                <span class="n">data</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">8192</span><span class="p">)</span>
+                <span class="n">cnt</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+                <span class="c1"># print(&quot;%d/%d&quot;%(cnt,length))</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">cnt</span> <span class="o">==</span> <span class="n">length</span><span class="p">):</span>
+                    <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+    <span class="k">def</span> <span class="nf">__read_block_waveform</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__read_block</span><span class="p">()</span>
+        <span class="n">data_out_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">data_out</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;&gt;</span><span class="si">{</span><span class="n">data_out_size</span><span class="si">}</span><span class="s1">h&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="k">del</span> <span class="n">data</span>
+        <span class="k">return</span> <span class="n">data_out</span>
+
+<div class="viewcode-block" id="DsoBasic.get_waveform_num">
+<a class="viewcode-back" href="../dso_basic.html#dso_basic.DsoBasic.get_waveform_num">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_waveform_num</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ch</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">real_value</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">pos_consider</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;This function can get waveform data as numbertic array</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            ch (int): channel</span>
+<span class="sd">            real_value (bool, optional): True will return real world value or it will return dso value. Defaults to True.</span>
+<span class="sd">            pos_consider (bool, optional): The DSO value consider position or not. Defaults to True.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            list: waveform data</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_ch_support</span><span class="p">(</span><span class="n">ch</span><span class="p">):</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="c1"># check header</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s2">&quot;:header?&quot;</span>
+        <span class="n">header</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="c1"># print(header)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;ON&#39;</span> <span class="ow">in</span> <span class="n">header</span><span class="p">):</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="s2">&quot;:header ON&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">info</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="c1"># --------</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s2">&quot;:acq</span><span class="si">%d</span><span class="s2">:mem?&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">ch</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">cmd</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;?&#39;</span><span class="p">):</span>
+            <span class="n">header_buffer</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;&#39;</span>
+            <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="n">info_b</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                <span class="n">header_buffer</span> <span class="o">+=</span> <span class="n">info_b</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">info_b</span> <span class="o">==</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">):</span>
+                    <span class="c1"># Parsing header_buffer</span>
+                    <span class="n">header_buffer</span> <span class="o">=</span> <span class="n">header_buffer</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">header_buffer</span><span class="p">)):</span>
+                        <span class="n">tmp</span> <span class="o">=</span> <span class="n">header_buffer</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+                        <span class="k">try</span><span class="p">:</span>
+                            <span class="n">info</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">tmp</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span><span class="n">tmp</span><span class="p">[</span><span class="mi">1</span><span class="p">]})</span>
+                        <span class="k">except</span><span class="p">:</span>
+                            <span class="k">pass</span>
+                    <span class="c1"># print(databit)</span>
+                    <span class="c1"># read block data waveform</span>
+                    <span class="n">data_out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__read_block_waveform</span><span class="p">()</span>
+                    <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;SYST:ERR?</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">databit</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;Data Bit&#39;</span><span class="p">])</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="n">databit</span><span class="o">=</span><span class="mi">8</span>
+        <span class="n">vscale</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;Vertical Scale&#39;</span><span class="p">])</span>
+        <span class="n">vpos</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;Vertical Position&#39;</span><span class="p">])</span>
+        <span class="n">wave_len</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;Memory Length&#39;</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">real_value</span><span class="p">:</span>
+            <span class="n">tmp_s</span> <span class="o">=</span> <span class="n">vscale</span><span class="o">/</span><span class="mi">25</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">wave_len</span><span class="p">):</span>
+                <span class="n">data_out</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_out</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">tmp_s</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">pos_consider</span><span class="p">:</span>
+                <span class="n">shift</span> <span class="o">=</span> <span class="n">vpos</span><span class="o">/</span><span class="n">vscale</span><span class="o">*</span><span class="mi">25</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">wave_len</span><span class="p">):</span>
+                    <span class="n">data_out</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+=</span><span class="nb">int</span><span class="p">(</span><span class="n">shift</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">pass</span>
+        <span class="n">gc</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">data_out</span></div>
+
+
+<div class="viewcode-block" id="DsoBasic.autoset">
+<a class="viewcode-back" href="../dso_basic.html#dso_basic.DsoBasic.autoset">[docs]</a>
+    <span class="k">def</span> <span class="nf">autoset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set DSO Autoset</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;AUTOS</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DsoBasic.stop">
+<a class="viewcode-back" href="../dso_basic.html#dso_basic.DsoBasic.stop">[docs]</a>
+    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set DSO STOP</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;:STOP</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DsoBasic.run">
+<a class="viewcode-back" href="../dso_basic.html#dso_basic.DsoBasic.run">[docs]</a>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set DSO RUN</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;:RUN</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+    
+<div class="viewcode-block" id="DsoBasic.is_run">
+<a class="viewcode-back" href="../dso_basic.html#dso_basic.DsoBasic.is_run">[docs]</a>
+    <span class="k">def</span> <span class="nf">is_run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check now DSO status</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bool: </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;:RUN?</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">if</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">ret</span><span class="p">)):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span> </div>
+
+    
+<div class="viewcode-block" id="DsoBasic.single">
+<a class="viewcode-back" href="../dso_basic.html#dso_basic.DsoBasic.single">[docs]</a>
+    <span class="k">def</span> <span class="nf">single</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set SINGLE</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;:SINGle</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DsoBasic.default">
+<a class="viewcode-back" href="../dso_basic.html#dso_basic.DsoBasic.default">[docs]</a>
+    <span class="k">def</span> <span class="nf">default</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set DSO Default</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;*RST</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DsoBasic.force">
+<a class="viewcode-back" href="../dso_basic.html#dso_basic.DsoBasic.force">[docs]</a>
+    <span class="k">def</span> <span class="nf">force</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Forces an acquisition.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;:FORCe&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DsoBasic.idn">
+<a class="viewcode-back" href="../dso_basic.html#dso_basic.DsoBasic.idn">[docs]</a>
+    <span class="k">def</span> <span class="nf">idn</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get *IDN</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: *IDN string</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;*IDN?</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="DsoBasic.opc">
+<a class="viewcode-back" href="../dso_basic.html#dso_basic.DsoBasic.opc">[docs]</a>
+    <span class="k">def</span> <span class="nf">opc</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;*OPC?</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="DsoBasic.is_ch_support">
+<a class="viewcode-back" href="../dso_basic.html#dso_basic.DsoBasic.is_ch_support">[docs]</a>
+    <span class="k">def</span> <span class="nf">is_ch_support</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ch</span><span class="p">:</span><span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check the channel is valid or not.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            ch (int): channel number</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bool: True or False</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">ch</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">elif</span> <span class="n">ch</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">__Chnum</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span></div>
+
+    
+<div class="viewcode-block" id="DsoBasic.get_samplerate">
+<a class="viewcode-back" href="../dso_basic.html#dso_basic.DsoBasic.get_samplerate">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_samplerate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get samplerate</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            float: samplerate</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;:ACQuire:SAMPlerate?</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DsoBasic.load_waveform_csv">
+<a class="viewcode-back" href="../dso_basic.html#dso_basic.DsoBasic.load_waveform_csv">[docs]</a>
+    <span class="k">def</span> <span class="nf">load_waveform_csv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">real_value</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">checklen</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">pos_consider</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">list</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;You can read dso waveform csv file.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            file (str): Waveform file full path.</span>
+<span class="sd">            real_value (bool, optional): True will return real world value or it will return dso value. Defaults to True.</span>
+<span class="sd">            checklen (bool, optional): False will ignore waveform length check. Defaults to True.</span>
+<span class="sd">            pos_consider (bool, optional): The DSO value consider position or not. Defaults to True.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            tuple[dict, list]: The waveform header info and value.</span>
+
+<span class="sd">            .. note:: For single channel file :</span>
+<span class="sd">            </span>
+<span class="sd">                - They both 1-D.</span>
+
+<span class="sd">                For all channel file :</span>
+<span class="sd">                </span>
+<span class="sd">                - They both Multi-D.</span>
+
+<span class="sd">                    First channel&#39;s will be info[0] and waveform[0].</span>
+
+<span class="sd">                    Second channel&#39;s will be info[1] and waveform[1]. and so on.</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">gc</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">checklen</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__load_waveform_csv</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">real_value</span><span class="p">,</span> <span class="n">pos_consider</span><span class="p">)</span>
+        
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+        <span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+        <span class="n">info</span><span class="o">=</span><span class="p">{}</span>
+        <span class="n">all_channels</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="c1"># Update header info</span>
+        <span class="c1"># 1. Update format</span>
+        <span class="n">tmp</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+        <span class="n">info</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">tmp</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span><span class="n">tmp</span><span class="p">[</span><span class="mi">1</span><span class="p">]})</span>
+        <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+        <span class="c1"># 2. Update header</span>
+        <span class="n">tmp</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="c1"># CSV file include more than one channel.</span>
+            <span class="n">all_channels</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span>
+            <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">all_channels</span><span class="p">):</span>
+                <span class="n">info</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+                <span class="n">info</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">tmp</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">idx</span><span class="p">]:</span><span class="n">tmp</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">]})</span> 
+            <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="n">tmp</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+                <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+                <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">all_channels</span><span class="p">):</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="n">info</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">tmp</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">idx</span><span class="p">]:</span><span class="n">tmp</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">]})</span> 
+                        <span class="n">read_end</span> <span class="o">=</span> <span class="kc">False</span>
+                    <span class="k">except</span><span class="p">:</span>
+                        <span class="n">read_end</span> <span class="o">=</span> <span class="kc">True</span>
+                        <span class="k">break</span>
+                <span class="k">if</span> <span class="n">read_end</span><span class="p">:</span>
+                    <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># CSV file is one channel.</span>
+            <span class="n">info</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">tmp</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span><span class="n">tmp</span><span class="p">[</span><span class="mi">1</span><span class="p">]})</span>
+            <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+            <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="n">tmp</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+                <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">info</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">tmp</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span><span class="n">tmp</span><span class="p">[</span><span class="mi">1</span><span class="p">]})</span>
+                <span class="k">except</span><span class="p">:</span>
+                    <span class="k">break</span>
+        <span class="c1"># Get waveform info</span>
+        <span class="k">if</span> <span class="n">all_channels</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">the_info</span> <span class="o">=</span> <span class="n">info</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">the_info</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">databit</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">the_info</span><span class="p">[</span><span class="s1">&#39;Data Bit&#39;</span><span class="p">])</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="n">databit</span><span class="o">=</span><span class="mi">8</span>
+        <span class="n">wave_len</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">the_info</span><span class="p">[</span><span class="s1">&#39;Memory Length&#39;</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">the_info</span><span class="p">[</span><span class="s1">&#39;Mode&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Detail&#39;</span><span class="p">:</span>
+            <span class="n">detail</span><span class="o">=</span><span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">detail</span><span class="o">=</span><span class="kc">False</span>
+
+        <span class="n">_idx</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">the_info</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">_idx</span><span class="p">):</span>
+            <span class="k">del</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="c1"># Get waveform data</span>
+        <span class="k">if</span> <span class="n">all_channels</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">vscale</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;Vertical Scale&#39;</span><span class="p">])</span>
+            <span class="n">vpos</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;Vertical Position&#39;</span><span class="p">])</span>
+            <span class="n">waveform</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">wave_len</span>
+            <span class="k">if</span> <span class="n">detail</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">wave_len</span><span class="p">):</span>
+                    <span class="n">waveform</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+                <span class="k">if</span> <span class="n">real_value</span><span class="p">:</span>
+                    <span class="k">pass</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">wave_len</span><span class="p">):</span>
+                        <span class="n">waveform</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">waveform</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">vpos</span><span class="p">)</span><span class="o">/</span><span class="n">vscale</span><span class="o">*</span><span class="mi">25</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">wave_len</span><span class="p">):</span>
+                    <span class="n">waveform</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">))</span>
+                <span class="k">if</span> <span class="n">real_value</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">wave_len</span><span class="p">):</span>
+                        <span class="n">waveform</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">waveform</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">vscale</span><span class="o">/</span><span class="mi">25</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">pos_consider</span><span class="p">:</span>
+                        <span class="n">tmp_s</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">vpos</span><span class="o">/</span><span class="n">vscale</span><span class="o">*</span><span class="mi">25</span><span class="p">)</span>
+                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">wave_len</span><span class="p">):</span>
+                            <span class="n">waveform</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">tmp_s</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">waveform</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">wave_len</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">all_channels</span><span class="p">)]</span>
+            <span class="k">if</span> <span class="n">detail</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">wave_len</span><span class="p">):</span>
+                    <span class="n">tmp2</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">all_channels</span><span class="p">):</span>
+                        <span class="n">waveform</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">tmp2</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+                <span class="k">if</span> <span class="n">real_value</span><span class="p">:</span>
+                    <span class="k">pass</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">all_channels</span><span class="p">):</span>
+                        <span class="n">vscale</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s1">&#39;Vertical Scale&#39;</span><span class="p">])</span>
+                        <span class="n">vpos</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s1">&#39;Vertical Position&#39;</span><span class="p">])</span>
+                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">wave_len</span><span class="p">):</span>
+                            <span class="n">waveform</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">waveform</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">vpos</span><span class="p">)</span><span class="o">/</span><span class="n">vscale</span><span class="o">*</span><span class="mi">25</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">wave_len</span><span class="p">):</span>
+                    <span class="n">tmp2</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">all_channels</span><span class="p">):</span>
+                        <span class="n">waveform</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">tmp2</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">idx</span><span class="p">])</span>
+                <span class="k">if</span> <span class="n">real_value</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">all_channels</span><span class="p">):</span>
+                        <span class="n">vscale</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s1">&#39;Vertical Scale&#39;</span><span class="p">])</span>
+                        <span class="n">vpos</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s1">&#39;Vertical Position&#39;</span><span class="p">])</span>
+                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">wave_len</span><span class="p">):</span>
+                            <span class="n">waveform</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">waveform</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">vscale</span><span class="o">/</span><span class="mi">25</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">pos_consider</span><span class="p">:</span>
+                        <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">all_channels</span><span class="p">):</span>
+                            <span class="n">vscale</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s1">&#39;Vertical Scale&#39;</span><span class="p">])</span>
+                            <span class="n">vpos</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s1">&#39;Vertical Position&#39;</span><span class="p">])</span>
+                            <span class="n">tmp_s</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">vpos</span><span class="o">/</span><span class="n">vscale</span><span class="o">*</span><span class="mi">25</span><span class="p">)</span>
+                            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">wave_len</span><span class="p">):</span>
+                                <span class="n">waveform</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">tmp_s</span>
+
+        <span class="k">del</span> <span class="n">data</span>
+        <span class="n">gc</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">info</span><span class="p">,</span><span class="n">waveform</span></div>
+
+
+    <span class="k">def</span> <span class="nf">__load_waveform_csv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">real_value</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">pos_consider</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">list</span><span class="p">]:</span>
+        <span class="n">info</span><span class="o">=</span><span class="p">{}</span>
+        <span class="n">all_channels</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">f</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+        <span class="c1"># Read Header info</span>
+        <span class="c1"># 1. Update format</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+        <span class="n">info</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">tmp</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span><span class="n">tmp</span><span class="p">[</span><span class="mi">1</span><span class="p">]})</span>
+        <span class="c1"># 2. Update header</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="c1"># CSV file include more than one channel.</span>
+            <span class="n">all_channels</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span>
+            <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">all_channels</span><span class="p">):</span>
+                <span class="n">info</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+                <span class="n">info</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">tmp</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">idx</span><span class="p">]:</span><span class="n">tmp</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">]})</span> 
+            <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="n">tmp</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">all_channels</span><span class="p">):</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="n">info</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">tmp</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">idx</span><span class="p">]:</span><span class="n">tmp</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">]})</span> 
+                        <span class="n">read_end</span> <span class="o">=</span> <span class="kc">False</span>
+                    <span class="k">except</span><span class="p">:</span>
+                        <span class="n">read_end</span> <span class="o">=</span> <span class="kc">True</span>
+                        <span class="k">break</span>
+                <span class="k">if</span> <span class="n">read_end</span><span class="p">:</span>
+                    <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># CSV file is one channel.</span>
+            <span class="n">info</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">tmp</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span><span class="n">tmp</span><span class="p">[</span><span class="mi">1</span><span class="p">]})</span>
+            <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="n">tmp</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">info</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">tmp</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span><span class="n">tmp</span><span class="p">[</span><span class="mi">1</span><span class="p">]})</span>
+                <span class="k">except</span><span class="p">:</span>
+                    <span class="k">break</span>
+        <span class="c1"># Get waveform info</span>
+        <span class="k">if</span> <span class="n">all_channels</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">the_info</span> <span class="o">=</span> <span class="n">info</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">the_info</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">databit</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">the_info</span><span class="p">[</span><span class="s1">&#39;Data Bit&#39;</span><span class="p">])</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="n">databit</span><span class="o">=</span><span class="mi">8</span>
+        <span class="n">wave_len</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">the_info</span><span class="p">[</span><span class="s1">&#39;Memory Length&#39;</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">the_info</span><span class="p">[</span><span class="s1">&#39;Mode&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Detail&#39;</span><span class="p">:</span>
+            <span class="n">detail</span><span class="o">=</span><span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">detail</span><span class="o">=</span><span class="kc">False</span>
+
+        <span class="k">if</span> <span class="n">wave_len</span> <span class="o">&gt;</span> <span class="mf">10e4</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Waveform length too large!&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Get waveform data</span>
+        <span class="k">if</span> <span class="n">all_channels</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">vscale</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;Vertical Scale&#39;</span><span class="p">])</span>
+            <span class="n">vpos</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;Vertical Position&#39;</span><span class="p">])</span>
+            <span class="n">waveform</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">wave_len</span>
+            <span class="k">if</span> <span class="n">detail</span><span class="p">:</span>
+                <span class="n">tmp</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">wave_len</span><span class="p">):</span>
+                    <span class="n">waveform</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+                <span class="k">if</span> <span class="n">real_value</span><span class="p">:</span>
+                    <span class="k">pass</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">wave_len</span><span class="p">):</span>
+                        <span class="n">waveform</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">waveform</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">vpos</span><span class="p">)</span><span class="o">/</span><span class="n">vscale</span><span class="o">*</span><span class="mi">25</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">tmp</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">wave_len</span><span class="p">):</span>
+                    <span class="n">waveform</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">))</span>
+                <span class="k">if</span> <span class="n">real_value</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">wave_len</span><span class="p">):</span>
+                        <span class="n">waveform</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">waveform</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">vscale</span><span class="o">/</span><span class="mi">25</span><span class="o">+</span><span class="n">vpos</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">pos_consider</span><span class="p">:</span>
+                        <span class="n">tmp_s</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">vpos</span><span class="o">/</span><span class="n">vscale</span><span class="o">*</span><span class="mi">25</span><span class="p">)</span>
+                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">wave_len</span><span class="p">):</span>
+                            <span class="n">waveform</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">tmp_s</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">waveform</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">wave_len</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">all_channels</span><span class="p">)]</span>
+            <span class="k">if</span> <span class="n">detail</span><span class="p">:</span>
+                <span class="n">tmp</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">wave_len</span><span class="p">):</span>
+                    <span class="n">tmp2</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">all_channels</span><span class="p">):</span>
+                        <span class="n">waveform</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">tmp2</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+                <span class="k">if</span> <span class="n">real_value</span><span class="p">:</span>
+                    <span class="k">pass</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">all_channels</span><span class="p">):</span>
+                        <span class="n">vscale</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s1">&#39;Vertical Scale&#39;</span><span class="p">])</span>
+                        <span class="n">vpos</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s1">&#39;Vertical Position&#39;</span><span class="p">])</span>
+                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">wave_len</span><span class="p">):</span>
+                            <span class="n">waveform</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">waveform</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">vpos</span><span class="p">)</span><span class="o">/</span><span class="n">vscale</span><span class="o">*</span><span class="mi">25</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">tmp</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">wave_len</span><span class="p">):</span>
+                    <span class="n">tmp2</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">all_channels</span><span class="p">):</span>
+                        <span class="n">waveform</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">tmp2</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">idx</span><span class="p">])</span>
+                <span class="k">if</span> <span class="n">real_value</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">all_channels</span><span class="p">):</span>
+                        <span class="n">vscale</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s1">&#39;Vertical Scale&#39;</span><span class="p">])</span>
+                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">wave_len</span><span class="p">):</span>
+                            <span class="n">waveform</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">waveform</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">vscale</span><span class="o">/</span><span class="mi">25</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">pos_consider</span><span class="p">:</span>
+                        <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">all_channels</span><span class="p">):</span>
+                            <span class="n">vscale</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s1">&#39;Vertical Scale&#39;</span><span class="p">])</span>
+                            <span class="n">vpos</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s1">&#39;Vertical Position&#39;</span><span class="p">])</span>
+                            <span class="n">tmp_s</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">vpos</span><span class="o">/</span><span class="n">vscale</span><span class="o">*</span><span class="mi">25</span><span class="p">)</span>
+                            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">wave_len</span><span class="p">):</span>
+                                <span class="n">waveform</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">tmp_s</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">del</span> <span class="n">tmp</span>
+        <span class="n">gc</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">info</span><span class="p">,</span> <span class="n">waveform</span>
+    
+    <span class="k">def</span> <span class="nf">__shm_thread</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">popup_delay</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
+        <span class="kn">import</span> <span class="nn">_thread</span>
+        <span class="n">_thread</span><span class="o">.</span><span class="n">start_new_thread</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__popup_shm</span><span class="p">,</span> <span class="p">(</span><span class="s2">&quot;Thread1&quot;</span><span class="p">,</span><span class="n">popup_delay</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">__popup_shm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">thread_name</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+        <span class="kn">import</span> <span class="nn">array</span>
+        <span class="kn">import</span> <span class="nn">dso_gui</span> <span class="k">as</span> <span class="nn">gui</span>
+        
+        <span class="n">shm_name</span> <span class="o">=</span> <span class="s2">&quot;/dev/shm/upy/shm_popup&quot;</span>
+        <span class="n">cp_shm_name</span> <span class="o">=</span>  <span class="s2">&quot;/dev/shm/upy/copy_shm_popup&quot;</span>
+        <span class="n">shm_size</span> <span class="o">=</span> <span class="mi">1024</span>
+        
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">fd</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="n">shm_name</span><span class="p">)</span>
+                <span class="c1">#print(fd)</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
+                <span class="n">gc</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+                <span class="k">continue</span>
+
+            <span class="k">if</span> <span class="n">fd</span><span class="p">:</span><span class="c1"># shm_fd = &#39;total 0&#39; </span>
+                <span class="c1">#print(fd)</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;mv </span><span class="si">{</span><span class="n">shm_name</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">cp_shm_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">shm_fd</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">cp_shm_name</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">O_RDONLY</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
+                    <span class="k">continue</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="c1"># Read data into a shared memory view</span>
+                    <span class="n">shared_memory</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">shm_fd</span><span class="p">,</span> <span class="n">shm_size</span><span class="p">))</span>
+                    <span class="c1"># Read data</span>
+                    <span class="n">message</span> <span class="o">=</span> <span class="n">shared_memory</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                    <span class="k">if</span> <span class="n">message</span><span class="p">:</span>
+                        <span class="c1">#print(&quot;Received:&quot;, message)</span>
+                        <span class="n">pop</span> <span class="o">=</span> <span class="n">gui</span><span class="o">.</span><span class="n">DrawObject</span><span class="p">()</span>
+                        <span class="n">pop</span><span class="o">.</span><span class="n">draw_popup</span><span class="p">(</span><span class="n">message</span><span class="p">,</span><span class="mf">1.5</span><span class="p">)</span>
+                        <span class="n">message</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;No message!&#39;</span><span class="p">)</span>
+                        <span class="c1">#break</span>
+                <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Read Error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="k">pass</span> 
+                <span class="c1"># Close file descriptor</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">shm_fd</span><span class="p">)</span>
+                
+                <span class="c1"># Remove shared memory</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">cp_shm_name</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">pass</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
+            <span class="n">gc</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">__key_shm_thread</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key_delay</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
+        <span class="kn">import</span> <span class="nn">_thread</span>
+        <span class="n">_thread</span><span class="o">.</span><span class="n">start_new_thread</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__dso_key_shm</span><span class="p">,</span> <span class="p">(</span><span class="s2">&quot;Thread1&quot;</span><span class="p">,</span><span class="n">key_delay</span><span class="p">))</span>
+
+<div class="viewcode-block" id="DsoBasic.get_key">
+<a class="viewcode-back" href="../dso_basic.html#dso_basic.DsoBasic.get_key">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_key</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">key_out</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="n">key_cnt_out</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span> 
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">key_flag</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="n">key_out</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">key_code</span><span class="p">)</span>
+                <span class="n">key_cnt_out</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">key_cnt</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">key_cnt_out</span> <span class="o">&gt;</span> <span class="mi">128</span><span class="p">:</span>
+                    <span class="n">key_cnt_out</span> <span class="o">=</span> <span class="n">key_cnt_out</span> <span class="o">-</span> <span class="mi">256</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">key_code</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">key_cnt</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">key_flag</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="k">return</span> <span class="n">key_out</span><span class="p">,</span><span class="n">key_cnt_out</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">,</span><span class="mi">0</span></div>
+
+    
+    <span class="k">def</span> <span class="nf">__dso_key_shm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">thread_name</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+        <span class="kn">import</span> <span class="nn">array</span>
+        <span class="n">shm_name</span> <span class="o">=</span> <span class="s2">&quot;/dev/shm/upy/shm_key&quot;</span>
+        <span class="n">cp_shm_name</span> <span class="o">=</span>  <span class="s2">&quot;/dev/shm/upy/copy_shm_key&quot;</span>
+        <span class="n">shm_size</span> <span class="o">=</span> <span class="mi">10</span>
+        <span class="n">flag</span> <span class="o">=</span> <span class="kc">False</span>
+        
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">fd</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="n">shm_name</span><span class="p">)</span>
+                <span class="c1">#print(fd)</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">key_code</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
+                <span class="n">gc</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+                <span class="k">continue</span>
+
+            <span class="k">if</span> <span class="n">fd</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">key_flag</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;mv </span><span class="si">{</span><span class="n">shm_name</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">cp_shm_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">shm_fd</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">cp_shm_name</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">O_RDONLY</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
+                    <span class="k">continue</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="c1"># Read data into a shared memory view</span>
+                    <span class="n">shared_memory</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">shm_fd</span><span class="p">,</span> <span class="n">shm_size</span><span class="p">))</span>
+                    <span class="c1"># Read data</span>
+                    <span class="n">message</span> <span class="o">=</span> <span class="n">shared_memory</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                    <span class="k">if</span> <span class="n">message</span><span class="p">:</span>
+                        <span class="c1">#print(&quot;Received:&quot;, message)</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">key_flag</span> <span class="o">=</span> <span class="kc">True</span>
+                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">shm_size</span><span class="p">):</span>
+                            <span class="k">if</span> <span class="n">message</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;,&#39;</span> <span class="ow">and</span> <span class="n">flag</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">key_code</span> <span class="o">+=</span> <span class="n">message</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                            <span class="k">elif</span> <span class="n">message</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;,&#39;</span><span class="p">:</span>
+                                <span class="n">flag</span> <span class="o">=</span> <span class="kc">True</span>
+                            <span class="k">elif</span> <span class="n">message</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;</span><span class="se">\x00</span><span class="s1">&#39;</span> <span class="ow">and</span> <span class="n">flag</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">key_cnt</span> <span class="o">+=</span> <span class="n">message</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                            <span class="k">elif</span> <span class="n">message</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;</span><span class="se">\x00</span><span class="s1">&#39;</span><span class="p">:</span>
+                                <span class="n">flag</span> <span class="o">=</span> <span class="kc">False</span>
+                                <span class="k">break</span>
+                        <span class="c1">#self.key_code = message</span>
+                        
+                        <span class="n">message</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;No message!&#39;</span><span class="p">)</span>
+                        <span class="c1">#break</span>
+                <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Read Error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="k">pass</span> 
+                <span class="c1"># Close file descriptor</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">shm_fd</span><span class="p">)</span>
+                
+                <span class="c1"># Remove shared memory</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">cp_shm_name</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">pass</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">key_code</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
+            <span class="n">gc</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="ScreenBasic">
+<a class="viewcode-back" href="../dso_basic.html#dso_basic.ScreenBasic">[docs]</a>
+<span class="k">class</span> <span class="nc">ScreenBasic</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The general screen information.</span>
+
+<span class="sd">    Depending on the DSO, the value may be different.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="mi">800</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="mi">480</span></div>
+
+
+<div class="viewcode-block" id="ThemeBasic">
+<a class="viewcode-back" href="../dso_basic.html#dso_basic.ThemeBasic">[docs]</a>
+<span class="k">class</span> <span class="nc">ThemeBasic</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The general theme color setting.</span>
+<span class="sd">    </span>
+<span class="sd">    Depending on the DSO, the color hex value may be different.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1">#self.bg_color = 0xFFFFFF</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">bg_color</span> <span class="o">=</span> <span class="n">color</span><span class="o">.</span><span class="n">DKGRAY</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">grid_color</span> <span class="o">=</span> <span class="n">color</span><span class="o">.</span><span class="n">GRAY</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">text_color</span> <span class="o">=</span> <span class="n">color</span><span class="o">.</span><span class="n">LTGRAY</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">pass</span></div>
+
+    
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, GW Instek.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

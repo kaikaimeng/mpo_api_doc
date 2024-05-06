@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dso_basic module &mdash; mpo_api 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="dso_channel module" href="dso_channel.html" />
+    <link rel="prev" title="dso_awg module" href="dso_awg.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            mpo_api
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="dso2kp.html">dso2kp module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_acquire.html">dso_acquire module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_awg.html">dso_awg module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">dso_basic module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#dso_basic.DsoBasic"><code class="docutils literal notranslate"><span class="pre">DsoBasic</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dso_basic.DsoBasic.autoset"><code class="docutils literal notranslate"><span class="pre">DsoBasic.autoset()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_basic.DsoBasic.close"><code class="docutils literal notranslate"><span class="pre">DsoBasic.close()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_basic.DsoBasic.connect"><code class="docutils literal notranslate"><span class="pre">DsoBasic.connect()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_basic.DsoBasic.default"><code class="docutils literal notranslate"><span class="pre">DsoBasic.default()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_basic.DsoBasic.force"><code class="docutils literal notranslate"><span class="pre">DsoBasic.force()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_basic.DsoBasic.get_key"><code class="docutils literal notranslate"><span class="pre">DsoBasic.get_key()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_basic.DsoBasic.get_samplerate"><code class="docutils literal notranslate"><span class="pre">DsoBasic.get_samplerate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_basic.DsoBasic.get_waveform_num"><code class="docutils literal notranslate"><span class="pre">DsoBasic.get_waveform_num()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_basic.DsoBasic.idn"><code class="docutils literal notranslate"><span class="pre">DsoBasic.idn()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_basic.DsoBasic.is_ch_support"><code class="docutils literal notranslate"><span class="pre">DsoBasic.is_ch_support()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_basic.DsoBasic.is_run"><code class="docutils literal notranslate"><span class="pre">DsoBasic.is_run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_basic.DsoBasic.load_waveform_csv"><code class="docutils literal notranslate"><span class="pre">DsoBasic.load_waveform_csv()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_basic.DsoBasic.opc"><code class="docutils literal notranslate"><span class="pre">DsoBasic.opc()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_basic.DsoBasic.query"><code class="docutils literal notranslate"><span class="pre">DsoBasic.query()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_basic.DsoBasic.readline"><code class="docutils literal notranslate"><span class="pre">DsoBasic.readline()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_basic.DsoBasic.run"><code class="docutils literal notranslate"><span class="pre">DsoBasic.run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_basic.DsoBasic.single"><code class="docutils literal notranslate"><span class="pre">DsoBasic.single()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_basic.DsoBasic.stop"><code class="docutils literal notranslate"><span class="pre">DsoBasic.stop()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dso_basic.DsoBasic.write"><code class="docutils literal notranslate"><span class="pre">DsoBasic.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#dso_basic.ScreenBasic"><code class="docutils literal notranslate"><span class="pre">ScreenBasic</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dso_basic.ThemeBasic"><code class="docutils literal notranslate"><span class="pre">ThemeBasic</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dso_channel.html">dso_channel module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_colors.html">dso_colors module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_const.html">dso_const module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_display.html">dso_display module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_dmm.html">dso_dmm module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_draw.html">dso_draw module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_gonogo.html">dso_gonogo module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_gui.html">dso_gui module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_hardcopy.html">dso_hardcopy module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_math.html">dso_math module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_meas.html">dso_meas module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_power_supply.html">dso_power_supply module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_ref.html">dso_ref module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_sns.html">dso_sns module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_spectrum.html">dso_spectrum module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_timebase.html">dso_timebase module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_trigger.html">dso_trigger module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="load.html">load module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psw.html">psw module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">mpo_api</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">dso_basic module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/dso_basic.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-dso_basic">
+<span id="dso-basic-module"></span><h1>dso_basic module<a class="headerlink" href="#module-dso_basic" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="dso_basic.DsoBasic">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dso_basic.</span></span><span class="sig-name descname"><span class="pre">DsoBasic</span></span><a class="reference internal" href="_modules/dso_basic.html#DsoBasic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_basic.DsoBasic" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_basic.DsoBasic.autoset">
+<span class="sig-name descname"><span class="pre">autoset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_basic.html#DsoBasic.autoset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_basic.DsoBasic.autoset" title="Link to this definition"></a></dt>
+<dd><p>Set DSO Autoset</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_basic.DsoBasic.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_basic.html#DsoBasic.close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_basic.DsoBasic.close" title="Link to this definition"></a></dt>
+<dd><p>close connection</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_basic.DsoBasic.connect">
+<span class="sig-name descname"><span class="pre">connect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'localhost'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">32767</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_basic.html#DsoBasic.connect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_basic.DsoBasic.connect" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>port</strong> (<em>int</em><em>, </em><em>optional</em>) – port number. Defaults to 32767 is internal connection.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_basic.DsoBasic.default">
+<span class="sig-name descname"><span class="pre">default</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_basic.html#DsoBasic.default"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_basic.DsoBasic.default" title="Link to this definition"></a></dt>
+<dd><p>Set DSO Default</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_basic.DsoBasic.force">
+<span class="sig-name descname"><span class="pre">force</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_basic.html#DsoBasic.force"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_basic.DsoBasic.force" title="Link to this definition"></a></dt>
+<dd><p>Forces an acquisition.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_basic.DsoBasic.get_key">
+<span class="sig-name descname"><span class="pre">get_key</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_basic.html#DsoBasic.get_key"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_basic.DsoBasic.get_key" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_basic.DsoBasic.get_samplerate">
+<span class="sig-name descname"><span class="pre">get_samplerate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/dso_basic.html#DsoBasic.get_samplerate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_basic.DsoBasic.get_samplerate" title="Link to this definition"></a></dt>
+<dd><p>Get samplerate</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>samplerate</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_basic.DsoBasic.get_waveform_num">
+<span class="sig-name descname"><span class="pre">get_waveform_num</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">real_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos_consider</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference internal" href="_modules/dso_basic.html#DsoBasic.get_waveform_num"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_basic.DsoBasic.get_waveform_num" title="Link to this definition"></a></dt>
+<dd><p>This function can get waveform data as numbertic array</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ch</strong> (<em>int</em>) – channel</p></li>
+<li><p><strong>real_value</strong> (<em>bool</em><em>, </em><em>optional</em>) – True will return real world value or it will return dso value. Defaults to True.</p></li>
+<li><p><strong>pos_consider</strong> (<em>bool</em><em>, </em><em>optional</em>) – The DSO value consider position or not. Defaults to True.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>waveform data</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_basic.DsoBasic.idn">
+<span class="sig-name descname"><span class="pre">idn</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/dso_basic.html#DsoBasic.idn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_basic.DsoBasic.idn" title="Link to this definition"></a></dt>
+<dd><p>Get <a href="#id1"><span class="problematic" id="id2">*</span></a>IDN</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a href="#id3"><span class="problematic" id="id4">*</span></a>IDN string</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_basic.DsoBasic.is_ch_support">
+<span class="sig-name descname"><span class="pre">is_ch_support</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/dso_basic.html#DsoBasic.is_ch_support"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_basic.DsoBasic.is_ch_support" title="Link to this definition"></a></dt>
+<dd><p>Check the channel is valid or not.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ch</strong> (<em>int</em>) – channel number</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True or False</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_basic.DsoBasic.is_run">
+<span class="sig-name descname"><span class="pre">is_run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/dso_basic.html#DsoBasic.is_run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_basic.DsoBasic.is_run" title="Link to this definition"></a></dt>
+<dd><p>Check now DSO status</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_basic.DsoBasic.load_waveform_csv">
+<span class="sig-name descname"><span class="pre">load_waveform_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">real_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">checklen</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos_consider</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/dso_basic.html#DsoBasic.load_waveform_csv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_basic.DsoBasic.load_waveform_csv" title="Link to this definition"></a></dt>
+<dd><p>You can read dso waveform csv file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file</strong> (<em>str</em>) – Waveform file full path.</p></li>
+<li><p><strong>real_value</strong> (<em>bool</em><em>, </em><em>optional</em>) – True will return real world value or it will return dso value. Defaults to True.</p></li>
+<li><p><strong>checklen</strong> (<em>bool</em><em>, </em><em>optional</em>) – False will ignore waveform length check. Defaults to True.</p></li>
+<li><p><strong>pos_consider</strong> (<em>bool</em><em>, </em><em>optional</em>) – The DSO value consider position or not. Defaults to True.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>The waveform header info and value.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For single channel file :</p>
+<ul class="simple">
+<li><p>They both 1-D.</p></li>
+</ul>
+<p>For all channel file :</p>
+<ul>
+<li><p>They both Multi-D.</p>
+<blockquote>
+<div><p>First channel’s will be info[0] and waveform[0].</p>
+<p>Second channel’s will be info[1] and waveform[1]. and so on.</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple[dict, list]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_basic.DsoBasic.opc">
+<span class="sig-name descname"><span class="pre">opc</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/dso_basic.html#DsoBasic.opc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_basic.DsoBasic.opc" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_basic.DsoBasic.query">
+<span class="sig-name descname"><span class="pre">query</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmd</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/dso_basic.html#DsoBasic.query"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_basic.DsoBasic.query" title="Link to this definition"></a></dt>
+<dd><p>SCPI command query</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cmd</strong> (<em>str</em>) – SCPI command</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>SCPI return</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can query “<a href="#id5"><span class="problematic" id="id6">*</span></a>IDN?” SCPI command, to query return value by yourself. Try use:</p>
+<p>.query(’<a href="#id7"><span class="problematic" id="id8">*</span></a>IDN?’)</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_basic.DsoBasic.readline">
+<span class="sig-name descname"><span class="pre">readline</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/dso_basic.html#DsoBasic.readline"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_basic.DsoBasic.readline" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>return string</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_basic.DsoBasic.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_basic.html#DsoBasic.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_basic.DsoBasic.run" title="Link to this definition"></a></dt>
+<dd><p>Set DSO RUN</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_basic.DsoBasic.single">
+<span class="sig-name descname"><span class="pre">single</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_basic.html#DsoBasic.single"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_basic.DsoBasic.single" title="Link to this definition"></a></dt>
+<dd><p>Set SINGLE</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_basic.DsoBasic.stop">
+<span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_basic.html#DsoBasic.stop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_basic.DsoBasic.stop" title="Link to this definition"></a></dt>
+<dd><p>Set DSO STOP</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dso_basic.DsoBasic.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmd</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dso_basic.html#DsoBasic.write"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_basic.DsoBasic.write" title="Link to this definition"></a></dt>
+<dd><p>SCPI command write</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cmd</strong> (<em>str</em>) – SCPI command</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can write “RUN” SCPI command, set DSO to RUN by yourself. Try use:</p>
+<p>.write(‘RUN’)</p>
+<p>You can write “STOP” SCPI command, set DSO to STOP by yourself. Try use:</p>
+<p>.write(‘STOP’)</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dso_basic.ScreenBasic">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dso_basic.</span></span><span class="sig-name descname"><span class="pre">ScreenBasic</span></span><a class="reference internal" href="_modules/dso_basic.html#ScreenBasic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_basic.ScreenBasic" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The general screen information.</p>
+<p>Depending on the DSO, the value may be different.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dso_basic.ThemeBasic">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dso_basic.</span></span><span class="sig-name descname"><span class="pre">ThemeBasic</span></span><a class="reference internal" href="_modules/dso_basic.html#ThemeBasic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dso_basic.ThemeBasic" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The general theme color setting.</p>
+<p>Depending on the DSO, the color hex value may be different.</p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="dso_awg.html" class="btn btn-neutral float-left" title="dso_awg module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="dso_channel.html" class="btn btn-neutral float-right" title="dso_channel module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, GW Instek.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

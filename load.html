@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>load module &mdash; mpo_api 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="psw module" href="psw.html" />
+    <link rel="prev" title="dso_trigger module" href="dso_trigger.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            mpo_api
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="dso2kp.html">dso2kp module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_acquire.html">dso_acquire module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_awg.html">dso_awg module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_basic.html">dso_basic module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_channel.html">dso_channel module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_colors.html">dso_colors module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_const.html">dso_const module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_display.html">dso_display module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_dmm.html">dso_dmm module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_draw.html">dso_draw module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_gonogo.html">dso_gonogo module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_gui.html">dso_gui module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_hardcopy.html">dso_hardcopy module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_math.html">dso_math module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_meas.html">dso_meas module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_power_supply.html">dso_power_supply module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_ref.html">dso_ref module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_sns.html">dso_sns module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_spectrum.html">dso_spectrum module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_timebase.html">dso_timebase module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dso_trigger.html">dso_trigger module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">load module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#load.Load"><code class="docutils literal notranslate"><span class="pre">Load</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#load.Load.close"><code class="docutils literal notranslate"><span class="pre">Load.close()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load.Load.connect"><code class="docutils literal notranslate"><span class="pre">Load.connect()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load.Load.delete_all_nseq"><code class="docutils literal notranslate"><span class="pre">Load.delete_all_nseq()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load.Load.err"><code class="docutils literal notranslate"><span class="pre">Load.err()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load.Load.get_current_CCS"><code class="docutils literal notranslate"><span class="pre">Load.get_current_CCS()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load.Load.get_nseq_data_edit"><code class="docutils literal notranslate"><span class="pre">Load.get_nseq_data_edit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load.Load.get_nseq_edit_point"><code class="docutils literal notranslate"><span class="pre">Load.get_nseq_edit_point()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load.Load.get_nseq_para"><code class="docutils literal notranslate"><span class="pre">Load.get_nseq_para()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load.Load.get_voltage_CV"><code class="docutils literal notranslate"><span class="pre">Load.get_voltage_CV()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load.Load.idn"><code class="docutils literal notranslate"><span class="pre">Load.idn()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load.Load.is_on"><code class="docutils literal notranslate"><span class="pre">Load.is_on()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load.Load.max_current"><code class="docutils literal notranslate"><span class="pre">Load.max_current</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load.Load.max_voltage"><code class="docutils literal notranslate"><span class="pre">Load.max_voltage</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load.Load.meas_current"><code class="docutils literal notranslate"><span class="pre">Load.meas_current()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load.Load.meas_power"><code class="docutils literal notranslate"><span class="pre">Load.meas_power()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load.Load.meas_voltage"><code class="docutils literal notranslate"><span class="pre">Load.meas_voltage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load.Load.min_current"><code class="docutils literal notranslate"><span class="pre">Load.min_current</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load.Load.min_voltage"><code class="docutils literal notranslate"><span class="pre">Load.min_voltage</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load.Load.mode"><code class="docutils literal notranslate"><span class="pre">Load.mode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load.Load.nseq_state"><code class="docutils literal notranslate"><span class="pre">Load.nseq_state()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load.Load.ocp"><code class="docutils literal notranslate"><span class="pre">Load.ocp()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load.Load.opc"><code class="docutils literal notranslate"><span class="pre">Load.opc()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load.Load.ovp"><code class="docutils literal notranslate"><span class="pre">Load.ovp()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load.Load.query"><code class="docutils literal notranslate"><span class="pre">Load.query()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load.Load.readline"><code class="docutils literal notranslate"><span class="pre">Load.readline()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load.Load.save_nseq"><code class="docutils literal notranslate"><span class="pre">Load.save_nseq()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load.Load.scpi_delay"><code class="docutils literal notranslate"><span class="pre">Load.scpi_delay</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load.Load.set_current_CCS"><code class="docutils literal notranslate"><span class="pre">Load.set_current_CCS()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load.Load.set_mode"><code class="docutils literal notranslate"><span class="pre">Load.set_mode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load.Load.set_nseq_data_edit"><code class="docutils literal notranslate"><span class="pre">Load.set_nseq_data_edit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load.Load.set_nseq_edit_point"><code class="docutils literal notranslate"><span class="pre">Load.set_nseq_edit_point()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load.Load.set_nseq_para"><code class="docutils literal notranslate"><span class="pre">Load.set_nseq_para()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load.Load.set_nseq_state"><code class="docutils literal notranslate"><span class="pre">Load.set_nseq_state()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load.Load.set_ocp_level"><code class="docutils literal notranslate"><span class="pre">Load.set_ocp_level()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load.Load.set_ocp_trip"><code class="docutils literal notranslate"><span class="pre">Load.set_ocp_trip()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load.Load.set_off"><code class="docutils literal notranslate"><span class="pre">Load.set_off()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load.Load.set_on"><code class="docutils literal notranslate"><span class="pre">Load.set_on()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load.Load.set_ovp"><code class="docutils literal notranslate"><span class="pre">Load.set_ovp()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load.Load.set_scpi_delay"><code class="docutils literal notranslate"><span class="pre">Load.set_scpi_delay()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load.Load.set_voltage_CV"><code class="docutils literal notranslate"><span class="pre">Load.set_voltage_CV()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load.Load.write"><code class="docutils literal notranslate"><span class="pre">Load.write()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="psw.html">psw module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">mpo_api</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">load module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/load.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-load">
+<span id="load-module"></span><h1>load module<a class="headerlink" href="#module-load" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="load.Load">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">load.</span></span><span class="sig-name descname"><span class="pre">Load</span></span><a class="reference internal" href="_modules/load.html#Load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#load.Load" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This module can control DC Electronic Loads.</p>
+<p>It supports USB interface to use SCPI.</p>
+<p>It will scan available instruments on your DSO, then require a serial number to specify and connect to it.</p>
+<section id="usage">
+<h2>Usage:<a class="headerlink" href="#usage" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">load</span>
+<span class="n">inst</span> <span class="o">=</span> <span class="n">load</span><span class="o">.</span><span class="n">Load</span><span class="p">()</span>
+<span class="n">inst</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;&lt;Instrument Serial Number&gt;&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">inst</span><span class="o">.</span><span class="n">idn</span><span class="p">())</span>
+<span class="n">inst</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="load.Load.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/load.html#Load.close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#load.Load.close" title="Link to this definition"></a></dt>
+<dd><p>Close the connection.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="load.Load.connect">
+<span class="sig-name descname"><span class="pre">connect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">SN</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">baudrate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">115200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/load.html#Load.connect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#load.Load.connect" title="Link to this definition"></a></dt>
+<dd><p>Connect to the Load.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>SN</strong> (<em>str</em>) – Serial Number is necessary.</p></li>
+<li><p><strong>baudrate</strong> (<em>int</em><em>, </em><em>optional</em>) – baudrate. Defaults to 115200.</p></li>
+<li><p><strong>timeout</strong> (<em>int</em><em>, </em><em>optional</em>) – timeout. Defaults to 3.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>0 or -1</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="load.Load.delete_all_nseq">
+<span class="sig-name descname"><span class="pre">delete_all_nseq</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/load.html#Load.delete_all_nseq"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#load.Load.delete_all_nseq" title="Link to this definition"></a></dt>
+<dd><p>Delete all the steps of the selected normal sequence.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="load.Load.err">
+<span class="sig-name descname"><span class="pre">err</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/load.html#Load.err"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#load.Load.err" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="load.Load.get_current_CCS">
+<span class="sig-name descname"><span class="pre">get_current_CCS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'A'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/load.html#Load.get_current_CCS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#load.Load.get_current_CCS" title="Link to this definition"></a></dt>
+<dd><p>Get the current of the CC static mode.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>level</strong> (<em>str</em>) – ‘A’ value or ‘B’ value.</p></li>
+<li><p><strong>value</strong> (<em>str</em><em>, </em><em>optional</em>) – ‘MAX’, ‘MIN’, or None (default).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the current value.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="load.Load.get_nseq_data_edit">
+<span class="sig-name descname"><span class="pre">get_nseq_data_edit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/load.html#Load.get_nseq_data_edit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#load.Load.get_nseq_data_edit" title="Link to this definition"></a></dt>
+<dd><p>Get the editing data of normal sequence.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>‘Step:, Value:, Time:, LOAD:, TRIG OUT:, RAMP:, PAUSE:’</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>data (str)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="load.Load.get_nseq_edit_point">
+<span class="sig-name descname"><span class="pre">get_nseq_edit_point</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/load.html#Load.get_nseq_edit_point"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#load.Load.get_nseq_edit_point" title="Link to this definition"></a></dt>
+<dd><p>Get the editing step number of the normal sequence.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The edit step number of the normal sequence, 1~1000.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>point (str)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="load.Load.get_nseq_para">
+<span class="sig-name descname"><span class="pre">get_nseq_para</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/load.html#Load.get_nseq_para"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#load.Load.get_nseq_para" title="Link to this definition"></a></dt>
+<dd><p>Get parameters of the Normal Sequence function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Start:, Seq No:, Memo:, Mode:, Range:, Loop:, Last Load:, Last:, Chain:</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>parameters (str)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="load.Load.get_voltage_CV">
+<span class="sig-name descname"><span class="pre">get_voltage_CV</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'A'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/load.html#Load.get_voltage_CV"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#load.Load.get_voltage_CV" title="Link to this definition"></a></dt>
+<dd><p>Get the CV mode voltage or the +CV voltage value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>level</strong> (<em>str</em>) – ‘A’ value or ‘B’ value.</p></li>
+<li><p><strong>value</strong> (<em>str</em><em>, </em><em>optional</em>) – ‘MAX’, ‘MIN’, or None (default).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the voltage value.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="load.Load.idn">
+<span class="sig-name descname"><span class="pre">idn</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/load.html#Load.idn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#load.Load.idn" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="load.Load.is_on">
+<span class="sig-name descname"><span class="pre">is_on</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/load.html#Load.is_on"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#load.Load.is_on" title="Link to this definition"></a></dt>
+<dd><p>Get the status of the load.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="load.Load.max_current">
+<span class="sig-name descname"><span class="pre">max_current</span></span><a class="headerlink" href="#load.Load.max_current" title="Link to this definition"></a></dt>
+<dd><p>MAX Current for this instrument. You will get it after connection.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="load.Load.max_voltage">
+<span class="sig-name descname"><span class="pre">max_voltage</span></span><a class="headerlink" href="#load.Load.max_voltage" title="Link to this definition"></a></dt>
+<dd><p>MAX Voltage for this instrument. You will get it after connection.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="load.Load.meas_current">
+<span class="sig-name descname"><span class="pre">meas_current</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/load.html#Load.meas_current"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#load.Load.meas_current" title="Link to this definition"></a></dt>
+<dd><p>Query of current measurement.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the current measurement.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="load.Load.meas_power">
+<span class="sig-name descname"><span class="pre">meas_power</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/load.html#Load.meas_power"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#load.Load.meas_power" title="Link to this definition"></a></dt>
+<dd><p>Query of power measurement.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the power measurement, unit is the watt.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="load.Load.meas_voltage">
+<span class="sig-name descname"><span class="pre">meas_voltage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/load.html#Load.meas_voltage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#load.Load.meas_voltage" title="Link to this definition"></a></dt>
+<dd><p>Query of voltage measurement.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the voltage measurement.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="load.Load.min_current">
+<span class="sig-name descname"><span class="pre">min_current</span></span><a class="headerlink" href="#load.Load.min_current" title="Link to this definition"></a></dt>
+<dd><p>MIN Current for this instrument. You will get it after connection.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="load.Load.min_voltage">
+<span class="sig-name descname"><span class="pre">min_voltage</span></span><a class="headerlink" href="#load.Load.min_voltage" title="Link to this definition"></a></dt>
+<dd><p>MIN Voltage for this instrument. You will get it after connection.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="load.Load.mode">
+<span class="sig-name descname"><span class="pre">mode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/load.html#Load.mode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#load.Load.mode" title="Link to this definition"></a></dt>
+<dd><p>Get the operating function of the load.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>mode of operation.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="load.Load.nseq_state">
+<span class="sig-name descname"><span class="pre">nseq_state</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/load.html#Load.nseq_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#load.Load.nseq_state" title="Link to this definition"></a></dt>
+<dd><p>Get the state of the Normal Sequence function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>“ON, {STOP | RUN | PAUSE}”, OFF</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>state (str)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="load.Load.ocp">
+<span class="sig-name descname"><span class="pre">ocp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/load.html#Load.ocp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#load.Load.ocp" title="Link to this definition"></a></dt>
+<dd><p>Query the OCP (over-current protection) settings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>trip setting (‘LIMIT’, ‘Load off’, or ‘OFF’), and contain the over current limit value (if the trip setting is not ‘OFF’).</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>settings (str, float)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="load.Load.opc">
+<span class="sig-name descname"><span class="pre">opc</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/load.html#Load.opc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#load.Load.opc" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="load.Load.ovp">
+<span class="sig-name descname"><span class="pre">ovp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/load.html#Load.ovp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#load.Load.ovp" title="Link to this definition"></a></dt>
+<dd><p>Query the OVP settings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>over voltage limit value, or ‘OFF’ for function off.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>settings (float, str)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="load.Load.query">
+<span class="sig-name descname"><span class="pre">query</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmd</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/load.html#Load.query"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#load.Load.query" title="Link to this definition"></a></dt>
+<dd><p>Send a query SCPI command to the instrument and return the result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cmd</strong> (<em>str</em>) – SCPI command to be queried.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the SCPI command.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="load.Load.readline">
+<span class="sig-name descname"><span class="pre">readline</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/load.html#Load.readline"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#load.Load.readline" title="Link to this definition"></a></dt>
+<dd><p>Read a line from the instrument’s communication port and return it as a string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The string read from the instrument.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="load.Load.save_nseq">
+<span class="sig-name descname"><span class="pre">save_nseq</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/load.html#Load.save_nseq"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#load.Load.save_nseq" title="Link to this definition"></a></dt>
+<dd><p>Save program of normal sequence.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="load.Load.scpi_delay">
+<span class="sig-name descname"><span class="pre">scpi_delay</span></span><a class="headerlink" href="#load.Load.scpi_delay" title="Link to this definition"></a></dt>
+<dd><p>SCPI delay.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="load.Load.set_current_CCS">
+<span class="sig-name descname"><span class="pre">set_current_CCS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'A'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/load.html#Load.set_current_CCS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#load.Load.set_current_CCS" title="Link to this definition"></a></dt>
+<dd><p>Set the current of the CC static mode.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>level</strong> (<em>str</em>) – ‘A’ value or ‘B’ value.</p></li>
+<li><p><strong>value</strong> (<em>str</em><em>, </em><em>float</em>) – ‘MAX’, ‘MIN’, or the current value.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="load.Load.set_mode">
+<span class="sig-name descname"><span class="pre">set_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/load.html#Load.set_mode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#load.Load.set_mode" title="Link to this definition"></a></dt>
+<dd><p>Set the operating function of the load.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mode</strong> (<em>int</em>) – 0:’LOAD’,
+1:’PROG’,
+2:’NSEQ’,
+3:’FSEQ’,</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="load.Load.set_nseq_data_edit">
+<span class="sig-name descname"><span class="pre">set_nseq_data_edit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">load_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hours</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minutes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seconds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">milliseconds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">load_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'OFF'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">RAMP</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'OFF'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trig_out</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'OFF'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pause</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'OFF'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/load.html#Load.set_nseq_data_edit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#load.Load.set_nseq_data_edit" title="Link to this definition"></a></dt>
+<dd><p>Set the editing data of normal sequence.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>step</strong> (<em>int</em>) – The edit step number.</p></li>
+<li><p><strong>total_step</strong> (<em>int</em>) – The total number of steps.</p></li>
+<li><p><strong>load_value</strong> (<em>float</em>) – Set a load value of operation mode.</p></li>
+<li><p><strong>hours</strong> (<em>int</em>) – Set hours.</p></li>
+<li><p><strong>minutes</strong> (<em>int</em>) – Set minutes.</p></li>
+<li><p><strong>seconds</strong> (<em>int</em>) – Set seconds.</p></li>
+<li><p><strong>milliseconds</strong> (<em>int</em>) – Set milliseconds.</p></li>
+<li><p><strong>load_state</strong> (<em>str</em>) – ‘ON’, ‘OFF’</p></li>
+<li><p><strong>RAMP</strong> (<em>str</em>) – ‘ON’, ‘OFF’</p></li>
+<li><p><strong>trig_out</strong> (<em>str</em>) – ‘ON’, ‘OFF’</p></li>
+<li><p><strong>pause</strong> (<em>str</em>) – ‘ON’, ‘OFF’</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="load.Load.set_nseq_edit_point">
+<span class="sig-name descname"><span class="pre">set_nseq_edit_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/load.html#Load.set_nseq_edit_point"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#load.Load.set_nseq_edit_point" title="Link to this definition"></a></dt>
+<dd><p>Set the editing step number of the normal sequence.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>point</strong> (<em>int</em>) – The edit step number of the normal sequence, 1~1000.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="load.Load.set_nseq_para">
+<span class="sig-name descname"><span class="pre">set_nseq_para</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seq_no</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">memo</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'CC'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'ILVL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loop</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Infinity'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_load</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'OFF'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Off'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/load.html#Load.set_nseq_para"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#load.Load.set_nseq_para" title="Link to this definition"></a></dt>
+<dd><p>Set parameters of the Normal Sequence function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start</strong> (<em>int</em>) – start sequence number.(1~10)</p></li>
+<li><p><strong>seq_no</strong> (<em>int</em>) – sequence number.(1~10)</p></li>
+<li><p><strong>memo</strong> (<em>str</em>) – note of up to 12 characters. Enclose the string in double quotation marks.</p></li>
+<li><p><strong>mode</strong> (<em>str</em>) – ‘CC’, ‘CR’, ‘CV’, ‘CP’</p></li>
+<li><p><strong>range</strong> (<em>str</em>) – ‘IHVH’, ‘IMVH’, ‘ILVH’, ‘IHVL’, ‘IMVL’, ‘ILVL’</p></li>
+<li><p><strong>loop</strong> (<em>str</em><em>, </em><em>int</em>) – loop count.(‘INFinity’ / 0, 1~9999)</p></li>
+<li><p><strong>last_load</strong> (<em>str</em>) – ‘ON’, ‘OFF’</p></li>
+<li><p><strong>last_value</strong> (<em>float</em>) – Last Value after the end.</p></li>
+<li><p><strong>chain</strong> (<em>int</em><em>, </em><em>str</em>) – next sequence number (1~10), ‘OFF’ for No chain.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="load.Load.set_nseq_state">
+<span class="sig-name descname"><span class="pre">set_nseq_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/load.html#Load.set_nseq_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#load.Load.set_nseq_state" title="Link to this definition"></a></dt>
+<dd><p>Set the state of the Normal Sequence function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> (<em>str</em>) – OFF, ON, PAUSe, CONTinue, EXT</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="load.Load.set_ocp_level">
+<span class="sig-name descname"><span class="pre">set_ocp_level</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">current</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">15.75</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/load.html#Load.set_ocp_level"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#load.Load.set_ocp_level" title="Link to this definition"></a></dt>
+<dd><p>Set the OCP (over-current protection) value in amps.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>current</strong> (<em>float</em>) – current value.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="load.Load.set_ocp_trip">
+<span class="sig-name descname"><span class="pre">set_ocp_trip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trip</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'LIM'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/load.html#Load.set_ocp_trip"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#load.Load.set_ocp_trip" title="Link to this definition"></a></dt>
+<dd><p>Set the OCP (over-current protection) trip setting.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>trip</strong> (<em>str</em>) – LOFF, LIM, or OFF.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="load.Load.set_off">
+<span class="sig-name descname"><span class="pre">set_off</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/load.html#Load.set_off"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#load.Load.set_off" title="Link to this definition"></a></dt>
+<dd><p>Set to OFF in the input configuration of the Load. Sets stop of program, sequence, and OCP test.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="load.Load.set_on">
+<span class="sig-name descname"><span class="pre">set_on</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/load.html#Load.set_on"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#load.Load.set_on" title="Link to this definition"></a></dt>
+<dd><p>Set to ON in the input configuration of the Load. Sets restart of program, sequence, and OCP test.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="load.Load.set_ovp">
+<span class="sig-name descname"><span class="pre">set_ovp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">voltage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'MAX'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/load.html#Load.set_ovp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#load.Load.set_ovp" title="Link to this definition"></a></dt>
+<dd><p>Set the OVP setting.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>voltage</strong> (<em>float</em><em>, </em><em>str</em>) – over voltage limit value, ‘MAX’ for function off, ‘MIN’ for 0V.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="load.Load.set_scpi_delay">
+<span class="sig-name descname"><span class="pre">set_scpi_delay</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/load.html#Load.set_scpi_delay"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#load.Load.set_scpi_delay" title="Link to this definition"></a></dt>
+<dd><p>Set the SCPI delay</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>delay</strong> (<em>float</em>) – delay time</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="load.Load.set_voltage_CV">
+<span class="sig-name descname"><span class="pre">set_voltage_CV</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'A'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/load.html#Load.set_voltage_CV"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#load.Load.set_voltage_CV" title="Link to this definition"></a></dt>
+<dd><p>Set the CV mode voltage or the +CV voltage value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>level</strong> (<em>str</em>) – ‘A’ value or ‘B’ value.</p></li>
+<li><p><strong>value</strong> – (float) the voltage value of “A Value”. (str): ‘MAX’ or ‘MIN’</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="load.Load.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmd</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/load.html#Load.write"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#load.Load.write" title="Link to this definition"></a></dt>
+<dd><p>Write an SCPI command to the instrument.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cmd</strong> (<em>str</em>) – SCPI command to be written.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="dso_trigger.html" class="btn btn-neutral float-left" title="dso_trigger module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="psw.html" class="btn btn-neutral float-right" title="psw module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, GW Instek.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

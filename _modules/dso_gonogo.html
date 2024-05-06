@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dso_gonogo &mdash; mpo_api 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            mpo_api
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dso2kp.html">dso2kp module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_acquire.html">dso_acquire module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_awg.html">dso_awg module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_basic.html">dso_basic module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_channel.html">dso_channel module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_colors.html">dso_colors module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_const.html">dso_const module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_display.html">dso_display module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_dmm.html">dso_dmm module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_draw.html">dso_draw module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_gonogo.html">dso_gonogo module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_gui.html">dso_gui module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_hardcopy.html">dso_hardcopy module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_math.html">dso_math module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_meas.html">dso_meas module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_power_supply.html">dso_power_supply module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_ref.html">dso_ref module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_sns.html">dso_sns module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_spectrum.html">dso_spectrum module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_timebase.html">dso_timebase module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_trigger.html">dso_trigger module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../load.html">load module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../psw.html">psw module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">mpo_api</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Module code</a></li>
+      <li class="breadcrumb-item active">dso_gonogo</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for dso_gonogo</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Name: dso_gonogo.py</span>
+<span class="c1">#</span>
+<span class="c1"># Description: </span>
+<span class="c1">#</span>
+<span class="c1"># Author: GW Instek</span>
+<span class="c1">#</span>
+<span class="c1"># Documentation:</span>
+<span class="c1"># https://github.com/OpenWave-GW/Python_APP</span>
+<span class="c1">#</span>
+<span class="c1"># License: GW Python APP License</span>
+<span class="c1"># Copyright (c) 2023 GOOD WILL INSTRUMENT CO., LTD.</span>
+<span class="c1"># https://github.com/OpenWave-GW/Python_APP/blob/main/LICENSE.txt</span>
+
+<div class="viewcode-block" id="GoNoGo">
+<a class="viewcode-back" href="../dso_gonogo.html#dso_gonogo.GoNoGo">[docs]</a>
+<span class="k">class</span> <span class="nc">GoNoGo</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;This module can control the GoNoGo function on your DSO</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">parent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span> <span class="o">=</span> <span class="n">parent</span><span class="o">.</span><span class="n">write</span> <span class="c1">#for DSO SCPI</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">query</span> <span class="o">=</span> <span class="n">parent</span><span class="o">.</span><span class="n">query</span> <span class="c1">#for DSO SCPI</span>
+
+<div class="viewcode-block" id="GoNoGo.clear">
+<a class="viewcode-back" href="../dso_gonogo.html#dso_gonogo.GoNoGo.clear">[docs]</a>
+    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Clears the Go/NoGo counter.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:GONogo:CLEar</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="GoNoGo.is_execute">
+<a class="viewcode-back" href="../dso_gonogo.html#dso_gonogo.GoNoGo.is_execute">[docs]</a>
+    <span class="k">def</span> <span class="nf">is_execute</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Is Go/NoGo execute?</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bool: True or False</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:GONogo:EXECute?</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">if</span><span class="p">(</span><span class="s1">&#39;ON&#39;</span> <span class="ow">in</span> <span class="n">ret</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="GoNoGo.execute_on">
+<a class="viewcode-back" href="../dso_gonogo.html#dso_gonogo.GoNoGo.execute_on">[docs]</a>
+    <span class="k">def</span> <span class="nf">execute_on</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Enables Go/NoGo.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:GONogo:EXECute ON</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="GoNoGo.execute_off">
+<a class="viewcode-back" href="../dso_gonogo.html#dso_gonogo.GoNoGo.execute_off">[docs]</a>
+    <span class="k">def</span> <span class="nf">execute_off</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Disables Go/NoGo.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:GONogo:EXECute OFF</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="GoNoGo.function_initial">
+<a class="viewcode-back" href="../dso_gonogo.html#dso_gonogo.GoNoGo.function_initial">[docs]</a>
+    <span class="k">def</span> <span class="nf">function_initial</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initializes the Go/NoGo APP. This must be run after the Go/NoGo APP has been started.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:GONogo:FUNCtion</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="GoNoGo.ngcount">
+<a class="viewcode-back" href="../dso_gonogo.html#dso_gonogo.GoNoGo.ngcount">[docs]</a>
+    <span class="k">def</span> <span class="nf">ngcount</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            str: the Go/NoGo counter.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;GONogo:NGCount?</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ret</span>  </div>
+
+    
+<div class="viewcode-block" id="GoNoGo.when">
+<a class="viewcode-back" href="../dso_gonogo.html#dso_gonogo.GoNoGo.when">[docs]</a>
+    <span class="k">def</span> <span class="nf">when</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Now Go/NoGo “When” conditions.</span>
+
+<span class="sd">        Returns: </span>
+<span class="sd">            str: EXITs|ENTers</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:GONogo:NGDefine?</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ret</span></div>
+
+
+<div class="viewcode-block" id="GoNoGo.set_when_exits">
+<a class="viewcode-back" href="../dso_gonogo.html#dso_gonogo.GoNoGo.set_when_exits">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_when_exits</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Sets exits as the when condition of Go/NoGo.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:GONogo:NGDefine EXITs</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="GoNoGo.set_when_enters">
+<a class="viewcode-back" href="../dso_gonogo.html#dso_gonogo.GoNoGo.set_when_enters">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_when_enters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Sets enters as the when condition of Go/NoGo.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:GONogo:NGDefine ENTers</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="GoNoGo.source">
+<a class="viewcode-back" href="../dso_gonogo.html#dso_gonogo.GoNoGo.source">[docs]</a>
+    <span class="k">def</span> <span class="nf">source</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Now the source for the Go/NoGo signal.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: CH1|CH2|CH3|CH4</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:GONogo:SOURce?</span><span class="se">\n</span><span class="s1">&#39;</span> 
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ret</span></div>
+
+
+<div class="viewcode-block" id="GoNoGo.set_source">
+<a class="viewcode-back" href="../dso_gonogo.html#dso_gonogo.GoNoGo.set_source">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_source</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ch</span><span class="p">:</span><span class="nb">int</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Sets the source for the Go/NoGo signal.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            ch (int): 1:CH1, 2:CH2, 3:CH3, 4:CH4.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:GONogo:SOURce CH</span><span class="si">%d</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">%</span><span class="n">ch</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="GoNoGo.violation">
+<a class="viewcode-back" href="../dso_gonogo.html#dso_gonogo.GoNoGo.violation">[docs]</a>
+    <span class="k">def</span> <span class="nf">violation</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Now action for the Go/NoGo violation.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: STOP|STOP_Beep|CONTinue|CONTINUE_Beep</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:GONogo:VIOLation?</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ret</span></div>
+
+
+<div class="viewcode-block" id="GoNoGo.set_violation">
+<a class="viewcode-back" href="../dso_gonogo.html#dso_gonogo.GoNoGo.set_violation">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_violation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Sets action for the Go/NoGo violation.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            action (str): STOP|STOP_Beep|CONTinue|CONTINUE_Beep</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:GONogo:VIOLation </span><span class="si">%s</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">%</span><span class="n">action</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>  </div>
+
+             
+<div class="viewcode-block" id="GoNoGo.is_script_on">
+<a class="viewcode-back" href="../dso_gonogo.html#dso_gonogo.GoNoGo.is_script_on">[docs]</a>
+    <span class="k">def</span> <span class="nf">is_script_on</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Is Go/NoGo APP on?</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bool: True or False</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:GONogo:SCRipt?</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">if</span><span class="p">(</span><span class="s1">&#39;ON&#39;</span> <span class="ow">in</span> <span class="n">ret</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="GoNoGo.set_script_on">
+<a class="viewcode-back" href="../dso_gonogo.html#dso_gonogo.GoNoGo.set_script_on">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_script_on</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Activates Go/NoGo APP.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:GONogo:SCRipt ON</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="GoNoGo.set_script_off">
+<a class="viewcode-back" href="../dso_gonogo.html#dso_gonogo.GoNoGo.set_script_off">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_script_off</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Deactivates Go/NoGo APP.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:GONogo:SCRipt OFF</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>        </div>
+
+
+<div class="viewcode-block" id="GoNoGo.template_mode">
+<a class="viewcode-back" href="../dso_gonogo.html#dso_gonogo.GoNoGo.template_mode">[docs]</a>
+    <span class="k">def</span> <span class="nf">template_mode</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Now Go/NoGo template mode.</span>
+
+<span class="sd">        Returns: </span>
+<span class="sd">            str: MAXimum|MINimum|AUTO</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:TEMPlate:MODe?</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ret</span></div>
+
+
+<div class="viewcode-block" id="GoNoGo.set_template_mode">
+<a class="viewcode-back" href="../dso_gonogo.html#dso_gonogo.GoNoGo.set_template_mode">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_template_mode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Sets the Go/NoGo template mode.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            mode (str): MAXimum|MINimum|AUTO</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:TEMPlate:MODe </span><span class="si">%s</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">%</span><span class="n">mode</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="GoNoGo.template_maximum">
+<a class="viewcode-back" href="../dso_gonogo.html#dso_gonogo.GoNoGo.template_maximum">[docs]</a>
+    <span class="k">def</span> <span class="nf">template_maximum</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Queries which waveform memory (REF1 or W1~W20) is set to the maximum template. </span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: REF1|W1~W20</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:TEMPlate:MAXimum?</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ret</span></div>
+
+
+<div class="viewcode-block" id="GoNoGo.set_template_maximum">
+<a class="viewcode-back" href="../dso_gonogo.html#dso_gonogo.GoNoGo.set_template_maximum">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_template_maximum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">waveform</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Defines which waveform memory (REF1 or W1~W20) is set to the maximum template.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            waveform (str): REF1|W1~W20</span>
+<span class="sd">        &quot;&quot;&quot;</span>   
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:TEMPlate:MAXimum </span><span class="si">%s</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">%</span><span class="n">waveform</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="GoNoGo.template_minimum">
+<a class="viewcode-back" href="../dso_gonogo.html#dso_gonogo.GoNoGo.template_minimum">[docs]</a>
+    <span class="k">def</span> <span class="nf">template_minimum</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Queries which waveform memory (REF1 or W1~W20) is set to the minimum template. </span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: REF2|W1~W20</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:TEMPlate:MINimum?</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ret</span></div>
+
+
+<div class="viewcode-block" id="GoNoGo.set_template_minimum">
+<a class="viewcode-back" href="../dso_gonogo.html#dso_gonogo.GoNoGo.set_template_minimum">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_template_minimum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">waveform</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Defines which waveform memory (REF1 or W1~W20) is set to the minimum template.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            waveform (str): REF2|W1~W20</span>
+<span class="sd">        &quot;&quot;&quot;</span>   
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:TEMPlate:MINimum </span><span class="si">%s</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">%</span><span class="n">waveform</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>    </div>
+
+
+<div class="viewcode-block" id="GoNoGo.get_template_position_maximum">
+<a class="viewcode-back" href="../dso_gonogo.html#dso_gonogo.GoNoGo.get_template_position_maximum">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_template_position_maximum</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Queries the position of the maximum template. </span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: Desired template position (-12.0 ~ +12.0 divisions)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:TEMPlate:POSition:MAXimum?</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ret</span></div>
+
+
+<div class="viewcode-block" id="GoNoGo.set_template_position_maximum">
+<a class="viewcode-back" href="../dso_gonogo.html#dso_gonogo.GoNoGo.set_template_position_maximum">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_template_position_maximum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">position</span><span class="p">:</span><span class="nb">float</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Sets the position of the maximum template.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            position (float): Desired template position (-12.0 ~ +12.0) divisions</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:TEMPlate:POSition:MAXimum </span><span class="si">%f</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">%</span><span class="n">position</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="GoNoGo.get_template_position_minimum">
+<a class="viewcode-back" href="../dso_gonogo.html#dso_gonogo.GoNoGo.get_template_position_minimum">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_template_position_minimum</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Queries the position of the minimum template. </span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: Desired template position (-12.0 ~ +12.0 divisions)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:TEMPlate:POSition:MINimum?</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ret</span></div>
+
+
+<div class="viewcode-block" id="GoNoGo.set_template_position_minimum">
+<a class="viewcode-back" href="../dso_gonogo.html#dso_gonogo.GoNoGo.set_template_position_minimum">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_template_position_minimum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">position</span><span class="p">:</span><span class="nb">float</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Sets the position of the minimum template.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            position (float): Desired template position (-12.0 ~ +12.0) divisions</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:TEMPlate:POSition:MINimum </span><span class="si">%f</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">%</span><span class="n">position</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="GoNoGo.save_template_maximum">
+<a class="viewcode-back" href="../dso_gonogo.html#dso_gonogo.GoNoGo.save_template_maximum">[docs]</a>
+    <span class="k">def</span> <span class="nf">save_template_maximum</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Saves the maximum template.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:TEMPlate:SAVe:MAXimum</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="GoNoGo.save_template_minimum">
+<a class="viewcode-back" href="../dso_gonogo.html#dso_gonogo.GoNoGo.save_template_minimum">[docs]</a>
+    <span class="k">def</span> <span class="nf">save_template_minimum</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Saves the minimum template.</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:TEMPlate:SAVe:MINimum</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="GoNoGo.get_template_tolerance">
+<a class="viewcode-back" href="../dso_gonogo.html#dso_gonogo.GoNoGo.get_template_tolerance">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_template_tolerance</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Queries the tolerance as a percentage.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: The auto tolerance range (0.4% ~ 40%)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:TEMPlate:TOLerance?</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ret</span></div>
+
+
+<div class="viewcode-block" id="GoNoGo.set_template_tolerance">
+<a class="viewcode-back" href="../dso_gonogo.html#dso_gonogo.GoNoGo.set_template_tolerance">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_template_tolerance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tolerance</span><span class="p">:</span><span class="nb">float</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Sets the tolerance as a percentage.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            tolerance (float): The auto tolerance range (0.4 ~ 40) %</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:TEMPlate:TOLerance </span><span class="si">%f</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">%</span><span class="n">tolerance</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="GoNoGo.save_template_auto">
+<a class="viewcode-back" href="../dso_gonogo.html#dso_gonogo.GoNoGo.save_template_auto">[docs]</a>
+    <span class="k">def</span> <span class="nf">save_template_auto</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Saves the AUTO template.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:TEMPlate:SAVe:AUTo</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="GoNoGo.is_output_on">
+<a class="viewcode-back" href="../dso_gonogo.html#dso_gonogo.GoNoGo.is_output_on">[docs]</a>
+    <span class="k">def</span> <span class="nf">is_output_on</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Is Go/NoGo output on?</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bool: True or False</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:GONogo:OUTPut?</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">if</span><span class="p">(</span><span class="s1">&#39;ON&#39;</span> <span class="ow">in</span> <span class="n">ret</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="GoNoGo.output_on">
+<a class="viewcode-back" href="../dso_gonogo.html#dso_gonogo.GoNoGo.output_on">[docs]</a>
+    <span class="k">def</span> <span class="nf">output_on</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Sets Go/NoGo output on.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:GONogo:OUTPut ON</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="GoNoGo.output_off">
+<a class="viewcode-back" href="../dso_gonogo.html#dso_gonogo.GoNoGo.output_off">[docs]</a>
+    <span class="k">def</span> <span class="nf">output_off</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Sets Go/NoGo output off.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;:GONogo:OUTPut OFF</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, GW Instek.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dso2kp &mdash; mpo_api 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            mpo_api
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dso2kp.html">dso2kp module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_acquire.html">dso_acquire module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_awg.html">dso_awg module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_basic.html">dso_basic module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_channel.html">dso_channel module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_colors.html">dso_colors module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_const.html">dso_const module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_display.html">dso_display module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_dmm.html">dso_dmm module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_draw.html">dso_draw module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_gonogo.html">dso_gonogo module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_gui.html">dso_gui module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_hardcopy.html">dso_hardcopy module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_math.html">dso_math module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_meas.html">dso_meas module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_power_supply.html">dso_power_supply module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_ref.html">dso_ref module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_sns.html">dso_sns module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_spectrum.html">dso_spectrum module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_timebase.html">dso_timebase module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso_trigger.html">dso_trigger module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../load.html">load module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../psw.html">psw module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">mpo_api</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Module code</a></li>
+      <li class="breadcrumb-item active">dso2kp</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for dso2kp</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Name: dso2kp.py</span>
+<span class="c1">#</span>
+<span class="c1"># Description: </span>
+<span class="c1">#</span>
+<span class="c1"># Author: GW Instek</span>
+<span class="c1">#</span>
+<span class="c1"># Documentation:</span>
+<span class="c1"># https://github.com/OpenWave-GW/Python_APP</span>
+<span class="c1">#</span>
+<span class="c1"># License: GW Python APP License</span>
+<span class="c1"># Copyright (c) 2023 GOOD WILL INSTRUMENT CO., LTD.</span>
+<span class="c1"># https://github.com/OpenWave-GW/Python_APP/blob/main/LICENSE.txt</span>
+
+<span class="kn">import</span> <span class="nn">dso_basic</span>
+<span class="kn">import</span> <span class="nn">dso_channel</span>
+<span class="kn">import</span> <span class="nn">dso_timebase</span>
+<span class="kn">import</span> <span class="nn">dso_trigger</span>
+<span class="kn">import</span> <span class="nn">dso_acquire</span>
+<span class="kn">import</span> <span class="nn">dso_ref</span>
+<span class="kn">import</span> <span class="nn">dso_hardcopy</span>
+<span class="kn">import</span> <span class="nn">dso_draw</span>
+<span class="kn">import</span> <span class="nn">dso_awg</span>
+<span class="kn">import</span> <span class="nn">dso_meas</span>
+<span class="kn">import</span> <span class="nn">dso_math</span>
+<span class="kn">import</span> <span class="nn">dso_spectrum</span>
+<span class="kn">import</span> <span class="nn">dso_dmm</span>
+<span class="kn">import</span> <span class="nn">dso_display</span>
+<span class="kn">import</span> <span class="nn">dso_gonogo</span>
+<span class="kn">import</span> <span class="nn">dso_power_supply</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">dso_colors</span> <span class="k">as</span> <span class="nn">color</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+<div class="viewcode-block" id="Dso">
+<a class="viewcode-back" href="../dso2kp.html#dso2kp.Dso">[docs]</a>
+<span class="k">class</span> <span class="nc">Dso</span><span class="p">(</span><span class="n">dso_basic</span><span class="o">.</span><span class="n">DsoBasic</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;This module can control MPO2000</span>
+
+<span class="sd">    The general control functions can be found in :class:`.DsoBasic`</span>
+
+<span class="sd">    **Extend methods as below:**</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">channel</span><span class="o">=</span><span class="n">dso_channel</span><span class="o">.</span><span class="n">Channel</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Find Channel Vertical control in :class:`.Channel`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">timebase</span><span class="o">=</span><span class="n">dso_timebase</span><span class="o">.</span><span class="n">TimeBase</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Find Horizontal control in :class:`.TimeBase`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">trigger</span><span class="o">=</span><span class="n">dso_trigger</span><span class="o">.</span><span class="n">Trigger</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Find Trigger control in :class:`.Trigger`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">acquire</span><span class="o">=</span><span class="n">dso_acquire</span><span class="o">.</span><span class="n">Acquire</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Find Acquire control in :class:`.Acquire`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ref</span><span class="o">=</span><span class="n">dso_ref</span><span class="o">.</span><span class="n">Ref</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Find Reference control in :class:`.Ref`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hardcopy</span><span class="o">=</span><span class="n">dso_hardcopy</span><span class="o">.</span><span class="n">HardCopy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Find HardCopy control in :class:`.HardCopy`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">meas</span> <span class="o">=</span> <span class="n">dso_meas</span><span class="o">.</span><span class="n">Measure</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Find Measure control in :class:`.Measure`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">math</span> <span class="o">=</span> <span class="n">dso_math</span><span class="o">.</span><span class="n">Math</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Find Math control in :class:`.Math`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sa</span> <span class="o">=</span> <span class="n">dso_spectrum</span><span class="o">.</span><span class="n">Spectrum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_instances</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Find Spectrum control in :class:`.Spectrum`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dmm</span> <span class="o">=</span> <span class="n">dso_dmm</span><span class="o">.</span><span class="n">Dmm</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Find Dmm control in :class:`.Dmm`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">display</span> <span class="o">=</span> <span class="n">dso_display</span><span class="o">.</span><span class="n">Display</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Find Display control in :class:`.Display`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gonogo</span> <span class="o">=</span> <span class="n">dso_gonogo</span><span class="o">.</span><span class="n">GoNoGo</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Find GoNoGo control in :class:`.GoNoGo`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dsodraw</span><span class="o">=</span><span class="n">dso_draw</span><span class="o">.</span><span class="n">Draw</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="c1">#:It&#39;s :class:`.Draw`</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">awg</span><span class="o">=</span><span class="n">dso_awg</span><span class="o">.</span><span class="n">Awg</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="c1">#:The AWG control is in :class:`.Awg`</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">power</span><span class="o">=</span><span class="n">dso_power_supply</span><span class="o">.</span><span class="n">PowerSupply</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Find Power Supply control in :class:`.PowerSupply`</span>
+<span class="sd">        &quot;&quot;&quot;</span></div>
+
+        
+
+<div class="viewcode-block" id="Screen">
+<a class="viewcode-back" href="../dso2kp.html#dso2kp.Screen">[docs]</a>
+<span class="k">class</span> <span class="nc">Screen</span><span class="p">(</span><span class="n">dso_basic</span><span class="o">.</span><span class="n">ScreenBasic</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;This DSO&#39;s screen information.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="Theme">
+<a class="viewcode-back" href="../dso2kp.html#dso2kp.Theme">[docs]</a>
+<span class="k">class</span> <span class="nc">Theme</span><span class="p">(</span><span class="n">dso_basic</span><span class="o">.</span><span class="n">ThemeBasic</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;This DSO&#39;s color theme.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dark_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">dark_mode</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">bg_color</span> <span class="o">=</span> <span class="n">color</span><span class="o">.</span><span class="n">DKGRAY</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">grid_color</span> <span class="o">=</span> <span class="n">color</span><span class="o">.</span><span class="n">GRAY</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">text_color</span> <span class="o">=</span> <span class="n">color</span><span class="o">.</span><span class="n">LTGRAY</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">bg_color</span> <span class="o">=</span> <span class="n">color</span><span class="o">.</span><span class="n">WHITE</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">grid_color</span> <span class="o">=</span> <span class="n">color</span><span class="o">.</span><span class="n">BLACK</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">text_color</span> <span class="o">=</span> <span class="n">color</span><span class="o">.</span><span class="n">BLACK</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">pass</span></div>
+
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, GW Instek.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
